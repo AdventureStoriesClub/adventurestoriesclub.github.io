@@ -1,201 +1,220 @@
-accessKey
-: 
-""
-align
-: 
-""
-attributeStyleMap
-: 
-StylePropertyMap {size: 0}
-attributes
-: 
-NamedNodeMap {length: 0}
-autocapitalize
-: 
-""
-autofocus
-: 
-false
-baseURI
-: 
-"file:///Users/oj23/Desktop/Mr_Downey_Adventures_Enhanced.html"
-childElementCount
-: 
-0
-childNodes
-: 
-NodeList [text]
-children
-: 
-HTMLCollection []
-classList
-: 
-DOMTokenList [value: '']
-className
-: 
-""
-clientHeight
-: 
-111
-clientLeft
-: 
-0
-clientTop
-: 
-0
-clientWidth
-: 
-449
-contentEditable
-: 
-"inherit"
-currentCSSZoom
-: 
-1
-dataset
-: 
-DOMStringMap {}
-dir
-: 
-""
-draggable
-: 
-false
-elementTiming
-: 
-""
-enterKeyHint
-: 
-""
-firstChild
-: 
-text
-hidden
-: 
-false
-id
-: 
-""
-inert
-: 
-false
-innerHTML
-: 
-"Welcome to the magical world of Mr. Downey’s Adventures! Our series of heartwarming children’s books brings joy, lessons, and unforgettable characters to kids around the globe. Join Mr. Downey and his friends as they explore forests, rivers, and oceans, teaching important values like friendship, bravery, and environmental stewardship."
-innerText
-: 
-"Welcome to the magical world of Mr. Downey’s Adventures! Our series of heartwarming children’s books brings joy, lessons, and unforgettable characters to kids around the globe. Join Mr. Downey and his friends as they explore forests, rivers, and oceans, teaching important values like friendship, bravery, and environmental stewardship."
-inputMode
-: 
-""
-isConnected
-: 
-true
-isContentEditable
-: 
-false
-lang
-: 
-""
-lastChild
-: 
-text
-localName
-: 
-"p"
-namespaceURI
-: 
-"http://www.w3.org/1999/xhtml"
-nextSibling
-: 
-text
-nodeName
-: 
-"P"
-nodeType
-: 
-1
-nonce
-: 
-""
-offsetHeight
-: 
-111
-offsetLeft
-: 
-20
-offsetParent
-: 
-body
-offsetTop
-: 
-306
-offsetWidth
-: 
-449
-outerHTML
-: 
-"<p>Welcome to the magical world of Mr. Downey’s Adventures! Our series of heartwarming children’s books brings joy, lessons, and unforgettable characters to kids around the globe. Join Mr. Downey and his friends as they explore forests, rivers, and oceans, teaching important values like friendship, bravery, and environmental stewardship.</p>"
-outerText
-: 
-"Welcome to the magical world of Mr. Downey’s Adventures! Our series of heartwarming children’s books brings joy, lessons, and unforgettable characters to kids around the globe. Join Mr. Downey and his friends as they explore forests, rivers, and oceans, teaching important values like friendship, bravery, and environmental stewardship."
-ownerDocument
-: 
-document
-parentElement
-: 
-section#about
-parentNode
-: 
-section#about
-part
-: 
-DOMTokenList [value: '']
-previousElementSibling
-: 
-h2
-previousSibling
-: 
-text
-scrollHeight
-: 
-111
-scrollLeft
-: 
-0
-scrollTop
-: 
-0
-scrollWidth
-: 
-449
-slot
-: 
-""
-spellcheck
-: 
-true
-style
-: 
-CSSStyleDeclaration {accentColor: '', additiveSymbols: '', alignContent: '', alignItems: '', alignSelf: '', …}
-tabIndex
-: 
--1
-tagName
-: 
-"P"
-textContent
-: 
-"Welcome to the magical world of Mr. Downey’s Adventures! Our series of heartwarming children’s books brings joy, lessons, and unforgettable characters to kids around the globe. Join Mr. Downey and his friends as they explore forests, rivers, and oceans, teaching important values like friendship, bravery, and environmental stewardship."
-title
-: 
-""
-translate
-: 
-true
-virtualKeyboardPolicy
-: 
-""
-writingSuggestions
-: 
-"true"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Downey's Adventures</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://github.com/AdventureStoriesClub/Mr.-DowneyAdventure/raw/main/Mr.%20Downey%20website%20background');
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: #333;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid #2c3e50;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            background: #2c3e50;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            margin: 20px auto;
+            border-radius: 10px;
+            max-width: 1200px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            transition: transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-top: 3px solid #2c3e50;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            nav a {
+                font-size: 1em;
+            }
+
+            .social-icons img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        .country-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .country-buttons a {
+            display: inline-block;
+            padding: 10px 15px;
+            background: #2c3e50;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .country-buttons a:hover {
+            background: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Mr. Downey's Adventures</h1>
+    </header>
+
+    <nav>
+        <a href="#about">About Us</a>
+        <a href="#books">Books</a>
+        <a href="#author">Author</a>
+        <a href="#contact">Contact Us</a>
+    </nav>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Welcome to the magical world of Mr. Downey’s Adventures! Our series of heartwarming children’s books brings joy, lessons, and unforgettable characters to kids around the globe. Join Mr. Downey and his friends as they explore forests, rivers, and oceans, teaching important values like friendship, bravery, and environmental stewardship.</p>
+    </section>
+
+    <section id="books">
+        <h2>Books in the Series</h2>
+        <h3>Mr. Downey's Forest Adventure</h3>
+        <img src="https://github.com/AdventureStoriesClub/Mr.-DowneyAdventure/raw/main/Mr.%20Downey%20forest%20GIF.gif" alt="Mr. Downey forest GIF">
+        <p>Join Mr. Downey, Lizzy the Lizard, and Benny the Bunny in their first adventure filled with teamwork and courage.</p>
+        <div class="country-buttons">
+            <a href="https://www.amazon.com/dp/B0CZFBV6LZ">US</a>
+            <a href="https://www.amazon.co.uk/dp/B0CZFBV6LZ">UK</a>
+            <a href="https://www.amazon.ca/dp/B0CZFBV6LZ">Canada</a>
+            <a href="https://www.amazon.de/dp/B0CZFBV6LZ">Germany</a>
+            <a href="https://www.amazon.fr/dp/B0CZFBV6LZ">France</a>
+            <a href="https://www.amazon.it/dp/B0CZFBV6LZ">Italy</a>
+        </div>
+
+        <h3>Mr. Downey's River Adventure</h3>
+        <img src="https://github.com/AdventureStoriesClub/Mr.-DowneyAdventure/raw/main/Mr.%20Downey%20river%20GIF.gif" alt="Mr. Downey river GIF">
+        <p>Explore magical river ecosystems with Mr. Downey, Shelly the Turtle, and Otis the Otter.</p>
+        <div class="country-buttons">
+            <a href="https://www.amazon.com/dp/B0D74281J2">US</a>
+            <a href="https://www.amazon.co.uk/dp/B0D74281J2">UK</a>
+            <a href="https://www.amazon.de/dp/B0D74281J2">Germany</a>
+            <a href="https://www.amazon.fr/dp/B0D74281J2">France</a>
+            <a href="https://www.amazon.es/dp/B0D74281J2">Spain</a>
+            <a href="https://www.amazon.it/dp/B0D74281J2">Italy</a>
+        </div>
+
+        <h3>Mr. Downey's Ocean Adventure</h3>
+        <img src="https://github.com/AdventureStoriesClub/Mr.-DowneyAdventure/raw/main/Mr.%20Downey%2C%20Ocean%20gif.gif" alt="Mr. Downey Ocean GIF">
+        <p>Dive into the ocean with Mr. Downey and meet Finn the Dolphin and Ollie the Octopus while learning about marine conservation.</p>
+        <div class="country-buttons">
+            <a href="https://www.amazon.com/dp/B0DK3NGHMZ">US</a>
+            <a href="https://www.amazon.co.uk/dp/B0DK3NGHMZ">UK</a>
+            <a href="https://www.amazon.ca/dp/B0DK3NGHMZ">Canada</a>
+            <a href="https://www.amazon.de/dp/B0DK3NGHMZ">Germany</a>
+            <a href="https://www.amazon.fr/dp/B0DK3NGHMZ">France</a>
+            <a href="https://www.amazon.it/dp/B0DK3NGHMZ">Italy</a>
+        </div>
+    </section>
+
+    <section id="author">
+        <h2>Meet the Author</h2>
+        <p><strong>Katarzyna Anikiej</strong>, the creator of Mr. Downey’s Adventures, combines her love for storytelling with her background in psychology to craft stories that inspire young readers. Her passion for nature, animals, and fostering curiosity shines through every page of her books.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="5" required></textarea><br><br>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <section class="social-icons">
+        <a href="https://www.facebook.com/MrDowneysAdventures"><img src="https://github.com/AdventureStoriesClub/Mr.-DowneyAdventure/raw/main/facebook-icon.png" alt="Facebook"></a>
+        <a href="https://www.instagram.com/MrDowneysAdventures"><img src="https://github.com/AdventureStoriesClub/Mr.-DowneyAdventure/raw/main/instagram-icon.png" alt="Instagram"></a>
+        <a href="https://www.youtube.com/@AdventureStoriesClub"><img src="https://via.placeholder.com/40" alt="YouTube"></a>
+        <a href="https://twitter.com/MrDowneysAdventures"><img src="https://github.com/AdventureStoriesClub/Mr.-DowneyAdventure/raw/main/twitter-icon.png" alt="Twitter"></a>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Mr. Downey's Adventures. All rights reserved.</p>
+    </footer>
+</body>
+</html>
