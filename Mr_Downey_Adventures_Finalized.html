@@ -11,13 +11,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Chosen Palette: Warm Hearth (Beige, Soft Browns, Muted Greens, Gentle Terracotta Accent) -->
-    <!-- Application Structure Plan: A single-page, narrative-driven design that guides parents from the core problem in children's media to the solution offered by Mr. Downey. The flow is: Hero -> The 'Why' (Problem/Solution) -> About Us -> Book Showcase (Tabs) -> Our Values (Interactive Chart) -> Author -> Reviews -> Special Features -> Contact Us -> Social. This structure builds a compelling case for the books, moving from emotional appeal to rational justification, followed by detailed book information, author insights, social proof, and actionable engagement points, which is more persuasive and comprehensive. -->
+    <!-- Application Structure Plan: A single-page, narrative-driven design that guides parents from the core problem in children's media to the solution offered by Mr. Downey. The flow is: Hero -> The 'Why' (Problem/Solution) -> About Us -> Book Showcase (Tabs) -> Our Values (Interactive Chart) -> Author -> Reviews -> Special Features -> Animated Stories -> Contact Us -> Social. This structure builds a compelling case for the books, moving from emotional appeal to rational justification, followed by detailed book information, author insights, social proof, animated content, and actionable engagement points, which is more persuasive and comprehensive. -->
     <!-- Visualization & Content Choices: 
     - Report Info: Core themes (friendship, courage, etc.). Goal: Organize/Inform. Viz: Radar Chart (Chart.js/Canvas). Interaction: Hover tooltips. Justification: A radar chart visually represents the multifaceted value system of the books in a single, easy-to-grasp graphic, showing how the series is "well-rounded".
     - Report Info: The three books in the series. Goal: Compare/Inform. Viz: Tabbed Content Blocks (HTML/CSS/JS). Interaction: Click tabs to switch content. Justification: Tabs are a space-efficient and intuitive way to let users explore the different books without leaving the page or getting overwhelmed. Specific Amazon links and YouTube song links are integrated.
     - Report Info: Customer reviews. Goal: Inform/Persuade. Viz: Testimonial Cards (HTML/Tailwind). Interaction: Subtle animation on scroll. Justification: Animating testimonials makes them more visually engaging than a static list, drawing the user's eye to the positive feedback.
     - Report Info: The problem with modern media. Goal: Compare/Persuade. Viz: Interactive info cards (HTML/Tailwind/JS). Interaction: None explicit, but clear, concise text addresses the "why". Justification: Direct textual presentation is effective for this core philosophical message.
     - Report Info: Author details, contact form, social media, general about. Goal: Inform/Engage. Viz: Dedicated sections (HTML/Tailwind). Interaction: Standard form submission, external links. Justification: Provides comprehensive information in a structured, accessible manner.
+    - Report Info: Animated Story. Goal: Inform/Engage. Viz: Embedded YouTube video and text description. Interaction: Play video, read text. Justification: Directly provides multimedia content on the page, enhancing engagement and offering another way to experience the story.
     -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
@@ -25,10 +26,11 @@
             font-family: 'Inter', sans-serif;
             background-color: #FDFBF8; /* Warm White */
             color: #4A4A4A; /* Dark Gray */
-            background-image: url('https://github.com/AdventureStoriesClub/Mr.-DowneyAdventure/raw/main/Mr.%20Downey%20website%20background');
+            background-image: url('https://raw.githubusercontent.com/AdventureStoriesClub/adventurestoriesclub.github.io/main/Green%20and%20Yellow%20Gardening%20YouTube%20Channel%20Art%20%20(15).png');
             background-size: cover;
             background-attachment: fixed;
             background-repeat: no-repeat;
+            background-position: center center;
         }
         h1, h2, h3 {
             font-family: 'Playfair Display', serif;
@@ -128,6 +130,25 @@
         form button:hover {
             background-color: #b36a49;
         }
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -137,7 +158,7 @@
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="#" class="flex items-center space-x-2">
                 <img src="https://raw.githubusercontent.com/AdventureStoriesClub/adventurestoriesclub.github.io/main/Adventure%20tory%20club%20logo.png" alt="Adventure Story Club Logo" class="h-10 w-auto rounded-full">
-                <span class="text-2xl font-bold text-gray-800" style="font-family: 'Playfair Display', serif;">Adventure Stories Club</span>
+                <span class="text-2xl font-bold text-gray-800" style="font-family: 'Playfair Display', serif;">Adventure Story Club</span>
             </a>
             <div class="hidden md:flex space-x-8">
                 <a href="#why" class="nav-link text-gray-600">The Why</a>
@@ -146,6 +167,8 @@
                 <a href="#values" class="nav-link text-gray-600">Our Values</a>
                 <a href="#author-section" class="nav-link text-gray-600">Author</a>
                 <a href="#reviews" class="nav-link text-gray-600">Reviews</a>
+                <a href="#special-features" class="nav-link text-gray-600">Special Features</a>
+                <a href="#animated-stories" class="nav-link text-gray-600">Animated Stories</a>
                 <a href="#contact" class="nav-link text-gray-600">Contact Us</a>
             </div>
             <a href="#adventures" class="hidden md:block bg-[#C77855] text-white py-2 px-4 rounded-full hover:bg-[#b36a49] transition-colors">Get The Books</a>
@@ -361,6 +384,45 @@
                     Find the Series on Amazon
                 </a>
                 <p class="mt-4 text-sm text-gray-500">Leaving a review on Amazon is one of the best ways to support the author's work!</p>
+            </div>
+        </section>
+
+        <!-- Animated Stories Section -->
+        <section id="animated-stories" class="py-16 md:py-24 bg-white/90 shadow-lg rounded-lg mx-auto max-w-6xl my-8 px-6">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Mr. Downey's Animated Adventures</h2>
+                <div class="video-container mx-auto max-w-2xl">
+                    <iframe src="https://www.youtube.com/embed/videoseries?list=PLJAEhzN1z0tTgzY3ibEpfmd2K-PapJyZZ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="max-w-2xl mx-auto text-center text-gray-700 mt-8">
+                    <h3 class="text-2xl font-bold mb-3">🌲 Mr. Downey’s Forest Adventure | Episode 1 | Brave Hamster’s First Journey Into the Forest</h3>
+                    <p class="mb-4">Join Mr. Downey in Episode 1 of his Forest Adventure! Every morning, Mr. Downey stares at the towering forest from his cozy burrow... but today, something changes. With courage in his heart and seeds in his cheeks, he takes his first brave step into a world full of surprises, tall trees, and new friends!</p>
+                    <p class="mb-4">🌟 In this episode (based on the first six pages of the beloved picture book Mr. Downey’s Forest Adventure), your child will meet: Mr. Downey – the brave little hamster, Lizzy the friendly lizard, magical berries, forest rhymes, and gentle lessons on courage and curiosity.</p>
+                    <p class="mb-4">🧒 Perfect for kids aged 3–8, this animated story nurtures imagination, nature appreciation, and social-emotional learning.</p>
+                    <p class="mb-4">Join Mr. Downey, the brave little hamster, as he embarks on a magical journey through the forest with his friends, Lizzy the lizard and Benny the bunny. This catchy and fun song is perfect for children aged 3 to 8 and will have them singing along in no time!</p>
+                    <p class="mb-4 font-semibold">📚 About the Book:</p>
+                    <p class="mb-4">"Mr. Downey's Forest Adventure" by Katarzyna Anikiej is a beautifully illustrated children's book that combines storytelling, friendship, and the wonders of nature. This enchanting tale is perfect for bedtime stories, classroom reading, or a gift for any young reader.</p>
+                    <p class="mb-4">🌟 Add a personal touch with a personalized message page and note pages at the end to capture special memories.</p>
+                    <div class="country-buttons mb-4">
+                        <a href="https://www.amazon.com/dp/B0CZFBV6LZ" target="_blank" rel="noopener noreferrer">Amazon.com</a>
+                        <a href="https://www.amazon.co.uk/dp/B0CZFBV6LZ" target="_blank" rel="noopener noreferrer">Amazon.co.uk</a>
+                        <a href="https://www.amazon.pl/dp/B0CZFBV6LZ" target="_blank" rel="noopener noreferrer">Amazon.pl</a>
+                        <a href="https://www.amazon.nl/dp/B0CZFBV6LZ" target="_blank" rel="noopener noreferrer">Amazon.nl</a>
+                        <a href="https://www.amazon.it/dp/B0CZFBV6LZ" target="_blank" rel="noopener noreferrer">Amazon.it</a>
+                        <a href="https://www.amazon.es/dp/B0CZFBV6LZ" target="_blank" rel="noopener noreferrer">Amazon.es</a>
+                        <a href="https://www.amazon.fr/dp/B0CZFBV6LZ" target="_blank" rel="noopener noreferrer">Amazon.fr</a>
+                        <a href="https://www.amazon.de/dp/B0CZFBV6LZ" target="_blank" rel="noopener noreferrer">Amazon.de</a>
+                        <a href="https://www.amazon.com.au/dp/B0CZFBV6LZ" target="_blank" rel="noopener noreferrer">Amazon.com.au</a>
+                        <a href="https://www.amazon.ca/dp/B0CZFBV6LZ" target="_blank" rel="noopener noreferrer">Amazon.ca</a>
+                        <a href="https://www.amazon.co.jp/dp/B0CZFBV6LZ" target="_blank" rel="noopener noreferrer">Amazon.co.jp</a>
+                        <a href="https://www.amazon.se/dp/B0CZFBV6LZ" target="_blank" rel="noopener noreferrer">Amazon.se</a>
+                    </div>
+                    <p class="mb-4">✨ Stay Tuned: If you and your little ones enjoyed this adventure, get ready for the next part of Mr. Downey's journey. More exciting adventures are coming soon!</p>
+                    <p class="mb-4">📢 Follow Us: Stay updated with the latest news, upcoming releases, and more fun content by subscribing to our channel and following us on social media!</p>
+                    <p class="mb-4">🔔 Don't Forget to Subscribe: Hit the like button if you enjoyed the song, subscribe to our channel, and click the bell icon to stay notified about our latest videos.#ChildrensBook #KidsSongs #MrDowney #ForestAdventure #KatarzynaAnikiej #BedtimeStories #KidsBooks #ChildrensSongs #AdventureStories</p>
+                    <p class="mb-4">Embark on a captivating journey with Mr. Downey in this charming storytime episode, "Brave Enough to Explore." This self-discovery story showcases Mr. Downey's fear to courage transformation as he ventures from his cozy burrow into the unknown forest. Filled with life lessons, this kids story highlights that courage can lead to amazing adventures.</p>
+                    <p class="mb-4">Mr. Downey’s Adventures (book series) <a href="https://www.amazon.com/dp/B0CZFBV6LZ" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">https://www.amazon.com/dp/B0CZFBV6LZ?...</a></p>
+                </div>
             </div>
         </section>
 
