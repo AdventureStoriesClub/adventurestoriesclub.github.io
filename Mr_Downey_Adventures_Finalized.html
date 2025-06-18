@@ -1,113 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adventure Story Club - Mr. Downey's Adventures</title>
-    <meta name="description" content="Explore Mr. Downey's Adventures, a heartwarming children's book series published by Adventure Story Club. Discover engaging tales and order your favorite books from Amazon today!">
-    <meta name="keywords" content="Adventure Story Club, Mr. Downey's Adventures, children's books, bedtime stories, educational books, Amazon books, forest adventure, river adventure, ocean adventure">
+    <title>Mr. Downey's Adventures: Wholesome Stories for a Better Future</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Chosen Palette: Warm Hearth (Beige, Soft Browns, Muted Greens, Gentle Terracotta Accent) -->
+    <!-- Application Structure Plan: A single-page, narrative-driven design that guides parents from the core problem in children's media to the solution offered by Mr. Downey. The flow is: Hero -> The 'Why' (Problem/Solution) -> About Us -> Book Showcase (Tabs) -> Our Values (Interactive Chart) -> Author -> Reviews -> Special Features -> Contact Us -> Social. This structure builds a compelling case for the books, moving from emotional appeal to rational justification, followed by detailed book information, author insights, social proof, and actionable engagement points, which is more persuasive and comprehensive. -->
+    <!-- Visualization & Content Choices: 
+    - Report Info: Core themes (friendship, courage, etc.). Goal: Organize/Inform. Viz: Radar Chart (Chart.js/Canvas). Interaction: Hover tooltips. Justification: A radar chart visually represents the multifaceted value system of the books in a single, easy-to-grasp graphic, showing how the series is "well-rounded".
+    - Report Info: The three books in the series. Goal: Compare/Inform. Viz: Tabbed Content Blocks (HTML/CSS/JS). Interaction: Click tabs to switch content. Justification: Tabs are a space-efficient and intuitive way to let users explore the different books without leaving the page or getting overwhelmed. Specific Amazon links and YouTube song links are integrated.
+    - Report Info: Customer reviews. Goal: Inform/Persuade. Viz: Testimonial Cards (HTML/Tailwind). Interaction: Subtle animation on scroll. Justification: Animating testimonials makes them more visually engaging than a static list, drawing the user's eye to the positive feedback.
+    - Report Info: The problem with modern media. Goal: Compare/Persuade. Viz: Interactive info cards (HTML/Tailwind/JS). Interaction: None explicit, but clear, concise text addresses the "why". Justification: Direct textual presentation is effective for this core philosophical message.
+    - Report Info: Author details, contact form, social media, general about. Goal: Inform/Engage. Viz: Dedicated sections (HTML/Tailwind). Interaction: Standard form submission, external links. Justification: Provides comprehensive information in a structured, accessible manner.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8; /* Warm White */
+            color: #4A4A4A; /* Dark Gray */
+            background-image: url('https://github.com/AdventureStoriesClub/Mr.-DowneyAdventure/raw/main/Mr.%20Downey%20website%20background');
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
         }
-
-        header {
-            background: #3498db;
-            color: white;
-            padding: 20px;
-            text-align: center;
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
         }
-
-        header img {
-            width: 200px;
-            display: block;
-            margin: 0 auto 10px;
+        .nav-link {
+            transition: color 0.3s ease;
         }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            background: #2c3e50;
-            padding: 10px;
+        .nav-link:hover, .nav-link.active {
+            color: #C77855; /* Terracotta Accent */
         }
-
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 1.2em;
-            font-weight: bold;
+        .book-tab.active {
+            border-color: #C77855;
+            background-color: #F5EAE1;
         }
-
-        nav a:hover {
-            text-decoration: underline;
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 40vh;
+            width: 80vw;
+            max-width: 500px;
+            max-height: 500px;
         }
-
-        section {
-            padding: 20px;
-            background: white;
-            margin: 20px auto;
-            border-radius: 10px;
-            max-width: 1200px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-
-        img {
-            max-width: 100%;
-            height: auto;
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
-
-        a {
-            color: #3498db;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
-
-        .social-icons a {
-            margin: 0 10px;
-            transition: transform 0.3s;
-        }
-
-        .social-icons a:hover {
-            transform: scale(1.2);
-        }
-
-        .social-icons img {
-            width: 40px;
-            height: 40px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #3498db;
-            color: white;
-        }
-
         .country-buttons {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
             justify-content: center;
+            margin-top: 15px;
         }
-
         .country-buttons a {
             display: inline-block;
-            padding: 10px 15px;
-            background: #2c3e50;
+            padding: 8px 12px;
+            background: #8A6F5C; /* Soft Brown */
             color: white;
             border-radius: 5px;
             font-weight: bold;
@@ -115,116 +78,463 @@
             text-decoration: none;
             transition: background 0.3s;
         }
-
         .country-buttons a:hover {
-            background: #3498db;
+            background: #C77855; /* Terracotta Accent */
         }
-
-        .youtube-section iframe {
-            width: 100%;
-            max-width: 560px;
-            height: 315px;
-            margin: 20px auto;
+        .social-icons-footer {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 20px;
+        }
+        .social-icons-footer a {
+            color: white;
+            font-size: 1.8em;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .social-icons-footer a:hover {
+            transform: scale(1.2);
+            color: #F5EAE1; /* Lighter beige */
+        }
+        form label {
             display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        form input[type="text"],
+        form input[type="email"],
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        form textarea {
+            resize: vertical;
+        }
+        form button {
+            background-color: #C77855;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        form button:hover {
+            background-color: #b36a49;
         }
     </style>
 </head>
-<body>
-    <header>
-        <img src="https://github.com/AdventureStoriesClub/Mr.-DowneyAdventure/raw/main/Adventure%20tory%20club%20logo.png" alt="Adventure Story Club Logo">
-        <h1>Welcome to Adventure Story Club</h1>
-        <h2>Mr. Downey's Adventures</h2>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2">
+                <img src="https://github.com/AdventureStoriesClub/Mr.-DowneyAdventure/raw/main/mr.downey%20logo.png" alt="Mr. Downey Logo" class="h-10 w-auto rounded-full">
+                <span class="text-2xl font-bold text-gray-800" style="font-family: 'Playfair Display', serif;">Mr. Downey</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#why" class="nav-link text-gray-600">The Why</a>
+                <a href="#about" class="nav-link text-gray-600">About Us</a>
+                <a href="#adventures" class="nav-link text-gray-600">The Adventures</a>
+                <a href="#values" class="nav-link text-gray-600">Our Values</a>
+                <a href="#author-section" class="nav-link text-gray-600">Author</a>
+                <a href="#reviews" class="nav-link text-gray-600">Reviews</a>
+                <a href="#contact" class="nav-link text-gray-600">Contact Us</a>
+            </div>
+            <a href="#adventures" class="hidden md:block bg-[#C77855] text-white py-2 px-4 rounded-full hover:bg-[#b36a49] transition-colors">Get The Books</a>
+        </nav>
     </header>
 
-    <nav>
-        <a href="#about">About Us</a>
-        <a href="#books">Books</a>
-        <a href="#author">Author</a>
-        <a href="#contact">Contact Us</a>
-        <a href="#youtube">YouTube</a>
-    </nav>
+    <main>
+        <!-- Hero Section -->
+        <section class="text-center py-20 lg:py-32 px-4" style="background: linear-gradient(to bottom, #F5EAE1, #FDFBF8);">
+            <div class="container mx-auto">
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-4">Rediscover Timeless Stories.</h1>
+                <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">In a world of noise, give your child the gift of wonder, friendship, and nature. Explore the gentle, heartwarming world of Mr. Downey's Adventures.</p>
+            </div>
+        </section>
 
-    <section id="about">
-        <h2>About Adventure Story Club</h2>
-        <p>Adventure Story Club is a dedicated publisher bringing imaginative, educational, and inspiring books to children worldwide. Our flagship series, <strong>Mr. Downey's Adventures</strong>, is designed to spark curiosity, teach important values, and foster a love for reading in children aged 3-8.</p>
-    </section>
+        <!-- The Why Section -->
+        <section id="why" class="py-16 md:py-24 bg-white/90 shadow-lg rounded-lg mx-auto max-w-6xl my-8 px-6">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Searching for Something More?</h2>
+                    <p class="text-gray-600 mb-12">Many parents feel modern children's media is missing something essential. We believe stories should nurture, not just entertain. They should build character with authentic, beautiful, and simple truths about friendship, courage, and the wonders of nature. This is why we created Mr. Downey's Adventures.</p>
+                </div>
 
-    <section id="books">
-        <h2>Books in the Series</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm fade-in">
+                        <h3 class="text-xl font-bold mb-2 text-[#8A6F5C]">A Grounded Alternative to Extremes</h3>
+                        <p class="text-gray-600">The series intentionally avoids overly realistic or dark themes, as well as excessive magic, to provide a story that feels both wondrous and relatable. It's a safe, calming space for a child's imagination.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm fade-in">
+                        <h3 class="text-xl font-bold mb-2 text-[#8A6F5C]">Stories with Purpose, Not Agendas</h3>
+                        <p class="text-gray-600">Our goal is simple: to tell beautiful stories that instill positive, universal values. Parents trust our books because there are no hidden messages, just pure, wholesome adventures.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm fade-in md:col-span-2 lg:col-span-1">
+                        <h3 class="text-xl font-bold mb-2 text-[#8A6F5C]">An Escape to Nature</h3>
+                        <p class="text-gray-600">In an increasingly digital world, these books are a celebration of the outdoors. They foster a love for nature, animals, and the simple joy of exploration, encouraging kids to look up and wonder.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <h3>Mr. Downey's Forest Adventure</h3>
-        <img src="https://github.com/AdventureStoriesClub/Mr.-DowneyAdventure/raw/main/Mr.%20Downey%20forest%20GIF.gif" alt="Mr. Downey Forest Adventure">
-        <p>Join Mr. Downey, Lizzy the Lizard, and Benny the Bunny as they explore a magical forest, learning about teamwork and courage.</p>
-        <div class="country-buttons">
-            <a href="https://www.amazon.com/dp/B0CZFBV6LZ">US</a>
-            <a href="https://www.amazon.co.uk/dp/B0CZFBV6LZ">UK</a>
-            <a href="https://www.amazon.ca/dp/B0CZFBV6LZ">Canada</a>
-            <a href="https://www.amazon.de/dp/B0CZFBV6LZ">Germany</a>
-            <a href="https://www.amazon.fr/dp/B0CZFBV6LZ">France</a>
-            <a href="https://www.amazon.it/dp/B0CZFBV6LZ">Italy</a>
+        <!-- About Us Section -->
+        <section id="about" class="py-16 md:py-24 bg-white/90 shadow-lg rounded-lg mx-auto max-w-6xl my-8 px-6">
+            <div class="container mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">About Us</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Welcome to the magical world of Mr. Downey’s Adventures! Our series of heartwarming children’s books brings joy, lessons, and unforgettable characters to kids around the globe. Join Mr. Downey and his friends as they explore forests, rivers, and oceans, teaching important values like friendship, bravery, and environmental stewardship.</p>
+            </div>
+        </section>
+
+        <!-- The Adventures Section -->
+        <section id="adventures" class="py-16 md:py-24 bg-white/90 shadow-lg rounded-lg mx-auto max-w-6xl my-8 px-6">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Join Mr. Downey on His Adventures</h2>
+                
+                <div class="mb-8 border-b border-gray-200 flex justify-center space-x-2 md:space-x-4">
+                    <button class="book-tab active text-sm md:text-base font-medium p-3 md:p-4 border-b-2" data-tab="forest">Forest Adventure</button>
+                    <button class="book-tab text-sm md:text-base font-medium p-3 md:p-4 border-b-2 border-transparent" data-tab="river">River Adventure</button>
+                    <button class="book-tab text-sm md:text-base font-medium p-3 md:p-4 border-b-2 border-transparent" data-tab="ocean">Ocean Adventure</button>
+                </div>
+
+                <div id="book-content" class="fade-in visible">
+                    <!-- Forest Content -->
+                    <div class="book-panel active" id="forest-panel">
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <img src="https://github.com/AdventureStoriesClub/Mr.-DowneyAdventure/raw/main/Mr.%20Downey%20forest%20GIF.gif" alt="Mr. Downey's Forest Adventure" class="rounded-lg shadow-lg w-full">
+                            <div>
+                                <h3 class="text-2xl font-bold mb-3">Mr. Downey's Forest Adventure</h3>
+                                <p class="mb-4 text-gray-600">Dive into the magical forest with Mr. Downey, a brave little hamster! On his very first journey, he meets friends like Lizzy the Lizard and Benny the Bunny. Together, they learn that teamwork and courage are the keys to unlocking nature’s greatest wonders.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Friendship</span>
+                                    <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Bravery</span>
+                                    <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Nature</span>
+                                </div>
+                                <div class="country-buttons">
+                                    <a href="https://www.amazon.com/dp/B0CZFBV6LZ" target="_blank" rel="noopener noreferrer">US</a>
+                                    <a href="https://www.amazon.co.uk/dp/B0CZFBV6LZ" target="_blank" rel="noopener noreferrer">UK</a>
+                                    <a href="https://www.amazon.ca/dp/B0CZFBV6LZ" target="_blank" rel="noopener noreferrer">Canada</a>
+                                    <a href="https://www.amazon.de/dp/B0CZFBV6LZ" target="_blank" rel="noopener noreferrer">Germany</a>
+                                    <a href="https://www.amazon.fr/dp/B0CZFBV6LZ" target="_blank" rel="noopener noreferrer">France</a>
+                                    <a href="https://www.amazon.it/dp/B0CZFBV6LZ" target="_blank" rel="noopener noreferrer">Italy</a>
+                                </div>
+                                <div class="mt-4 text-center">
+                                    <a href="https://www.youtube.com/@AdventureStoriesClub" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline flex items-center justify-center">
+                                        <i class="fab fa-youtube mr-2"></i> Watch the Song on YouTube
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- River Content -->
+                    <div class="book-panel hidden" id="river-panel">
+                         <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <img src="https://github.com/AdventureStoriesClub/Mr.-DowneyAdventure/raw/main/Mr.%20Downey%20river%20GIF.gif" alt="Mr. Downey's River Adventure" class="rounded-lg shadow-lg w-full">
+                            <div>
+                                <h3 class="text-2xl font-bold mb-3">Mr. Downey's River Adventure</h3>
+                                <p class="mb-4 text-gray-600">Set sail on an unforgettable journey! In this enchanting sequel, Mr. Downey and his new friends Shelly the wise turtle and Otis the playful otter navigate the twists and turns of a magical river, discovering its many secrets and the power of teamwork.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Teamwork</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Discovery</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Curiosity</span>
+                                </div>
+                                <div class="country-buttons">
+                                    <a href="https://www.amazon.com/dp/B0D74281J2" target="_blank" rel="noopener noreferrer">US</a>
+                                    <a href="https://www.amazon.co.uk/dp/B0D74281J2" target="_blank" rel="noopener noreferrer">UK</a>
+                                    <a href="https://www.amazon.de/dp/B0D74281J2" target="_blank" rel="noopener noreferrer">Germany</a>
+                                    <a href="https://www.amazon.fr/dp/B0D74281J2" target="_blank" rel="noopener noreferrer">France</a>
+                                    <a href="https://www.amazon.es/dp/B0D74281J2" target="_blank" rel="noopener noreferrer">Spain</a>
+                                    <a href="https://www.amazon.it/dp/B0D74281J2" target="_blank" rel="noopener noreferrer">Italy</a>
+                                </div>
+                                <div class="mt-4 text-center">
+                                    <a href="https://www.youtube.com/@AdventureStoriesClub" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline flex items-center justify-center">
+                                        <i class="fab fa-youtube mr-2"></i> Watch the Song on YouTube
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Ocean Content -->
+                    <div class="book-panel hidden" id="ocean-panel">
+                         <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <img src="https://github.com/AdventureStoriesClub/Mr.-DowneyAdventure/raw/main/Mr.%20Downey%2C%20Ocean%20gif.gif" alt="Mr. Downey's Ocean Adventure" class="rounded-lg shadow-lg w-full">
+                            <div>
+                                <h3 class="text-2xl font-bold mb-3">Mr. Downey's Ocean Adventure</h3>
+                                <p class="mb-4 text-gray-600">Dive deep beneath the waves! Guided by Finn the Dolphin, Mr. Downey explores the vibrant underwater world. He meets fascinating creatures and learns a valuable lesson about the importance of protecting our beautiful oceans for everyone.</p>
+                                 <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Courage</span>
+                                    <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Conservation</span>
+                                    <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Responsibility</span>
+                                </div>
+                                <div class="country-buttons">
+                                    <a href="https://www.amazon.com/dp/B0DK3NGHMZ" target="_blank" rel="noopener noreferrer">US</a>
+                                    <a href="https://www.amazon.co.uk/dp/B0DK3NGHMZ" target="_blank" rel="noopener noreferrer">UK</a>
+                                    <a href="https://www.amazon.ca/dp/B0DK3NGHMZ" target="_blank" rel="noopener noreferrer">Canada</a>
+                                    <a href="https://www.amazon.de/dp/B0DK3NGHMZ" target="_blank" rel="noopener noreferrer">Germany</a>
+                                    <a href="https://www.amazon.fr/dp/B0DK3NGHMZ" target="_blank" rel="noopener noreferrer">France</a>
+                                    <a href="https://www.amazon.it/dp/B0DK3NGHMZ" target="_blank" rel="noopener noreferrer">Italy</a>
+                                </div>
+                                <div class="mt-4 text-center">
+                                    <a href="https://www.youtube.com/@AdventureStoriesClub" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline flex items-center justify-center">
+                                        <i class="fab fa-youtube mr-2"></i> Watch the Song on YouTube
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Our Values Section -->
+        <section id="values" class="py-16 md:py-24 bg-white/90 shadow-lg rounded-lg mx-auto max-w-6xl my-8 px-6">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Nurturing Core Values in Every Story</h2>
+                    <p class="text-gray-600 mb-12">Each adventure is carefully crafted to weave essential life lessons into a captivating narrative. This chart shows the core values that form the heart of the series, helping build character, resilience, and empathy in young readers. Hover over a point to see the value.</p>
+                </div>
+                <div class="chart-container fade-in">
+                    <canvas id="valuesChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meet the Author Section -->
+        <section id="author-section" class="py-16 md:py-24 bg-white/90 shadow-lg rounded-lg mx-auto max-w-6xl my-8 px-6">
+            <div class="container mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Meet the Author</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto"><strong>Katarzyna Anikiej</strong>, the creator of Mr. Downey’s Adventures, combines her love for storytelling with her background in psychology to craft stories that inspire young readers. Her passion for nature, animals, and fostering curiosity shines through every page of her books.</p>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" class="py-16 md:py-24 bg-white/90 shadow-lg rounded-lg mx-auto max-w-6xl my-8 px-6">
+             <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">What Parents Are Saying</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+                        <p class="text-gray-600 italic mb-4">"A sweet story for little explorers. My kids were drawn to the cute little hamster... The story has such a gentle pace that’s perfect for a cozy bedtime read."</p>
+                        <p class="font-bold text-gray-700">- AA, UK Review</p>
+                    </div>
+                     <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+                        <p class="text-gray-600 italic mb-4">"Anikiej skilfully endows the book with important lessons... These fears and moments of uncertainty are akin to children's feelings when starting a new school... and thus are relatable."</p>
+                        <p class="font-bold text-gray-700">- Asma, UK Review</p>
+                    </div>
+                     <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+                        <p class="text-gray-600 italic mb-4">"Beautiful story with an important message. My youngest was especially fascinated... it led to a great conversation about taking care of the planet. I appreciate books that entertain while teaching."</p>
+                        <p class="font-bold text-gray-700">- AA, UK Review</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Features Section -->
+        <section id="special-features" class="py-16 md:py-24 bg-white/90 shadow-lg rounded-lg mx-auto max-w-6xl my-8 px-6">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">More Than Just a Book</h2>
+                 <p class="text-gray-600 max-w-3xl mx-auto mb-12">Each book is an experience designed to be shared. By purchasing the series, you're not just buying a story; you're creating memories and supporting an author dedicated to crafting wholesome content for children.</p>
+                
+                <div class="grid md:grid-cols-3 gap-8 text-left max-w-4xl mx-auto mb-12">
+                    <div class="fade-in">
+                        <h3 class="text-xl font-bold mb-2">🎵 Sing-Along Songs</h3>
+                        <p>Each book has its own special song available on YouTube to bring the adventure to life through music.</p>
+                    </div>
+                    <div class="fade-in">
+                        <h3 class="text-xl font-bold mb-2">💌 Personalized Keepsakes</h3>
+                        <p>Special message pages allow you to write a heartfelt note, turning each book into a treasured gift.</p>
+                    </div>
+                    <div class="fade-in">
+                        <h3 class="text-xl font-bold mb-2">📝 Capture Memories</h3>
+                        <p>Note pages for parents let you jot down reading milestones and favorite moments, creating a family keepsake.</p>
+                    </div>
+                </div>
+
+                <a href="https://www.amazon.com/dp/B0D6DRJ22F" target="_blank" rel="noopener noreferrer" class="bg-[#C77855] text-white py-4 px-8 rounded-full text-lg font-bold hover:bg-[#b36a49] transition-colors shadow-lg">
+                    Find the Series on Amazon
+                </a>
+                <p class="mt-4 text-sm text-gray-500">Leaving a review on Amazon is one of the best ways to support the author's work!</p>
+            </div>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section id="contact" class="py-16 md:py-24 bg-white/90 shadow-lg rounded-lg mx-auto max-w-6xl my-8 px-6">
+            <div class="container mx-auto px-6 max-w-2xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Contact Us</h2>
+                <form class="text-left">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required class="w-full p-3 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C77855]">
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required class="w-full p-3 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C77855]">
+                    
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required class="w-full p-3 mb-6 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C77855]"></textarea>
+                    
+                    <button type="submit" class="bg-[#C77855] text-white py-3 px-6 rounded-full text-lg font-bold hover:bg-[#b36a49] transition-colors w-full">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="bg-[#8A6F5C] text-white py-10">
+        <div class="container mx-auto px-6 text-center text-sm">
+            <div class="social-icons-footer mb-4">
+                <a href="https://www.facebook.com/AdventureStoriesClub" target="_blank" rel="noopener noreferrer" class="fab fa-facebook"></a>
+                <a href="https://www.instagram.com/adventurestories.club/" target="_blank" rel="noopener noreferrer" class="fab fa-instagram"></a>
+                <a href="https://www.youtube.com/@AdventureStoriesClub" target="_blank" rel="noopener noreferrer" class="fab fa-youtube"></a>
+                <a href="https://x.com/AdvStoryClub" target="_blank" rel="noopener noreferrer" class="fab fa-twitter"></a>
+            </div>
+            <p>&copy; 2025 Mr. Downey's Adventures. All Rights Reserved.</p>
+            <p>Crafted with love for parents seeking a better kind of story.</p>
         </div>
-
-        <h3>Mr. Downey's River Adventure</h3>
-        <img src="https://github.com/AdventureStoriesClub/Mr.-DowneyAdventure/raw/main/Mr.%20Downey%20river%20GIF.gif" alt="Mr. Downey River Adventure">
-        <p>Set sail with Mr. Downey, Shelly the Turtle, and Otis the Otter as they navigate a mystical river filled with fun and discovery.</p>
-        <div class="country-buttons">
-            <a href="https://www.amazon.com/dp/B0D74281J2">US</a>
-            <a href="https://www.amazon.co.uk/dp/B0D74281J2">UK</a>
-            <a href="https://www.amazon.de/dp/B0D74281J2">Germany</a>
-            <a href="https://www.amazon.fr/dp/B0D74281J2">France</a>
-            <a href="https://www.amazon.es/dp/B0D74281J2">Spain</a>
-            <a href="https://www.amazon.it/dp/B0D74281J2">Italy</a>
-        </div>
-
-        <h3>Mr. Downey's Ocean Adventure</h3>
-        <img src="https://github.com/AdventureStoriesClub/Mr.-DowneyAdventure/raw/main/Mr.%20Downey%2C%20Ocean%20gif.gif" alt="Mr. Downey Ocean Adventure">
-        <p>Dive deep into the ocean with Mr. Downey, Finn the Dolphin, and Ollie the Octopus as they uncover the mysteries of the deep blue sea.</p>
-        <div class="country-buttons">
-            <a href="https://www.amazon.com/dp/B0DK3NGHMZ">US</a>
-            <a href="https://www.amazon.co.uk/dp/B0DK3NGHMZ">UK</a>
-            <a href="https://www.amazon.ca/dp/B0DK3NGHMZ">Canada</a>
-            <a href="https://www.amazon.de/dp/B0DK3NGHMZ">Germany</a>
-            <a href="https://www.amazon.fr/dp/B0DK3NGHMZ">France</a>
-            <a href="https://www.amazon.it/dp/B0DK3NGHMZ">Italy</a>
-        </div>
-    </section>
-
-    <section id="author">
-        <h2>About the Author</h2>
-        <p><strong>Katarzyna Anikiej</strong> is the author of Mr. Downey's Adventures. With a background in psychology and a passion for storytelling, Katarzyna crafts meaningful and engaging tales that inspire children to explore, learn, and grow.</p>
-        <a href="https://www.amazon.com/stores/Katarzyna-Anikiej/author/B0DJNPD19D">Visit Author's Amazon Page</a>
-    </section>
-
-    <section id="youtube">
-        <h2>Watch on YouTube</h2>
-        <div class="youtube-section">
-            <iframe src="https://www.youtube.com/embed/Rl_YqqouXb4" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <a href="https://www.youtube.com/@AdventureStoriesClub">Subscribe to Adventure Stories Club</a>
-    </section>
-
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <form>
-            <label for="name">Name:</label><br>
-            <input type="text" id="name" name="name" required><br><br>
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email" required><br><br>
-            <label for="message">Message:</label><br>
-            <textarea id="message" name="message" rows="5" required></textarea><br><br>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
-
-    <section class="social-icons">
-        <a href="https://www.facebook.com/MrDowneysAdventures"><img src="https://github.com/AdventureStoriesClub/Mr.-DowneyAdventure/raw/main/facebook-icon.png" alt="Facebook"></a>
-        <a href="https://www.instagram.com/MrDowneysAdventures"><img src="https://github.com/AdventureStoriesClub/Mr.-DowneyAdventure/raw/main/instagram-icon.png" alt="Instagram"></a>
-        <a href="https://www.youtube.com/@AdventureStoriesClub"><img src="https://via.placeholder.com/40" alt="YouTube"></a>
-        <a href="https://twitter.com/MrDowneysAdventures"><img src="https://github.com/AdventureStoriesClub/Mr.-DowneyAdventure/raw/main/twitter-icon.png" alt="Twitter"></a>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Adventure Story Club. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const tabs = document.querySelectorAll('.book-tab');
+            const panels = document.querySelectorAll('.book-panel');
+            const bookContent = document.getElementById('book-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const targetTab = tab.getAttribute('data-tab');
+
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    bookContent.style.opacity = 0;
+
+                    setTimeout(() => {
+                        panels.forEach(panel => {
+                            if (panel.id === `${targetTab}-panel`) {
+                                panel.classList.remove('hidden');
+                                panel.classList.add('active');
+                            } else {
+                                panel.classList.add('hidden');
+                                panel.classList.remove('active');
+                            }
+                        });
+                        bookContent.style.opacity = 1;
+                    }, 300);
+                });
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+            
+            const chartObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        renderChart();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            chartObserver.observe(document.getElementById('valuesChart'));
+
+        });
+        
+        function renderChart() {
+            const ctx = document.getElementById('valuesChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Friendship', 'Courage', 'Love for Nature', 'Teamwork', 'Curiosity', 'Respect for Others'],
+                    datasets: [{
+                        label: 'Core Values in Mr. Downey\'s Adventures',
+                        data: [5, 5, 5, 5, 4, 5],
+                        backgroundColor: 'rgba(199, 120, 85, 0.2)',
+                        borderColor: 'rgba(199, 120, 85, 1)',
+                        pointBackgroundColor: 'rgba(199, 120, 85, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(199, 120, 85, 1)'
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: {
+                                color: 'rgba(0, 0, 0, 0.1)'
+                            },
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.1)'
+                            },
+                            pointLabels: {
+                                font: {
+                                    size: 12,
+                                    family: 'Inter, sans-serif'
+                                },
+                                color: '#4A4A4A'
+                            },
+                            ticks: {
+                                backdropColor: 'rgba(253, 251, 248, 1)',
+                                color: '#8A6F5C',
+                                stepSize: 1,
+                                display: false
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 5
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ` ${context.label}: A central theme in the series.`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('main section');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 65) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
