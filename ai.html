@@ -7,10 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Zenith Neutrals -->
-    <!-- Application Structure Plan: The SPA is designed as a five-stage "YouTube Success Playbook" with a fixed sidebar for navigation. This task-oriented structure (Foundation, AI Production, SEO, Monetization, Growth) transforms the linear report into an actionable, step-by-step guide for an aspiring creator. It prioritizes user flow over the original report's layout, guiding the user from strategic planning to execution and analysis. Key interactions include an AI tool filter, a dynamic SEO engagement simulator, and a comparative chart for content strategies, all designed to make complex data easily digestible and engaging. -->
-    <!-- Visualization & Content Choices: Report data is presented through interactive elements to enhance understanding. Goal: Compare -> An interactive card filter for AI Tools (JS-driven show/hide) and a grouped bar chart for Shorts vs. Long-Form ROI (Chart.js) make comparisons intuitive. Goal: Relationships -> A dynamic bar chart with sliders demonstrates the cause-and-effect of engagement on SEO ranking (Chart.js update method). Goal: Organize -> The production workflow and channel deconstruction plan are presented as an HTML/CSS flow diagram and an interactive checklist, respectively, breaking down complex processes into manageable steps. This approach ensures all visualizations are interactive and built without SVG or Mermaid JS, using Chart.js and vanilla JS for all dynamic content. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -295,8 +291,7 @@ document.addEventListener('DOMContentLoaded', function() {
         contentSections.forEach(section => {
             section.classList.toggle('active', `#${section.id}` === hash);
         });
-        
-        // Trigger chart creation when section becomes active
+
         if (hash === '#monetization' && !window.monetizationChartInstance) createMonetizationChart();
         if (hash === '#seo' && !window.seoChartInstance) createSeoChart();
     }
@@ -308,7 +303,7 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.hash = hash;
         });
     });
-    
+
     window.addEventListener('hashchange', () => {
         const hash = window.location.hash || '#foundation';
         navigateToSection(hash);
@@ -430,7 +425,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
+
     // SEO Chart
     const seoSliders = {
         watchTime: document.getElementById('watch-time'),
@@ -438,7 +433,7 @@ document.addEventListener('DOMContentLoaded', function() {
         engagement: document.getElementById('engagement')
     };
     const seoExplanation = document.getElementById('seo-explanation');
-    
+
     function createSeoChart() {
         const ctx = document.getElementById('seoChart').getContext('2d');
         const initialData = [40, 20, 30];
@@ -455,9 +450,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         'rgba(56, 55, 52, 0.6)',
                     ],
                     borderColor: [
-                         'rgba(168, 139, 106, 1)',
-                         'rgba(110, 105, 99, 1)',
-                         'rgba(56, 55, 52, 1)',
+                        'rgba(168, 139, 106, 1)',
+                        'rgba(110, 105, 99, 1)',
+                        'rgba(56, 55, 52, 1)',
                     ],
                     borderWidth: 1
                 }]
@@ -481,7 +476,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         });
-        
+
         Object.values(seoSliders).forEach(slider => {
             slider.addEventListener('input', updateSeoChart);
         });
@@ -491,24 +486,23 @@ document.addEventListener('DOMContentLoaded', function() {
         const wt = parseInt(seoSliders.watchTime.value);
         const ctr = parseInt(seoSliders.ctr.value);
         const eng = parseInt(seoSliders.engagement.value);
-        
-        const totalScore = (wt * 1.5) + ctr + eng; // Weighting retention higher
-        
+
+        const totalScore = (wt * 1.5) + ctr + eng;
+
         let explanationText = "Your settings are average. Focus on improving all areas.";
         if(totalScore > 300) {
             explanationText = "Excellent! Your content is highly optimized for discoverability. Keep up the great engagement.";
         } else if (totalScore > 200) {
             explanationText = "Good performance. Your content is likely being recommended. Push for higher audience retention for maximum impact.";
         } else if (wt > 60) {
-             explanationText = "Great audience retention! This is the most important factor. Now work on improving your thumbnails (CTR) and calls-to-action (engagement).";
+            explanationText = "Great audience retention! This is the most important factor. Now work on improving your thumbnails (CTR) and calls-to-action (engagement).";
         }
-        
+
         seoExplanation.textContent = explanationText;
-        
+
         window.seoChartInstance.data.datasets[0].data = [wt, ctr, eng];
         window.seoChartInstance.update();
     }
-
 
     // Checklist
     const checklistContainer = document.getElementById('checklist');
@@ -522,4 +516,27 @@ document.addEventListener('DOMContentLoaded', function() {
         div.dataset.id = item.id;
         div.innerHTML = `
             <input type="checkbox" id="check-${item.id}" class="h-5 w-5 rounded border-gray-300 text-[#A88B6A] focus:ring-[#A88B6A]">
-            <label for="check
+            <label for="check-${item.id}" class="text-md text-gray-800 flex-1">${item.title}</label>
+        `;
+        checklistContainer.appendChild(div);
+
+        div.addEventListener('click', (e) => {
+            // Toggle checkbox if not clicking directly on it
+            if (e.target.type !== 'checkbox') {
+                const checkbox = div.querySelector('input[type="checkbox"]');
+                checkbox.checked = !checkbox.checked;
+                div.classList.toggle('completed', checkbox.checked);
+            } else {
+                div.classList.toggle('completed', e.target.checked);
+            }
+
+            detailsContainer.classList.remove('hidden');
+            detailsTitle.textContent = item.title;
+            detailsContent.textContent = item.content;
+        });
+    });
+});
+</script>
+
+</body>
+</html>
