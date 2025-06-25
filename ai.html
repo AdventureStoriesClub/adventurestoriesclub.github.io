@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { name: 'Synthesia', use: 'Studio-quality avatar videos', cost: 'free', type: 'video', safe: 'no', features: 'Lifelike AI avatars, 140+ languages, text/PPT to video. Great for training/explainers.' },
         { name: 'Google Veo 2', use: 'High-quality video generation', cost: 'free', type: 'video', safe: 'no', features: 'Free credits available, image-to-video, no watermark. Accessible for experimentation.' },
         { name: 'Hailuo (MiniMax)', use: 'Decent quality video/image-to-video', cost: 'free', type: 'video', safe: 'no', features: 'Generous free daily credits. Limited to 5-sec clips, no lip-sync.' },
-        { name: 'Kling', use: 'High-quality image-to-video', cost: 'free', type: 'video', safe: 'no', features: 'Monthly free credits, offers significant user control and lip-sync capabilities.' },
+        { name: 'Kling', use: 'High-quality image-to-video', cost: 'free', type: 'video', safe: 'no', features: 'Monthly free credits, offers significant user control and lip-sync capabilities.', 'https://klingai.com/h5-app/invitation?code=7BY6VYEZRP5J' },
         { name: 'Adobe Firefly', use: 'Commercially safe AI media', cost: 'paid', type: 'video-image', safe: 'commercial', features: 'Trained on licensed content, avoiding legal issues. Generates video, images, and effects.' },
         { name: 'Runway', use: 'AI filmmaking & creative tools', cost: 'paid', type: 'video', safe: 'no', features: 'Advanced capabilities with a steep learning curve. Strong community and frequent updates.' },
         { name: 'OpenAI Sora', use: 'Advanced text-to-video', cost: 'paid', type: 'video', safe: 'no', features: 'Integrates with ChatGPT for cutting-edge generative video. Generally higher cost.' },
@@ -339,6 +339,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <h4 class="font-semibold text-md">${tool.name}</h4>
                 <p class="text-sm text-gray-500 mt-1">${tool.use}</p>
                 <p class="mt-3 text-sm text-gray-700">${tool.features}</p>
+                ${tool.referral ? `<div class="mt-2"><a href="${tool.referral}" target="_blank" class="text-blue-600 underline text-sm">Sign up with referral code</a></div>` : ''}
                 <div class="mt-4 flex gap-2">
                     ${tool.cost === 'free' ? '<span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Free Tier</span>' : ''}
                     ${tool.safe === 'commercial' ? '<span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">Commercially Safe</span>' : ''}
