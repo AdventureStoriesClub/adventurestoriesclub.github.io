@@ -100,22 +100,22 @@
 
         <!-- Main Content -->
         <main class="flex-1 p-4 sm:p-6 md:p-10 overflow-y-auto">
-            <!-- ADDED SECTION: Audio link under the requested title -->
+            <!-- Audio Section -->
             <section class="mb-8">
                 <h2 class="text-2xl font-bold text-[#383734] mb-2">
                     AI vs. Authenticity: Cracking the YouTube Code for Subs, Views, and Real Revenue
                 </h2>
                 <p>
-                  <a href="https://g.co/gemini/share/e60be93b7c46" target="_blank">
-                    Listen to the audio here.
+                  <a href="https://adventurestoriesclub.github.io/AI%20Vs%20Authenticity%20Cracking.m4a.html" target="_blank">
+                    Listen to the audio here (opens in new tab)
                   </a>
                 </p>
-                <!-- ADDED AUDIO PLAYER -->
                 <audio controls style="margin-top: 16px; width: 100%; max-width: 500px;">
                   <source src="https://adventurestoriesclub.github.io/AI%20Vs%20Authenticity%20Cracking.m4a" type="audio/mp4">
                   Your browser does not support the audio element.
                 </audio>
             </section>
+
             <!-- Stage 1: Foundation -->
             <section id="foundation" class="content-section">
                 <h2 class="text-3xl font-bold text-[#383734]">Stage 1: The Foundation of Success</h2>
@@ -139,8 +139,123 @@
                     </div>
                 </div>
             </section>
-            <!-- ... rest of your code is unchanged ... -->
-            <!-- The rest of your sections and JavaScript remain the same as before. -->
+
+            <!-- Stage 2: AI Production -->
+            <section id="ai-production" class="content-section">
+                <h2 class="text-3xl font-bold text-[#383734]">Stage 2: AI-Powered Production</h2>
+                <p class="mt-2 text-gray-600 max-w-3xl">Leveraging AI tools can dramatically increase your production efficiency and creative capabilities. This section provides an interactive guide to the top AI tools and illustrates an optimal workflow for creating content, from ideation to final polish.</p>
+                <div class="mt-8 bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <h3 class="font-semibold text-lg mb-4">AI Content Production Workflow</h3>
+                    <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-4 text-center">
+                        <div class="flex-1 p-3 bg-gray-50 rounded-lg"><span class="font-medium">1. Ideation</span><br><span class="text-xs text-gray-500">ChatGPT 4o</span></div>
+                        <div class="text-gray-400 font-bold text-2xl">&rarr;</div>
+                        <div class="flex-1 p-3 bg-gray-50 rounded-lg"><span class="font-medium">2. Visuals</span><br><span class="text-xs text-gray-500">Midjourney, Adobe Firefly</span></div>
+                        <div class="text-gray-400 font-bold text-2xl">&rarr;</div>
+                        <div class="flex-1 p-3 bg-gray-50 rounded-lg"><span class="font-medium">3. Video</span><br><span class="text-xs text-gray-500">Runway, Kling</span></div>
+                        <div class="text-gray-400 font-bold text-2xl">&rarr;</div>
+                        <div class="flex-1 p-3 bg-gray-50 rounded-lg"><span class="font-medium">4. Audio</span><br><span class="text-xs text-gray-500">ElevenLabs, Suno</span></div>
+                        <div class="text-gray-400 font-bold text-2xl">&rarr;</div>
+                        <div class="flex-1 p-3 bg-gray-50 rounded-lg"><span class="font-medium">5. Polish</span><br><span class="text-xs text-gray-500">CapCut, Topaz</span></div>
+                    </div>
+                </div>
+                <div class="mt-8">
+                    <h3 class="font-semibold text-lg mb-4">Interactive AI Tool Selector</h3>
+                     <div id="ai-tool-filters" class="flex flex-wrap gap-2 mb-6">
+                        <button data-filter="all" class="filter-btn bg-[#A88B6A] text-white px-4 py-2 rounded-full text-sm">All</button>
+                        <button data-filter="video" class="filter-btn bg-white border border-gray-300 px-4 py-2 rounded-full text-sm">Video Gen</button>
+                        <button data-filter="image" class="filter-btn bg-white border border-gray-300 px-4 py-2 rounded-full text-sm">Image Gen</button>
+                        <button data-filter="free" class="filter-btn bg-white border border-gray-300 px-4 py-2 rounded-full text-sm">Free Tier</button>
+                        <button data-filter="commercial" class="filter-btn bg-white border border-gray-300 px-4 py-2 rounded-full text-sm">Commercially Safe</button>
+                    </div>
+                    <div id="ai-tool-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+                </div>
+            </section>
+
+            <!-- Stage 3: SEO & Discovery -->
+            <section id="seo" class="content-section">
+                <h2 class="text-3xl font-bold text-[#383734]">Stage 3: SEO & Discoverability</h2>
+                <p class="mt-2 text-gray-600 max-w-3xl">Getting your content discovered is the key to growth. Effective SEO is about signaling value to the YouTube algorithm. This interactive tool demonstrates how crucial engagement metrics directly impact your video's ranking and visibility.</p>
+                <div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                        <h3 class="font-semibold text-lg mb-1">The Engagement-to-Ranking Engine</h3>
+                        <p class="text-sm text-gray-600 mb-4">Adjust the sliders to see how engagement impacts discoverability.</p>
+                        <div class="space-y-4">
+                             <div>
+                                <label for="watch-time" class="block text-sm font-medium text-gray-700">Audience Retention</label>
+                                <input type="range" id="watch-time" min="10" max="100" value="40" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                            </div>
+                            <div>
+                                <label for="ctr" class="block text-sm font-medium text-gray-700">Click-Through Rate (CTR)</label>
+                                <input type="range" id="ctr" min="1" max="100" value="20" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                            </div>
+                            <div>
+                                <label for="engagement" class="block text-sm font-medium text-gray-700">Likes, Comments, Shares</label>
+                                <input type="range" id="engagement" min="10" max="100" value="30" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                            </div>
+                        </div>
+                         <div id="seo-explanation" class="mt-6 p-4 bg-blue-50 text-blue-800 rounded-lg text-sm">
+                            Your current settings result in a moderate discoverability score. Increasing audience retention is the most powerful way to signal value to YouTube's algorithm.
+                        </div>
+                    </div>
+                     <div class="chart-container">
+                        <canvas id="seoChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stage 4: Monetization -->
+            <section id="monetization" class="content-section">
+                 <h2 class="text-3xl font-bold text-[#383734]">Stage 4: Monetization Strategy</h2>
+                <p class="mt-2 text-gray-600 max-w-3xl">Sustainable income requires a diverse strategy. While AdSense is a start, true financial success comes from multiple revenue streams. This section compares content strategies and explores different ways to earn.</p>
+                <div class="mt-8">
+                    <h3 class="font-semibold text-lg mb-4">Content Strategy ROI: Shorts vs. Long-Form</h3>
+                    <p class="text-sm text-gray-600 max-w-2xl mb-6">This chart visualizes the trade-offs between Shorts and Long-Form videos, based on a case study. Shorts offer rapid subscriber growth, while Long-Form content delivers significantly higher revenue.</p>
+                     <div class="chart-container">
+                        <canvas id="monetizationChart"></canvas>
+                    </div>
+                </div>
+                <div class="mt-12">
+                     <h3 class="font-semibold text-lg mb-4">Diversified Revenue Streams</h3>
+                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                           <h4 class="font-semibold text-md">Affiliate Marketing</h4>
+                           <p class="mt-2 text-sm text-gray-600">Promote relevant products. A case study showed a return of over 3x on ad spend, turning a $95 cost into a $300 sale.</p>
+                        </div>
+                         <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                           <h4 class="font-semibold text-md">Product Sales</h4>
+                           <p class="mt-2 text-sm text-gray-600">Sell your own digital goods like courses, e-books (e.g., "AI Playbook"), or access to curated tool directories.</p>
+                        </div>
+                         <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                           <h4 class="font-semibold text-md">Sponsorships</h4>
+                           <p class="mt-2 text-sm text-gray-600">Partner with brands for integrated promotions within your videos. This can provide a significant, stable income source.</p>
+                        </div>
+                         <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                           <h4 class="font-semibold text-md">Community Support</h4>
+                           <p class="mt-2 text-sm text-gray-600">Enable features like Super Chats during live streams or create paid membership communities for exclusive content.</p>
+                        </div>
+                     </div>
+                </div>
+            </section>
+
+            <!-- Stage 5: Growth & Analysis -->
+            <section id="growth" class="content-section">
+                <h2 class="text-3xl font-bold text-[#383734]">Stage 5: Growth & Continuous Analysis</h2>
+                <p class="mt-2 text-gray-600 max-w-3xl">Success isn't static; it requires constant learning and adaptation. Use this framework to systematically deconstruct any successful channel and apply the learnings to your own. Regularly analyze your data and refine your strategy.</p>
+                <div class="mt-8 bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <h3 class="font-semibold text-lg mb-4">Channel Deconstruction Checklist</h3>
+                    <p class="text-sm text-gray-600 mb-6">Use this interactive checklist to analyze a target channel. Click each item to see what to look for.</p>
+                    <div id="checklist" class="space-y-4">
+                        <!-- Checklist items will be injected by JavaScript -->
+                    </div>
+                </div>
+                <div id="checklist-details" class="mt-6 p-6 bg-gray-50 rounded-lg text-gray-700 hidden">
+                    <h4 class="font-semibold mb-2" id="checklist-details-title"></h4>
+                    <p class="text-sm" id="checklist-details-content"></p>
+                </div>
+            </section>
+        </main>
+    </div>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 
