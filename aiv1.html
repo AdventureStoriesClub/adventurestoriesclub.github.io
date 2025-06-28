@@ -69,7 +69,6 @@
 <body class="antialiased">
 
     <div class="flex min-h-screen">
-        <!-- Sidebar Navigation -->
         <nav id="sidebar" class="w-16 md:w-64 bg-[#F0EBE3] flex-shrink-0 transition-all duration-300">
             <div class="p-4 md:p-6 sticky top-0">
                 <h1 class="text-xl font-bold text-[#383734] hidden md:block">Success Playbook</h1>
@@ -98,20 +97,18 @@
             </div>
         </nav>
 
-        <!-- Main Content -->
         <main class="flex-1 p-4 sm:p-6 md:p-10 overflow-y-auto">
-            <!-- ADDED SECTION: Audio link under the requested title -->
             <section class="mb-8">
                 <h2 class="text-2xl font-bold text-[#383734] mb-2">
                     AI vs. Authenticity: Cracking the YouTube Code for Subs, Views, and Real Revenue
                 </h2>
-                <p>
-                  <a href="https://g.co/gemini/share/e60be93b7c46" target="_blank">
-                    Listen to the audio here.
-                  </a>
-                </p>
+                <div class="flex items-center space-x-4">
+                    <audio controls class="w-full max-w-md">
+                        <source src="https://raw.githubusercontent.com/AdventureStoriesClub/adventurestoriesclub.github.io/main/AI/AI_vs_Authenticity_Cracking_the_YouTube_Code_for_Subs_Views_and_Real_Revenue.m4a" type="audio/mp4">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
             </section>
-            <!-- Stage 1: Foundation -->
             <section id="foundation" class="content-section">
                 <h2 class="text-3xl font-bold text-[#383734]">Stage 1: The Foundation of Success</h2>
                 <p class="mt-2 text-gray-600 max-w-3xl">A successful YouTube channel is built upon several interconnected pillars that drive growth, engagement, and monetization. This section breaks down these core components, providing the strategic groundwork necessary before diving into production and optimization.</p>
@@ -135,7 +132,6 @@
                 </div>
             </section>
 
-            <!-- Stage 2: AI Production -->
             <section id="ai-production" class="content-section">
                 <h2 class="text-3xl font-bold text-[#383734]">Stage 2: AI-Powered Production</h2>
                 <p class="mt-2 text-gray-600 max-w-3xl">Leveraging AI tools can dramatically increase your production efficiency and creative capabilities. This section provides an interactive guide to the top AI tools and illustrates an optimal workflow for creating content, from ideation to final polish.</p>
@@ -157,7 +153,7 @@
 
                 <div class="mt-8">
                     <h3 class="font-semibold text-lg mb-4">Interactive AI Tool Selector</h3>
-                     <div id="ai-tool-filters" class="flex flex-wrap gap-2 mb-6">
+                    <div id="ai-tool-filters" class="flex flex-wrap gap-2 mb-6">
                         <button data-filter="all" class="filter-btn bg-[#A88B6A] text-white px-4 py-2 rounded-full text-sm">All</button>
                         <button data-filter="video" class="filter-btn bg-white border border-gray-300 px-4 py-2 rounded-full text-sm">Video Gen</button>
                         <button data-filter="image" class="filter-btn bg-white border border-gray-300 px-4 py-2 rounded-full text-sm">Image Gen</button>
@@ -168,7 +164,6 @@
                 </div>
             </section>
 
-            <!-- Stage 3: SEO & Discovery -->
             <section id="seo" class="content-section">
                 <h2 class="text-3xl font-bold text-[#383734]">Stage 3: SEO & Discoverability</h2>
                 <p class="mt-2 text-gray-600 max-w-3xl">Getting your content discovered is the key to growth. Effective SEO is about signaling value to the YouTube algorithm. This interactive tool demonstrates how crucial engagement metrics directly impact your video's ranking and visibility.</p>
@@ -178,7 +173,7 @@
                         <h3 class="font-semibold text-lg mb-1">The Engagement-to-Ranking Engine</h3>
                         <p class="text-sm text-gray-600 mb-4">Adjust the sliders to see how engagement impacts discoverability.</p>
                         <div class="space-y-4">
-                             <div>
+                            <div>
                                 <label for="watch-time" class="block text-sm font-medium text-gray-700">Audience Retention</label>
                                 <input type="range" id="watch-time" min="10" max="100" value="40" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
                             </div>
@@ -191,53 +186,51 @@
                                 <input type="range" id="engagement" min="10" max="100" value="30" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
                             </div>
                         </div>
-                         <div id="seo-explanation" class="mt-6 p-4 bg-blue-50 text-blue-800 rounded-lg text-sm">
+                        <div id="seo-explanation" class="mt-6 p-4 bg-blue-50 text-blue-800 rounded-lg text-sm">
                             Your current settings result in a moderate discoverability score. Increasing audience retention is the most powerful way to signal value to YouTube's algorithm.
                         </div>
                     </div>
-                     <div class="chart-container">
+                    <div class="chart-container">
                         <canvas id="seoChart"></canvas>
                     </div>
                 </div>
             </section>
 
-            <!-- Stage 4: Monetization -->
             <section id="monetization" class="content-section">
-                 <h2 class="text-3xl font-bold text-[#383734]">Stage 4: Monetization Strategy</h2>
+                <h2 class="text-3xl font-bold text-[#383734]">Stage 4: Monetization Strategy</h2>
                 <p class="mt-2 text-gray-600 max-w-3xl">Sustainable income requires a diverse strategy. While AdSense is a start, true financial success comes from multiple revenue streams. This section compares content strategies and explores different ways to earn.</p>
 
                 <div class="mt-8">
                     <h3 class="font-semibold text-lg mb-4">Content Strategy ROI: Shorts vs. Long-Form</h3>
                     <p class="text-sm text-gray-600 max-w-2xl mb-6">This chart visualizes the trade-offs between Shorts and Long-Form videos, based on a case study. Shorts offer rapid subscriber growth, while Long-Form content delivers significantly higher revenue.</p>
-                     <div class="chart-container">
+                    <div class="chart-container">
                         <canvas id="monetizationChart"></canvas>
                     </div>
                 </div>
-                
+               
                 <div class="mt-12">
-                     <h3 class="font-semibold text-lg mb-4">Diversified Revenue Streams</h3>
-                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <h3 class="font-semibold text-lg mb-4">Diversified Revenue Streams</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-                           <h4 class="font-semibold text-md">Affiliate Marketing</h4>
-                           <p class="mt-2 text-sm text-gray-600">Promote relevant products. A case study showed a return of over 3x on ad spend, turning a $95 cost into a $300 sale.</p>
+                            <h4 class="font-semibold text-md">Affiliate Marketing</h4>
+                            <p class="mt-2 text-sm text-gray-600">Promote relevant products. A case study showed a return of over 3x on ad spend, turning a $95 cost into a $300 sale.</p>
                         </div>
-                         <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-                           <h4 class="font-semibold text-md">Product Sales</h4>
-                           <p class="mt-2 text-sm text-gray-600">Sell your own digital goods like courses, e-books (e.g., "AI Playbook"), or access to curated tool directories.</p>
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                            <h4 class="font-semibold text-md">Product Sales</h4>
+                            <p class="mt-2 text-sm text-gray-600">Sell your own digital goods like courses, e-books (e.g., "AI Playbook"), or access to curated tool directories.</p>
                         </div>
-                         <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-                           <h4 class="font-semibold text-md">Sponsorships</h4>
-                           <p class="mt-2 text-sm text-gray-600">Partner with brands for integrated promotions within your videos. This can provide a significant, stable income source.</p>
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                            <h4 class="font-semibold text-md">Sponsorships</h4>
+                            <p class="mt-2 text-sm text-gray-600">Partner with brands for integrated promotions within your videos. This can provide a significant, stable income source.</p>
                         </div>
-                         <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-                           <h4 class="font-semibold text-md">Community Support</h4>
-                           <p class="mt-2 text-sm text-gray-600">Enable features like Super Chats during live streams or create paid membership communities for exclusive content.</p>
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                            <h4 class="font-semibold text-md">Community Support</h4>
+                            <p class="mt-2 text-sm text-gray-600">Enable features like Super Chats during live streams or create paid membership communities for exclusive content.</p>
                         </div>
-                     </div>
+                    </div>
                 </div>
             </section>
 
-            <!-- Stage 5: Growth & Analysis -->
             <section id="growth" class="content-section">
                 <h2 class="text-3xl font-bold text-[#383734]">Stage 5: Growth & Continuous Analysis</h2>
                 <p class="mt-2 text-gray-600 max-w-3xl">Success isn't static; it requires constant learning and adaptation. Use this framework to systematically deconstruct any successful channel and apply the learnings to your own. Regularly analyze your data and refine your strategy.</p>
@@ -246,8 +239,7 @@
                     <h3 class="font-semibold text-lg mb-4">Channel Deconstruction Checklist</h3>
                     <p class="text-sm text-gray-600 mb-6">Use this interactive checklist to analyze a target channel. Click each item to see what to look for.</p>
                     <div id="checklist" class="space-y-4">
-                        <!-- Checklist items will be injected by JavaScript -->
-                    </div>
+                        </div>
                 </div>
                 <div id="checklist-details" class="mt-6 p-6 bg-gray-50 rounded-lg text-gray-700 hidden">
                     <h4 class="font-semibold mb-2" id="checklist-details-title"></h4>
@@ -269,7 +261,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { name: 'Runway', use: 'AI filmmaking & creative tools', cost: 'paid', type: 'video', safe: 'no', features: 'Advanced capabilities with a steep learning curve. Strong community and frequent updates.' },
         { name: 'OpenAI Sora', use: 'Advanced text-to-video', cost: 'paid', type: 'video', safe: 'no', features: 'Integrates with ChatGPT for cutting-edge generative video. Generally higher cost.' },
         { name: 'Midjourney', use: 'High-quality image generation', cost: 'paid', type: 'image', safe: 'no', features: 'A leader in AI image generation, known for artistic and detailed visuals.' },
-        { name: 'ElevenLabs', use: 'AI voice & sound effects', cost: 'free', type: 'audio', safe: 'no', features: 'Creates natural-sounding voiceovers and sound effects. Free tier available.' },
+        { name: 'ElevenLabs', use: 'AI voice & sound effects', cost: 'free', type: 'audio', safe: 'no', features: 'Creates natural-sounding voiceovers and sound effects. Free tier available.', referral: 'https://try.elevenlabs.io/r4we16f9vi8i' }, // Added ElevenLabs referral link
         { name: 'CapCut', use: 'AI-assisted video editing', cost: 'free', type: 'editing', safe: 'no', features: 'Popular for social media, offers AI features for editing, transitions, and captions.' }
     ];
 
@@ -292,6 +284,7 @@ document.addEventListener('DOMContentLoaded', function() {
             section.classList.toggle('active', `#${section.id}` === hash);
         });
 
+        // Trigger chart creation when section becomes active
         if (hash === '#monetization' && !window.monetizationChartInstance) createMonetizationChart();
         if (hash === '#seo' && !window.seoChartInstance) createSeoChart();
     }
@@ -486,10 +479,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const wt = parseInt(seoSliders.watchTime.value);
         const ctr = parseInt(seoSliders.ctr.value);
         const eng = parseInt(seoSliders.engagement.value);
-
-        const totalScore = (wt * 1.5) + ctr + eng;
-
-        let explanationText = "Your settings are average. Focus on improving all areas.";
+       
+        const totalScore = (wt * 1.5) + ctr + eng; // Weighting retention higher
+       
+        let explanationText = "Your current settings result in a moderate discoverability score. Increasing audience retention is the most powerful way to signal value to YouTube's algorithm.";
         if(totalScore > 300) {
             explanationText = "Excellent! Your content is highly optimized for discoverability. Keep up the great engagement.";
         } else if (totalScore > 200) {
@@ -497,12 +490,13 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (wt > 60) {
             explanationText = "Great audience retention! This is the most important factor. Now work on improving your thumbnails (CTR) and calls-to-action (engagement).";
         }
-
+       
         seoExplanation.textContent = explanationText;
-
+       
         window.seoChartInstance.data.datasets[0].data = [wt, ctr, eng];
         window.seoChartInstance.update();
     }
+
 
     // Checklist
     const checklistContainer = document.getElementById('checklist');
@@ -529,7 +523,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 div.classList.toggle('completed', e.target.checked);
             }
-
+           
             detailsContainer.classList.remove('hidden');
             detailsTitle.textContent = item.title;
             detailsContent.textContent = item.content;
