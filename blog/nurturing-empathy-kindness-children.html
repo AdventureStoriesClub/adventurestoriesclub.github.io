@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Nurturing Tiny Hearts: An Interactive Guide to Empathy & Kindness in Children</title>
+    <title>Nurturing Tiny Hearts: An Interactive Guide to Empathy & Kindness</title>
     <meta name="description" content="Discover practical strategies and the power of wholesome children's stories, like Mr. Downey's Adventures, to cultivate empathy and kindness in your child. A guide for parents and educators.">
-    <meta name="keywords" content="nurturing empathy in children, teaching kindness through stories, children's books about empathy, how to raise kind children, character building for kids, moral development, social-emotional learning, wholesome children's literature, Mr. Downey's Adventures, Katarzyna Anikiej">
+    <meta name="keywords" content="nurturing empathy in children, teaching kindness through stories, children's books about empathy, how to raise kind children, character building for kids, moral development, social-emotional learning, wholesome children's literature, Mr. Downey's Adventures, Katarzyna Anikiej, children's audio guide">
     <link rel="canonical" href="https://adventurestoriesclub.com/blog/nurturing-empathy-kindness-children/">
     
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://adventurestoriesclub.com/blog/nurturing-empathy-kindness-children/">
     <meta property="og:title" content="Nurturing Tiny Hearts: An Interactive Guide to Empathy & Kindness">
     <meta property="og:description" content="Discover practical strategies and the power of wholesome children's stories, like Mr. Downey's Adventures, to cultivate empathy and kindness in your child.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/AdventureStoriesClub/adventurestoriesclub.github.io/main/Adventure%20tory%20club%20logo.png"> <meta property="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://raw.githubusercontent.com/AdventureStoriesClub/adventurestoriesclub.github.io/main/empathy-kindness-blog-thumbnail.jpg"> <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://adventurestoriesclub.com/blog/nurturing-empathy-kindness-children/">
     <meta property="twitter:title" content="Nurturing Tiny Hearts: An Interactive Guide to Empathy & Kindness">
     <meta property="twitter:description" content="Discover practical strategies and the power of wholesome children's stories, like Mr. Downey's Adventures, to cultivate empathy and kindness in your child.">
-    <meta property="twitter:image" content="https://raw.githubusercontent.com/AdventureStoriesClub/adventurestoriesclub.github.io/main/Adventure%20tory%20club%20logo.png"> <script src="https://cdn.tailwindcss.com"></script>
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/AdventureStoriesClub/adventurestoriesclub.github.io/main/empathy-kindness-blog-thumbnail.jpg"> <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,10 +37,26 @@
         .book-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
         .chart-container { position: relative; width: 100%; max-width: 600px; margin-left: auto; margin-right: auto; height: 300px; max-height: 400px; }
         @media (min-width: 768px) { .chart-container { height: 400px; } }
-        /* Added for footer social icons */
+        /* Footer social icons style */
         .social-icons-footer { display: flex; justify-content: center; margin-top: 20px; gap: 20px; }
-        .social-icons-footer a { color: #588157; font-size: 1.8em; transition: transform 0.3s ease, color 0.3s ease; } /* Adjusted color for blog theme */
+        .social-icons-footer a { color: #588157; font-size: 1.8em; transition: transform 0.3s ease, color 0.3s ease; }
         .social-icons-footer a:hover { transform: scale(1.2); color: #A3B18A; }
+        /* Style for the audio player */
+        .audio-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            background-color: #f7f7f7;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .audio-container audio {
+            width: 100%;
+            border-radius: 50px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-top: 1rem;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -48,17 +64,26 @@
     <div class="container mx-auto p-4 md:p-8">
         
         <header class="text-center mb-8 md:mb-12">
-            <a href="https://adventurestoriesclub.com" class="text-[#588157] hover:underline mb-4 inline-block font-semibold">← Back to Adventure Stories Club Home</a>
+            <a href="https://adventurestoriesclub.com/" class="text-[#588157] hover:underline mb-4 inline-block font-semibold">← Back to Adventure Stories Club Home</a>
             <h1 class="text-4xl md:text-5xl font-bold mb-2">Nurturing Tiny Hearts</h1>
             <p class="text-lg md:text-xl text-gray-600 font-serif">An Interactive Guide to Cultivating Empathy and Kindness in Children</p>
         </header>
+
+        <section class="audio-container">
+            <h2 class="text-3xl font-bold mb-3">Listen to Our Guide: Raising Empathetic Kids</h2>
+            <p class="text-gray-700 mb-6 max-w-2xl mx-auto">Enhance your understanding of this topic by listening to our dedicated broadcast on nurturing kindness and resilience through effective communication and stories.</p>
+            <audio controls>
+                <source src="https://github.com/AdventureStoriesClub/adventurestoriesclub.github.io/raw/main/Raising%20Empathetic%20Kids_%20A%20Guide%20to%20Nurturing%20Kindness%20and%20Resilience%20Through%20Understanding%2C%20Action%2C%20and%20Stories.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </section>
 
         <nav class="flex flex-wrap justify-center border-b-2 border-gray-200 mb-8">
             <button class="tab active text-lg py-3 px-6 font-semibold border-b-4" onclick="showTab('why-it-matters')">Why It Matters</button>
             <button class="tab text-lg py-3 px-6 font-semibold border-b-4" onclick="showTab('core-strategies')">Core Strategies</button>
             <button class="tab text-lg py-3 px-6 font-semibold border-b-4" onclick="showTab('power-of-stories')">The Power of Stories</button>
             <button class="tab text-lg py-3 px-6 font-semibold border-b-4" onclick="showTab('case-study')">Mr. Downey's World</button>
-            <button class="tab text-lg py-3 px-6 font-semibold border-b-4" onclick="showTab('audio-broadcast')">Listen to Our Insights</button> </nav>
+        </nav>
 
         <main>
             <section id="why-it-matters" class="content-section active">
@@ -153,24 +178,6 @@
                     </div>
                 </div>
             </section>
-
-            <section id="audio-broadcast" class="content-section">
-                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm text-center">
-                    <h2 class="text-3xl font-bold mb-4">Listen to Our Insights: Beyond the Screen</h2>
-                    <p class="text-gray-700 mb-8 max-w-3xl mx-auto">Tune into our discussion about finding calm and character in children's stories, and why nurturing young minds goes beyond digital media. This broadcast explores the depth and purpose behind our wholesome adventures.</p>
-                    
-                    <audio controls class="w-full max-w-xl mx-auto rounded-full shadow-md">
-                        <source src="https://github.com/AdventureStoriesClub/adventurestoriesclub.github.io/raw/main/Beyond%20the%20Screen_%20Discovering%20Calm%20and%20Character%20in%20Children's%20Stories.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-
-                    <div class="mt-8">
-                        <h3 class="text-2xl font-bold mb-3">Share Your Thoughts!</h3>
-                        <p class="text-gray-600 max-w-xl mx-auto mb-6">We value your input. Share your feedback on this broadcast or suggest future topics for discussion.</p>
-                        <a href="https://adventurestoriesclub.com/#contact" class="inline-block bg-[#588157] text-white py-3 px-6 rounded-full text-lg font-bold hover:bg-[#3A5A40] transition-colors shadow-md">Get In Touch</a>
-                    </div>
-                </div>
-            </section>
         </main>
 
     </div>
@@ -180,7 +187,7 @@
             <div class="social-icons-footer mb-4">
                 <a href="https://www.facebook.com/AdventureStoriesClub" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                 <a href="https://www.instagram.com/adventurestories.club/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.youtube.com/@AdventureStoriesClub" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a> 
+                <a href="YOUR_YOUTUBE_CHANNEL_LINK" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a> 
                 <a href="https://x.com/AdvStoryClub" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
             </div>
             <p>© 2025 Mr. Downey's Adventures. All Rights Reserved.</p>
