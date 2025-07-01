@@ -128,7 +128,8 @@
             <div class="social-icons-footer mb-4">
                 <a href="https://www.facebook.com/AdventureStoriesClub" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                 <a href="https://www.instagram.com/adventurestories.club/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a> <a href="https://x.com/AdvStoryClub" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.youtube.com/@AdventureStoriesClub" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://x.com/AdvStoryClub" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
             </div>
             <p>© 2025 Mr. Downey's Adventures. All Rights Reserved.</p>
             <p>Crafted with love for parents seeking a better kind of story.</p>
@@ -164,7 +165,7 @@
             slug: "wholesome-parenting-childrens-stories", // Make this match your new HTML filename (e.g., wholesome-parenting-childrens-stories.html)
             description: "For young couples navigating modern media, discover how to raise confident, curious, and kind children with non-scary, value-driven stories that foster a love for nature and respect for others.",
             date: "July 2, 2025", // Current date
-            image: "https://raw.githubusercontent.com/AdventureStoriesClub/adventurestoriesclub.github.io/main/wholesome-parenting-thumbnail-placeholder.jpg", // REPLACE THIS URL with your actual thumbnail
+            image: "https://github.com/AdventureStoriesClub/adventurestoriesclub.github.io/raw/main/Wholesome%20Parenting.jpg", // Corrected image URL
             audioLink: "", // Add a link to audio if available for this specific post
             tags: ["Parenting", "Values", "Child Development", "Wholesome Content", "Storytelling"],
             featured: false // Set to true if you want this to replace the current featured article
@@ -179,8 +180,15 @@
         featuredArticleContainer.innerHTML = '';
         blogPostsGrid.innerHTML = '';
 
+        // Ensure featuredPost is the one explicitly marked, or the first if none are marked
         let featuredPost = blogPosts.find(post => post.featured);
-        let otherPosts = blogPosts.filter(post => !post.featured);
+        if (!featuredPost && blogPosts.length > 0) {
+            featuredPost = blogPosts[0]; // Fallback to the very first post if none explicitly featured
+        }
+        
+        // Filter out the featured post from the general grid
+        let otherPosts = blogPosts.filter(post => post !== featuredPost);
+
 
         // Render Featured Article
         if (featuredPost) {
