@@ -66,6 +66,17 @@
             color: #7a7a7a;
             margin-top: 10px;
         }
+        /* Style for audio player within featured card */
+        .featured-audio-player {
+            width: 100%;
+            max-width: 350px; /* Adjust as needed */
+            margin-top: 1rem;
+            border-radius: 50px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: block; /* Ensures centering */
+            margin-left: auto;
+            margin-right: auto;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -135,7 +146,8 @@
                 description: "Discover practical strategies and the power of wholesome children's stories, like Mr. Downey's Adventures, to cultivate empathy and kindness in your child. This guide is packed with actionable advice and insights from Katarzyna Anikiej's unique approach.",
                 date: "July 1, 2025",
                 image: "https://raw.githubusercontent.com/AdventureStoriesClub/adventurestoriesclub.github.io/main/empathy-kindness-blog-thumbnail.jpg", // REPLACE with your actual thumbnail URL
-                audioLink: "https://github.com/AdventureStoriesClub/adventurestoriesclub.github.io/raw/main/Beyond%20the%20Screen_%20Discovering%20Calm%20and%20Character%20in%20Children's%20Stories.mp3", // Link to the audio if relevant
+                // *** UPDATED AUDIO LINK FOR THE FEATURED BLOG POST ***
+                audioLink: "https://github.com/AdventureStoriesClub/adventurestoriesclub.github.io/raw/main/Raising%20Empathetic%20Kids_%20A%20Guide%20to%20Nurturing%20Kindness%20and%20Resilience%20Through%20Understanding%2C%20Action%2C%20and%20Stories.mp3",
                 tags: ["Empathy", "Kindness", "Parenting", "Values", "Character Building"],
                 featured: true // Set to true if this should be the featured article
             },
@@ -189,7 +201,7 @@
                         <a href="https://adventurestoriesclub.com/blog/${featuredPost.slug}.html" class="inline-block bg-[#588157] text-white py-2 px-5 rounded-full hover:bg-[#3A5A40] transition-colors font-semibold">Read Article →</a>
                         ${featuredPost.audioLink ? `
                         <div class="mt-4">
-                            <audio controls class="w-full max-w-sm mx-auto rounded-full shadow-sm">
+                            <audio controls class="featured-audio-player">
                                 <source src="${featuredPost.audioLink}" type="audio/mpeg">
                                 Your browser does not support the audio element.
                             </audio>
