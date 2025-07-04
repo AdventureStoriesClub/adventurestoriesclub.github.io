@@ -84,7 +84,7 @@
     <div class="container mx-auto p-4 md:p-8">
         
         <header class="text-center mb-8 md:mb-12">
-            <a href="https://adventurestoriesclub.com/" class="text-[#588157] hover:underline mb-4 inline-block font-semibold">← Back to Adventure Stories Club Home</a>
+            <a href="/" class="text-[#588157] hover:underline mb-4 inline-block font-semibold">← Back to Adventure Stories Club Home</a>
             <h1 class="text-4xl md:text-5xl font-bold mb-2">The Adventure Stories Club Blog</h1>
             <p class="text-lg md:text-xl text-gray-600 font-serif">Insights, Inspiration & Interactive Guides for Parents & Educators</p>
         </header>
@@ -201,7 +201,7 @@
                     <div class="flex flex-wrap gap-2 mb-4">
                         ${featuredPost.tags.map(tag => `<span class="bg-[#D4E8D5] text-[#3A5A40] text-xs font-semibold px-2.5 py-0.5 rounded-full">${tag}</span>`).join('')}
                     </div>
-                    <a href="https://adventurestoriesclub.com/blog/${featuredPost.slug}.html" class="inline-block bg-[#588157] text-white py-2 px-5 rounded-full hover:bg-[#3A5A40] transition-colors font-semibold">Read Article →</a>
+                    <a href="/blog/${featuredPost.slug}.html" class="inline-block bg-[#588157] text-white py-2 px-5 rounded-full hover:bg-[#3A5A40] transition-colors font-semibold">Read Article →</a>
                     ${featuredPost.audioLink ? `
                     <div class="mt-4">
                         <audio controls class="featured-audio-player">
@@ -225,7 +225,7 @@
                     <div class="flex flex-wrap gap-2 mb-4">
                         ${post.tags.map(tag => `<span class="bg-[#D4E8D5] text-[#3A5A40] text-xs font-semibold px-2.5 py-0.5 rounded-full">${tag}</span>`).join('')}
                     </div>
-                    <a href="https://adventurestoriesclub.com/blog/${post.slug}.html" class="inline-block bg-gray-100 text-[#588157] py-2 px-4 rounded-full hover:bg-gray-200 transition-colors font-semibold self-start">Read More →</a>
+                    <a href="/blog/${post.slug}.html" class="inline-block bg-gray-100 text-[#588157] py-2 px-4 rounded-full hover:bg-gray-200 transition-colors font-semibold self-start">Read More →</a>
                     ${post.audioLink ? `
                     <div class="mt-4">
                         <audio controls class="w-full rounded-full shadow-sm">
