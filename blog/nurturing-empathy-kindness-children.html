@@ -39,16 +39,16 @@
             background-position: center center;
         }
         h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Playfair Display', serif; /* Matched to main page */
             color: #4A4A4A;
         }
         .nav-link {
             transition: color 0.3s ease;
         }
-        .nav-link:hover, .nav-link.active {
+        .nav-link.active, .nav-link:hover {
             color: #C77855; /* Terracotta Accent */
         }
-        .tab-nav-link {
+        .tab-nav-link { /* Class for the tab navigation on this page */
             transition: color 0.3s, border-color 0.3s;
             border-bottom: 2px solid transparent;
         }
@@ -100,7 +100,7 @@
                 <h1 class="text-4xl md:text-5xl font-bold mb-4">Nurturing Tiny Hearts</h1>
                 <div class="mb-8 text-center">
                     <a href="https://adventurestoriesclub.com/" class="inline-block bg-white text-[#C77855] border border-[#C77855] py-2 px-6 rounded-full font-bold hover:bg-[#C77855] hover:text-white transition-colors shadow-sm hover:shadow-md">
-                        ← Back to Main Page
+                        &#x2190; Back to Main Page
                     </a>
                 </div>
                 <p class="text-lg md:text-xl text-gray-600">An Interactive Guide to Cultivating Empathy and Kindness in Children</p>
@@ -218,7 +218,6 @@
     </footer>
 
     <script>
-<script>
         // Data and functions for interactive elements
         const accordionData = [
             { title: "Model Empathetic Behavior", content: "Children learn by watching. Consistently demonstrate empathy in your own interactions, especially during challenging moments. When you model understanding and compassion, even when frustrated, you teach them that empathy is a universal tool. The more children receive empathy, the more likely they are to offer it to others.", icon: "❤️" },
@@ -227,21 +226,19 @@
             { title: "Respect Diversity & Boundaries", content: "Expose children to diverse people, cultures, and perspectives through real-world interactions and stories. Crucially, also teach them to respect their own boundaries by giving them the words to say 'no' to unwanted contact. Modeling respect for their boundaries teaches them to respect others'.", icon: "🌍" },
             { title: "Practice Active Listening", content: "Teach children the power of truly listening. This means paying attention not just to words, but to body language and tone. Ask questions about how characters in stories might be feeling based on how they are acting. This deepens their understanding of others' perspectives and improves communication.", icon: "👂" }
         ];
-        
-        // CORRECTED: Book data now uses the main site's color palette
         const bookData = [
-            { title: "The Invisible Boy", theme: "Inclusion", color: "bg-[#F5EAE1]" }, 
-            { title: "Be Kind", theme: "Kindness", color: "bg-[#F5EAE1]" }, 
-            { title: "Charlotte's Web", theme: "Friendship", color: "bg-[#F5EAE1]" }, 
-            { title: "A Sick Day for Amos McGee", theme: "Kindness", color: "bg-[#F5EAE1]" }, 
-            { title: "The Rabbit Listened", theme: "Emotions", color: "bg-[#F5EAE1]" }, 
-            { title: "Last Stop on Market Street", theme: "Kindness", color: "bg-[#F5EAE1]" }, 
-            { title: "Each Kindness", theme: "Inclusion", color: "bg-[#F5EAE1]" }, 
-            { title: "Wonder", theme: "Inclusion", color: "bg-[#F5EAE1]" }, 
-            { title: "When Sophie Gets Angry...", theme: "Emotions", color: "bg-[#F5EAE1]" }, 
-            { title: "Enemy Pie", theme: "Friendship", color: "bg-[#F5EAE1]" }, 
-            { title: "I Am Human", theme: "Empathy", color: "bg-[#F5EAE1]" }, 
-            { title: "Those Shoes", theme: "Kindness", color: "bg-[#F5EAE1]" }
+            { title: "The Invisible Boy", theme: "Inclusion", color: "bg-[#F5EAE1] border border-gray-200" }, 
+            { title: "Be Kind", theme: "Kindness", color: "bg-[#F5EAE1] border border-gray-200" }, 
+            { title: "Charlotte's Web", theme: "Friendship", color: "bg-[#F5EAE1] border border-gray-200" }, 
+            { title: "A Sick Day for Amos McGee", theme: "Kindness", color: "bg-[#F5EAE1] border border-gray-200" }, 
+            { title: "The Rabbit Listened", theme: "Emotions", color: "bg-[#F5EAE1] border border-gray-200" }, 
+            { title: "Last Stop on Market Street", theme: "Kindness", color: "bg-[#F5EAE1] border border-gray-200" }, 
+            { title: "Each Kindness", theme: "Inclusion", color: "bg-[#F5EAE1] border border-gray-200" }, 
+            { title: "Wonder", theme: "Inclusion", color: "bg-[#F5EAE1] border border-gray-200" }, 
+            { title: "When Sophie Gets Angry...", theme: "Emotions", color: "bg-[#F5EAE1] border border-gray-200" }, 
+            { title: "Enemy Pie", theme: "Friendship", color: "bg-[#F5EAE1] border border-gray-200" }, 
+            { title: "I Am Human", theme: "Empathy", color: "bg-[#F5EAE1] border border-gray-200" }, 
+            { title: "Those Shoes", theme: "Kindness", color: "bg-[#F5EAE1] border border-gray-200" }
         ];
 
         // Functions to control the UI
@@ -293,7 +290,6 @@
         function setupChart() {
             const ctx = document.getElementById('bookThemeChart');
             if (!ctx) return;
-            // CORRECTED: Chart data now uses the main site's color palette
             new Chart(ctx.getContext('2d'), {
                 type: 'radar',
                 data: {
@@ -309,8 +305,10 @@
         }
         document.addEventListener('DOMContentLoaded', () => {
              document.querySelectorAll('.tab-nav-link').forEach(tab => {
-                tab.addEventListener('click', () => showTab(tab.dataset.target));
+                tab.addEventListener('click', (e) => showTab(e.currentTarget.dataset.target));
             });
             setupAccordion(); renderBooks(); setupChart(); showTab('why-it-matters');
         });
     </script>
+</body>
+</html>
