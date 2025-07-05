@@ -45,23 +45,26 @@
         .nav-link {
             transition: color 0.3s ease;
         }
-        .nav-link:hover, .nav-link.active {
-            color: #C77855; /* Terracotta Accent */
+        .nav-link.active { /* This style is for the main header nav */
+             color: #C77855;
         }
-        .social-icons-footer { display: flex; justify-content: center; margin-top: 20px; gap: 20px; }
-        .social-icons-footer a { color: white; font-size: 1.8em; transition: transform 0.3s ease, color 0.3s ease; }
-        .social-icons-footer a:hover { transform: scale(1.2); color: #F5EAE1; }
-        
-        /* Specific styles for this blog page, using the brand palette */
-        .tab { transition: all 0.3s ease; }
-        .tab.active { border-color: #C77855; color: #C77855; background-color: #F5EAE1; }
-        .tab:not(.active) { border-color: transparent; }
+         .tab-nav-link { /* New class for the tab navigation on this page */
+            transition: color 0.3s, border-color 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+        .tab-nav-link.active, .tab-nav-link:hover {
+            color: #C77855; /* Terracotta Accent */
+            border-bottom-color: #C77855;
+        }
         .content-section { display: none; }
         .content-section.active { display: block; }
         .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out; }
         .book-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
         .chart-container { position: relative; width: 100%; max-width: 600px; margin-left: auto; margin-right: auto; height: 300px; max-height: 400px; }
         @media (min-width: 768px) { .chart-container { height: 400px; } }
+        .social-icons-footer { display: flex; justify-content: center; margin-top: 20px; gap: 20px; }
+        .social-icons-footer a { color: white; font-size: 1.8em; transition: transform 0.3s ease, color 0.3s ease; }
+        .social-icons-footer a:hover { transform: scale(1.2); color: #F5EAE1; }
         audio {
             width: 100%;
             max-width: 500px;
@@ -90,7 +93,6 @@
             <a href="/#adventures" class="hidden md:block bg-[#C77855] text-white py-2 px-4 rounded-full hover:bg-[#b36a49] transition-colors">Get The Books</a>
         </nav>
     </header>
-
     <main>
         <section class="py-16 md:py-24 bg-white/90 shadow-lg rounded-lg mx-auto max-w-4xl my-8 px-6">
             
@@ -105,11 +107,11 @@
             </header>
 
             <nav class="flex flex-wrap justify-center border-b-2 border-gray-200 mb-8">
-                <button class="tab active text-lg py-3 px-6 font-semibold border-b-4" onclick="showTab('why-it-matters')">Why It Matters</button>
-                <button class="tab text-lg py-3 px-6 font-semibold border-b-4" onclick="showTab('core-strategies')">Core Strategies</button>
-                <button class="tab text-lg py-3 px-6 font-semibold border-b-4" onclick="showTab('power-of-stories')">The Power of Stories</button>
-                <button class="tab text-lg py-3 px-6 font-semibold border-b-4" onclick="showTab('case-study')">Mr. Downey's World</button>
-                <button class="tab text-lg py-3 px-6 font-semibold border-b-4" onclick="showTab('audio-broadcast')">Listen to Our Insights</button>
+                <button class="tab-nav-link active text-lg py-3 px-6 font-semibold" data-target="why-it-matters">Why It Matters</button>
+                <button class="tab-nav-link text-lg py-3 px-6 font-semibold" data-target="core-strategies">Core Strategies</button>
+                <button class="tab-nav-link text-lg py-3 px-6 font-semibold" data-target="power-of-stories">The Power of Stories</button>
+                <button class="tab-nav-link text-lg py-3 px-6 font-semibold" data-target="case-study">Mr. Downey's World</button>
+                <button class="tab-nav-link text-lg py-3 px-6 font-semibold" data-target="audio-broadcast">Listen to Our Insights</button>
             </nav>
 
             <div id="why-it-matters" class="content-section active">
@@ -127,9 +129,9 @@
                             <p class="text-gray-700">Kindness is empathy in action. It's the tangible prosocial behavior that stems from understanding and caring for others. Fostering kindness helps children build strong friendships, resolve conflicts peacefully, and develop a sense of responsibility.</p>
                         </div>
                     </div>
-                     <div class="mt-8 text-center p-6 bg-amber-50 rounded-xl">
-                         <h3 class="text-2xl font-bold text-amber-800 mb-2">A Lifelong Advantage</h3>
-                         <p class="text-amber-700">Children strong in empathy and kindness demonstrate superior communication, better problem-solving skills, and greater resilience. These skills are a critical investment in their future well-being, leading to more successful careers and the ability to adapt to diverse environments.</p>
+                     <div class="mt-8 text-center p-6 bg-[#F5EAE1] rounded-xl">
+                         <h3 class="text-2xl font-bold text-[#8A6F5C] mb-2">A Lifelong Advantage</h3>
+                         <p class="text-[#8A6F5C]">Children strong in empathy and kindness demonstrate superior communication, better problem-solving skills, and greater resilience. These skills are a critical investment in their future well-being.</p>
                      </div>
                 </div>
             </div>
@@ -138,9 +140,7 @@
                  <div class="p-6 md:p-8 rounded-2xl">
                     <h2 class="text-3xl font-bold mb-4 text-center">Practical Ways to Cultivate Kindness</h2>
                     <p class="text-gray-700 mb-8 max-w-3xl mx-auto text-center">Nurturing empathy requires intentional, consistent effort. These core strategies provide a roadmap for parents and educators to foster these essential skills in daily life. Click on each strategy to learn more.</p>
-                    
-                    <div id="accordion-container" class="space-y-4 max-w-4xl mx-auto">
-                        </div>
+                    <div id="accordion-container" class="space-y-4 max-w-4xl mx-auto"></div>
                 </div>
             </div>
 
@@ -157,15 +157,12 @@
                         <button class="filter-btn bg-gray-200 text-gray-700 py-2 px-4 rounded-full" onclick="filterBooks('Emotions')">Managing Emotions</button>
                     </div>
 
-                    <div id="book-shelf" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                        </div>
+                    <div id="book-shelf" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"></div>
 
                     <div class="mt-12">
                         <h3 class="text-2xl font-bold text-center mb-4">Visualizing Book Themes</h3>
                         <p class="text-gray-700 mb-6 max-w-3xl mx-auto text-center">Use this chart to visually compare how different books focus on key emotional themes. This can help you select the perfect story to address specific learning goals with your child.</p>
-                        <div class="chart-container">
-                            <canvas id="bookThemeChart"></canvas>
-                        </div>
+                        <div class="chart-container"><canvas id="bookThemeChart"></canvas></div>
                     </div>
                 </div>
             </div>
@@ -176,42 +173,25 @@
                     <p class="mb-8 max-w-3xl mx-auto text-center text-gray-700">The *Mr. Downey's Adventures* series, created by Katarzyna Anikiej with her background in psychology, is a prime example of intentionally crafting literature to nurture positive values in children.</p>
                     
                     <div class="grid md:grid-cols-3 gap-6">
-                        <div class="bg-white/80 p-6 rounded-xl text-center shadow-sm">
-                            <h3 class="text-2xl font-semibold mb-2">Wholesome & Grounded</h3>
-                            <p>The stories provide a "safe, calming space" by avoiding overly dark themes or excessive magic, offering a grounded alternative that feels both wondrous and relatable.</p>
-                        </div>
-                        <div class="bg-white/80 p-6 rounded-xl text-center shadow-sm">
-                            <h3 class="text-2xl font-semibold mb-2">Purposeful & Positive</h3>
-                            <p>Each adventure is designed to weave in essential life lessons about friendship, bravery, teamwork, and conservation, instilling universal values without hidden agendas.</p>
-                        </div>
-                        <div class="bg-white/80 p-6 rounded-xl text-center shadow-sm">
-                            <h3 class="text-2xl font-semibold mb-2">Celebrates Nature</h3>
-                            <p>In a digital world, these books encourage children to "look up and wonder," fostering a deep appreciation for the outdoors, animals, and the joy of exploration.</p>
-                        </div>
+                        <div class="bg-white/80 p-6 rounded-xl text-center shadow-sm"><h3 class="text-2xl font-semibold mb-2">Wholesome & Grounded</h3><p>The stories provide a "safe, calming space" by avoiding overly dark themes or excessive magic, offering a grounded alternative that feels both wondrous and relatable.</p></div>
+                        <div class="bg-white/80 p-6 rounded-xl text-center shadow-sm"><h3 class="text-2xl font-semibold mb-2">Purposeful & Positive</h3><p>Each adventure is designed to weave in essential life lessons about friendship, bravery, teamwork, and conservation, instilling universal values without hidden agendas.</p></div>
+                        <div class="bg-white/80 p-6 rounded-xl text-center shadow-sm"><h3 class="text-2xl font-semibold mb-2">Celebrates Nature</h3><p>In a digital world, these books encourage children to "look up and wonder," fostering a deep appreciation for the outdoors, animals, and the joy of exploration.</p></div>
                     </div>
 
                     <div class="mt-8 grid md:grid-cols-2 gap-6">
-                        <div class="bg-white p-6 rounded-xl shadow-sm">
-                            <h3 class="text-2xl font-semibold mb-2">Mr. Downey's Forest Adventure</h3>
-                            <p>Follow Mr. Downey as he meets Lizzy the lizard and Benny the bunny. This story focuses on the core themes of <strong class="text-[#8A6F5C]">friendship</strong>, <strong class="text-[#8A6F5C]">bravery</strong>, and the joy of exploring nature with new companions.</p>
-                            <a href="https://www.amazon.com/dp/B0CZFBV6LZ" target="_blank" rel="noopener noreferrer" class="text-[#C77855] hover:underline text-sm mt-2 block font-semibold">Find on Amazon →</a>
-                        </div>
-                        <div class="bg-white p-6 rounded-xl shadow-sm">
-                            <h3 class="text-2xl font-semibold mb-2">Mr. Downey's River Adventure</h3>
-                            <p>Join Mr. Downey, Shelly the wise turtle, and Otis the playful otter on a journey down the river. This tale emphasizes <strong class="text-[#8A6F5C]">teamwork</strong>, <strong class="text-[#8A6F5C]">discovery</strong>, and nurturing a sense of <strong class="text-[#8A6F5C]">curiosity</strong>.</p>
-                            <a href="https://www.amazon.com/dp/B0D74281J2" target="_blank" rel="noopener noreferrer" class="text-[#C77855] hover:underline text-sm mt-2 block font-semibold">Find on Amazon →</a>
-                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-sm"><h3 class="text-2xl font-semibold mb-2">Mr. Downey's Forest Adventure</h3><p>Follow Mr. Downey as he meets Lizzy the lizard and Benny the bunny. This story focuses on the core themes of <strong class="text-[#8A6F5C]">friendship</strong>, <strong class="text-[#8A6F5C]">bravery</strong>, and the joy of exploring nature with new companions.</p><a href="https://www.amazon.com/dp/B0CZFBV6LZ" target="_blank" rel="noopener noreferrer" class="text-[#C77855] hover:underline text-sm mt-2 block font-semibold">Find on Amazon →</a></div>
+                        <div class="bg-white p-6 rounded-xl shadow-sm"><h3 class="text-2xl font-semibold mb-2">Mr. Downey's River Adventure</h3><p>Join Mr. Downey, Shelly the wise turtle, and Otis the playful otter on a journey down the river. This tale emphasizes <strong class="text-[#8A6F5C]">teamwork</strong>, <strong class="text-[#8A6F5C]">discovery</strong>, and nurturing a sense of <strong class="text-[#8A6F5C]">curiosity</strong>.</p><a href="https://www.amazon.com/dp/B0D74281J2" target="_blank" rel="noopener noreferrer" class="text-[#C77855] hover:underline text-sm mt-2 block font-semibold">Find on Amazon →</a></div>
                     </div>
                 </div>
             </div>
 
             <div id="audio-broadcast" class="content-section">
                 <div class="p-6 md:p-8 rounded-2xl text-center">
-                    <h2 class="text-3xl font-bold mb-4">Listen to Our Insights: Beyond the Screen</h2>
+                    <h2 class="text-3xl font-bold mb-4">Listen to Our Insights</h2>
                     <p class="text-gray-700 mb-8 max-w-3xl mx-auto">Tune into our discussion about finding calm and character in children's stories, and why nurturing young minds goes beyond digital media. This broadcast explores the depth and purpose behind our wholesome adventures.</p>
                     
                     <audio controls preload="none" class="mx-auto">
-                        <source src="https://github.com/AdventureStoriesClub/adventurestoriesclub.github.io/raw/main/Raising%20Empathetic%20Kids_%20A%20Guide%20to%20Nurturing%20Kindness%20and%20Resilience%20Through%20Understanding%2C%20Action%2C%20and%20Stories.mp3" type="audio/mpeg">
+                        <source src="https://github.com/AdventureStoriesClub/adventurestoriesclub.github.io/raw/main/Nurturing%20Empathy_%20How%20Stories%20and%20Simple%20Practices%20Build%20Compassionate%20Kids.mp3" type="audio/mpeg">
                         Your browser does not support the audio element.
                     </audio>
 
@@ -224,7 +204,6 @@
             </div>
         </section>
     </main>
-
     <footer class="bg-[#8A6F5C] text-white py-10">
         <div class="container mx-auto px-6 text-center text-sm">
             <div class="social-icons-footer mb-4">
@@ -253,8 +232,8 @@
 
         // Functions to control the UI
         function showTab(tabName) {
-            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            document.querySelector(`.tab[onclick="showTab('${tabName}')"]`).classList.add('active');
+            document.querySelectorAll('.tab-nav-link').forEach(t => t.classList.remove('active'));
+            document.querySelector(`.tab-nav-link[data-target="${tabName}"]`).classList.add('active');
             document.querySelectorAll('.content-section').forEach(s => s.id === tabName ? s.classList.add('active') : s.classList.remove('active'));
         }
         function setupAccordion() {
@@ -304,12 +283,15 @@
                 type: 'radar',
                 data: {
                     labels: ['Kindness', 'Inclusion', 'Friendship', 'Emotions', 'Empathy'],
-                    datasets: [ { label: 'Be Kind', data: [5, 2, 3, 2, 4], backgroundColor: 'rgba(251, 146, 155, 0.2)', borderColor: 'rgb(251, 146, 155)' }, { label: 'The Invisible Boy', data: [4, 5, 2, 2, 4], backgroundColor: 'rgba(129, 202, 243, 0.2)', borderColor: 'rgb(129, 202, 243)' }, { label: 'The Rabbit Listened', data: [3, 1, 4, 5, 5], backgroundColor: 'rgba(165, 180, 252, 0.2)', borderColor: 'rgb(165, 180, 252)' } ]
+                    datasets: [ { label: 'Be Kind', data: [5, 2, 3, 2, 4], backgroundColor: 'rgba(199, 120, 85, 0.2)', borderColor: '#C77855' }, { label: 'The Invisible Boy', data: [4, 5, 2, 2, 4], backgroundColor: 'rgba(138, 111, 92, 0.2)', borderColor: '#8A6F5C' }, { label: 'The Rabbit Listened', data: [3, 1, 4, 5, 5], backgroundColor: 'rgba(74, 74, 74, 0.2)', borderColor: '#4A4A4A' } ]
                 },
                 options: { responsive: true, maintainAspectRatio: false }
             });
         }
         document.addEventListener('DOMContentLoaded', () => {
+             document.querySelectorAll('.tab-nav-link').forEach(tab => {
+                tab.addEventListener('click', () => showTab(tab.dataset.target));
+            });
             setupAccordion(); renderBooks(); setupChart(); showTab('why-it-matters');
         });
     </script>
