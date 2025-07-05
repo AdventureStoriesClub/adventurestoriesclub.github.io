@@ -1,525 +1,270 @@
 <!DOCTYPE html>
-
 <html lang="en" class="scroll-smooth">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    
-
-    <title>Adventure Stories Club Blog: Insights for Parents & Educators</title>
-
-    <meta name="description" content="Explore the Adventure Stories Club blog for articles on nurturing empathy, fostering a love for nature, character building, and the power of wholesome children's literature by Katarzyna Anikiej.">
-
-    <meta name="keywords" content="children's book blog, parenting tips, kids education, empathy for kids, nature activities, character development, wholesome stories, Katarzyna Anikiej blog, Mr. Downey blog, family reading blog, screen time alternatives">
-
-    <link rel="canonical" href="https://adventurestoriesclub.com/blog/index.html">
-
-    
-
-    <meta property="og:type" content="website">
-
-    <meta property="og:url" content="https://adventurestoriesclub.com/blog/index.html">
-
-    <meta property="og:title" content="Adventure Stories Club Blog: Insights for Parents & Educators">
-
-    <meta property="og:description" content="Explore articles on empathy, nature, character building, and wholesome children's literature.">
-
-    <meta property="og:image" content="https://raw.githubusercontent.com/AdventureStoriesClub/adventurestoriesclub.github.io/main/Adventure%20tory%20club%20logo.png">
-
-
-
-    <meta property="twitter:card" content="summary_large_image">
-
-    <meta property="twitter:url" content="https://adventurestoriesclub.com/blog/index.html">
-
-    <meta property="twitter:title" content="Adventure Stories Club Blog: Insights for Parents & Educators">
-
-    <meta property="twitter:description" content="Explore articles on empathy, nature, character building, and wholesome children's literature.">
-
-    <meta property="twitter:image" content="https://raw.githubusercontent.com/AdventureStoriesClub/adventurestoriesclub.github.io/main/Adventure%20tory%20club%20logo.png">
-
-
-
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    
-
-    <style>
-
-        body {
-
-            font-family: 'Inter', sans-serif;
-
-            background-color: #FDFBF8; /* Warm White */
-
-            color: #4A4A4A; /* Dark Gray */
-
-            background-image: url('https://raw.githubusercontent.com/AdventureStoriesClub/adventurestoriesclub.github.io/main/The%20website%20background%20image.webp');
-
-            background-size: cover;
-
-            background-attachment: fixed;
-
-            background-repeat: no-repeat;
-
-            background-position: center center;
-
-        }
-
-        h1, h2, h3, h4 {
-
-            font-family: 'Playfair Display', serif; /* Matched to main page */
-
-            color: #4A4A4A; 
-
-        }
-
-        .nav-link {
-
-            transition: color 0.3s ease;
-
-        }
-
-        .nav-link:hover, .nav-link.active {
-
-            color: #C77855; /* Terracotta Accent */
-
-        }
-
-        .blog-card { 
-
-            transition: transform 0.3s ease, box-shadow 0.3s ease; 
-
-        }
-
-        .blog-card:hover { 
-
-            transform: translateY(-5px); 
-
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); 
-
-        }
-
-        .social-icons-footer { 
-
-            display: flex; 
-
-            justify-content: center; 
-
-            margin-top: 20px; 
-
-            gap: 20px; 
-
-        }
-
-        .social-icons-footer a { 
-
-            color: white; /* Matched to main page */
-
-            font-size: 1.8em; 
-
-            transition: transform 0.3s ease, color 0.3s ease; 
-
-        }
-
-        .social-icons-footer a:hover { 
-
-            transform: scale(1.2); 
-
-            color: #F5EAE1; /* Lighter beige from main page */
-
-        }
-
-        #email-capture button {
-
-            background-color: #C77855; /* Terracotta from main page */
-
-        }
-
-        #email-capture button:hover {
-
-            background-color: #b36a49; /* Darker Terracotta from main page */
-
-        }
-
-        audio {
-
-            width: 100%;
-
-            max-width: 350px;
-
-            margin-top: 1rem;
-
-            border-radius: 50px;
-
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-
-            display: block;
-
-            margin-left: auto;
-
-            margin-right: auto;
-
-        }
-
-    </style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Adventure Stories Club Blog: Insights for Parents & Educators</title>
+    <meta name="description" content="Explore the Adventure Stories Club blog for articles on nurturing empathy, fostering a love for nature, character building, and the power of wholesome children's literature by Katarzyna Anikiej.">
+    <meta name="keywords" content="children's book blog, parenting tips, kids education, empathy for kids, nature activities, character development, wholesome stories, Katarzyna Anikiej blog, Mr. Downey blog, family reading blog, screen time alternatives">
+    <link rel="canonical" href="https://adventurestoriesclub.com/blog/index.html">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adventurestoriesclub.com/blog/index.html">
+    <meta property="og:title" content="Adventure Stories Club Blog: Insights for Parents & Educators">
+    <meta property="og:description" content="Explore articles on empathy, nature, character building, and wholesome children's literature.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/AdventureStoriesClub/adventurestoriesclub.github.io/main/Adventure%20tory%20club%20logo.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://adventurestoriesclub.com/blog/index.html">
+    <meta property="twitter:title" content="Adventure Stories Club Blog: Insights for Parents & Educators">
+    <meta property="twitter:description" content="Explore articles on empathy, nature, character building, and wholesome children's literature.">
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/AdventureStoriesClub/adventurestoriesclub.github.io/main/Adventure%20tory%20club%20logo.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8; /* Warm White */
+            color: #4A4A4A; /* Dark Gray */
+            background-image: url('https://raw.githubusercontent.com/AdventureStoriesClub/adventurestoriesclub.github.io/main/The%20website%20background%20image.webp');
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: #4A4A4A; 
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #C77855; /* Terracotta Accent */
+        }
+        .blog-card { 
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+        }
+        .blog-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); 
+        }
+        .social-icons-footer { 
+            display: flex; 
+            justify-content: center; 
+            margin-top: 20px; 
+            gap: 20px; 
+        }
+        .social-icons-footer a { 
+            color: white; 
+            font-size: 1.8em; 
+            transition: transform 0.3s ease, color 0.3s ease; 
+        }
+        .social-icons-footer a:hover { 
+            transform: scale(1.2); 
+            color: #F5EAE1; /* Lighter beige from main page */
+        }
+        /* Email form styles updated to match brand */
+        #email-capture {
+            background-color: #8A6F5C; /* Soft Brown */
+        }
+        #email-capture input[type="email"],
+        #email-capture input[type="text"] {
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        #email-capture button {
+            background-color: #C77855; /* Terracotta */
+        }
+        #email-capture button:hover {
+            background-color: #b36a49; /* Darker Terracotta */
+        }
+        audio {
+            width: 100%;
+            max-width: 350px;
+            margin-top: 1rem;
+            border-radius: 50px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 </head>
-
 <body class="antialiased">
 
-
-
-    <header id="header" class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
-
-        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-
-            <a href="https://adventurestoriesclub.com/" class="flex items-center space-x-2">
-
-                <img src="https://raw.githubusercontent.com/AdventureStoriesClub/adventurestoriesclub.github.io/main/Adventure%20tory%20club%20logo.webp" alt="Adventure Stories Club Logo" class="h-10 w-auto rounded-full">
-
-                <span class="text-2xl font-bold text-gray-800" style="font-family: 'Playfair Display', serif;">Adventure Stories Club</span>
-
-            </a>
-
-            <div class="hidden md:flex space-x-8">
-
-                <a href="/#why" class="nav-link text-gray-600">The Why</a>
-
-                <a href="/#about" class="nav-link text-gray-600">About Us</a>
-
-                <a href="/#adventures" class="nav-link text-gray-600">The Adventures</a>
-
-                <a href="/#author-section" class="nav-link text-gray-600">Author</a>
-
-                <a href="/blog/index.html" class="nav-link font-semibold text-[#C77855] hover:text-[#b36a49] transition-colors">Blog Index</a>
-
-                <a href="/#contact" class="nav-link text-gray-600">Contact Us</a>
-
-            </div>
-
-            <a href="/#adventures" class="hidden md:block bg-[#C77855] text-white py-2 px-4 rounded-full hover:bg-[#b36a49] transition-colors">Get The Books</a>
-
-        </nav>
-
-    </header>
-
-
-
-    <main>
-
-        <section class="py-16 md:py-24 bg-white/90 shadow-lg rounded-lg mx-auto max-w-4xl my-8 px-6">
-
-            <div class="text-center mb-8 md:mb-12">
-
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">The Adventure Stories Club Blog</h1>
-
-                <div class="mb-8 text-center">
-
-                    <a href="https://adventurestoriesclub.com/" class="inline-block bg-white text-[#C77855] border border-[#C77855] py-2 px-6 rounded-full font-bold hover:bg-[#C77855] hover:text-white transition-colors shadow-sm hover:shadow-md">
-
-                        &#x2190; Back to Main Page
-
-                    </a>
-
-                </div>
-
-                <p class="text-lg md:text-xl text-gray-600">Insights, Inspiration & Interactive Guides for Parents & Educators</p>
-
-            </div>
-
-
-
-            <div class="mb-12">
-
-                <h2 class="text-3xl font-bold mb-6 text-center">Our Latest Insights</h2>
-
-                <div id="featured-article" class="bg-gradient-to-br from-[#F5EAE1] to-white p-6 md:p-8 rounded-2xl shadow-lg flex flex-col md:flex-row items-center gap-6">
-
-                    </div>
-
-            </div>
-
-
-
-            <div class="mb-12">
-
-                <h2 class="text-3xl font-bold mb-6 text-center">All Articles</h2>
-
-                <div id="blog-posts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                    </div>
-
-            </div>
-
-
-
-            <section id="email-capture" class="bg-[#8A6F5C] text-white p-8 md:p-12 rounded-2xl shadow-xl text-center max-w-4xl mx-auto my-12">
-
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 !text-white">Unlock Your Free Guide!</h2>
-
-                <p class="text-lg mb-6 text-gray-100">Want more practical tips on nurturing values and inspiring adventure in your child? Download our exclusive PDF: "5 Wholesome Habits for Compassionate Kids."</p>
-
-                
-
-                <form action="YOUR_NEW_FORMSPREE_ENDPOINT_FOR_BLOG_OPTIN_HERE" method="POST" class="max-w-md mx-auto">
-
-                    <label for="name" class="sr-only">Your Name</label>
-
-                    <input type="text" id="name" name="name" placeholder="Your Name" required class="w-full p-3 mb-4 border rounded-lg">
-
-
-
-                    <label for="email" class="sr-only">Your Email</label>
-
-                    <input type="email" id="email" name="_replyto" placeholder="Your Email Address" required class="w-full p-3 mb-4 border rounded-lg">
-
-                    
-
-                    <button type="submit" class="w-full bg-[#C77855] hover:bg-[#b36a49] text-white py-3 px-6 rounded-full font-bold transition-colors">Download Now</button>
-
-                    <p class="text-sm mt-4 text-gray-200">By downloading, you agree to receive occasional updates from Adventure Stories Club.</p>
-
-                    <input type="hidden" name="_subject" value="New Blog Lead: Free Guide Download!">
-
-                </form>
-
-            </section>
-
-        </section>
-
-    </main>
-
-
-
-    <footer class="bg-[#8A6F5C] text-white py-10">
-
-        <div class="container mx-auto px-6 text-center text-sm">
-
-            <div class="social-icons-footer mb-4">
-
-                <a href="https://www.facebook.com/AdventureStoriesClub" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-
-                <a href="https://www.instagram.com/adventurestories.club/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-
-                <a href="https://www.youtube.com/@AdventureStoriesClub" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-
-                <a href="https://x.com/AdvStoryClub" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-
-            </div>
-
-            <p>© 2024 Adventure Stories Club. All Rights Reserved.</p>
-
-            <p>Crafted with love for parents seeking a better kind of story.</p>
-
-        </div>
-
-    </footer>
-
-
+    <header id="header" class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="https://adventurestoriesclub.com/" class="flex items-center space-x-2">
+                <img src="https://raw.githubusercontent.com/AdventureStoriesClub/adventurestoriesclub.github.io/main/Adventure%20tory%20club%20logo.webp" alt="Adventure Stories Club Logo" class="h-10 w-auto rounded-full">
+                <span class="text-2xl font-bold text-gray-800" style="font-family: 'Playfair Display', serif;">Adventure Stories Club</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="/#why" class="nav-link text-gray-600">The Why</a>
+                <a href="/#about" class="nav-link text-gray-600">About Us</a>
+                <a href="/#adventures" class="nav-link text-gray-600">The Adventures</a>
+                <a href="/#author-section" class="nav-link text-gray-600">Author</a>
+                <a href="/blog/index.html" class="nav-link font-semibold text-[#C77855] hover:text-[#b36a49] transition-colors">Blog Index</a>
+                <a href="/#contact" class="nav-link text-gray-600">Contact Us</a>
+            </div>
+            <a href="/#adventures" class="hidden md:block bg-[#C77855] text-white py-2 px-4 rounded-full hover:bg-[#b36a49] transition-colors">Get The Books</a>
+        </nav>
+    </header>
+    <main>
+        <section class="py-16 md:py-24 bg-white/90 shadow-lg rounded-lg mx-auto max-w-5xl my-8 px-6">
+            <div class="text-center mb-8 md:mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">The Adventure Stories Club Blog</h1>
+                 <div class="mb-8 text-center">
+                    <a href="https://adventurestoriesclub.com/" class="inline-block bg-white text-[#C77855] border border-[#C77855] py-2 px-6 rounded-full font-bold hover:bg-[#C77855] hover:text-white transition-colors shadow-sm hover:shadow-md">
+                        ← Back to Main Page
+                    </a>
+                </div>
+                <p class="text-lg md:text-xl text-gray-600">Insights, Inspiration & Interactive Guides for Parents & Educators</p>
+            </div>
+
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold mb-6 text-center">Our Latest Insights</h2>
+                <div id="featured-article" class="bg-gradient-to-br from-[#F5EAE1] to-white p-6 md:p-8 rounded-2xl shadow-lg flex flex-col md:flex-row items-center gap-6">
+                    </div>
+            </div>
+
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold mb-6 text-center">All Articles</h2>
+                <div id="blog-posts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    </div>
+            </div>
+
+            <section id="email-capture" class="bg-[#8A6F5C] text-white p-8 md:p-12 rounded-2xl shadow-xl text-center max-w-4xl mx-auto my-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 !text-white">Unlock Your Free Guide!</h2>
+                <p class="text-lg mb-6 text-gray-100">Want more practical tips on nurturing values and inspiring adventure in your child? Download our exclusive PDF: "5 Wholesome Habits for Compassionate Kids."</p>
+                
+                <form action="YOUR_NEW_FORMSPREE_ENDPOINT_FOR_BLOG_OPTIN_HERE" method="POST" class="max-w-md mx-auto">
+                    <label for="name" class="sr-only">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required class="w-full p-3 mb-4 border rounded-lg text-gray-800">
+
+                    <label for="email" class="sr-only">Your Email</label>
+                    <input type="email" id="email" name="_replyto" placeholder="Your Email Address" required class="w-full p-3 mb-4 border rounded-lg text-gray-800">
+                    
+                    <button type="submit" class="w-full bg-[#C77855] hover:bg-[#b36a49] text-white py-3 px-6 rounded-full font-bold transition-colors">Download Now</button>
+                    <p class="text-sm mt-4 text-gray-200">By downloading, you agree to receive occasional updates from Adventure Stories Club.</p>
+                    <input type="hidden" name="_subject" value="New Blog Lead: Free Guide Download!">
+                </form>
+            </section>
+        </section>
+    </main>
+    <footer class="bg-[#8A6F5C] text-white py-10">
+        <div class="container mx-auto px-6 text-center text-sm">
+            <div class="social-icons-footer mb-4">
+                <a href="https://www.facebook.com/AdventureStoriesClub" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/adventurestories.club/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@AdventureStoriesClub" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://x.com/AdvStoryClub" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>© 2024 Adventure Stories Club. All Rights Reserved.</p>
+            <p>Crafted with love for parents seeking a better kind of story.</p>
+        </div>
+    </footer>
 
 <script>
-
-    const blogPosts = [
-
-        {
-
-            title: "Nurturing Tiny Hearts: How Wholesome Children's Books Cultivate Empathy and Kindness",
-
-            slug: "nurturing-empathy-kindness-children",
-
-            description: "Discover practical strategies and the power of wholesome children's stories, like Mr. Downey's Adventures, to cultivate empathy and kindness in your child. This guide is packed with actionable advice and insights from Katarzyna Anikiej's unique approach.",
-
-            date: "July 1, 2025",
-
-            image: "https://github.com/AdventureStoriesClub/adventurestoriesclub.github.io/raw/main/Nurturing%20Tiny%20Hearts.jpg", 
-
-            audioLink: "https://github.com/AdventureStoriesClub/adventurestoriesclub.github.io/raw/main/Raising%20Empathetic%20Kids_%20A%20Guide%20to%20Nurturing%20Kindness%20and%20Resilience%20Through%20Understanding%2C%20Action%2C%20and%20Stories.mp3",
-
-            tags: ["Empathy", "Kindness", "Parenting", "Values", "Character Building"],
-
-            featured: true
-
-        },
-
-        {
-
-            title: "Unplugging and Reconnecting with Nature: Inspiring Outdoor Adventures for Kids",
-
-            slug: "unplugging-reconnecting-nature-children",
-
-            description: "In a digital world, discover how wholesome stories and simple activities can bridge the gap between screen time and outdoor exploration, fostering a lifelong love for nature in your kids, inspired by Mr. Downey's journeys.",
-
-            date: "June 25, 2025",
-
-            image: "https://github.com/AdventureStoriesClub/adventurestoriesclub.github.io/raw/main/Unplugging%20and%20Reconnecting%20with%20Nature.jpg", 
-
-            audioLink: "",
-
-            tags: ["Nature", "Screen Time", "Outdoor Play", "Exploration", "Conservation"],
-
-            featured: false
-
-        },
-
-        {
-
-            title: "Wholesome Parenting: Guiding Children Through Stories",
-
-            slug: "wholesome-parenting-childrens-stories",
-
-            description: "For young couples navigating modern media, discover how to raise confident, curious, and kind children with non-scary, value-driven stories that foster a love for nature and respect for others.",
-
-            date: "July 2, 2025",
-
-            image: "https://github.com/AdventureStoriesClub/adventurestoriesclub.github.io/raw/main/Wholesome%20Parenting.jpg",
-
-            audioLink: "",
-
-            tags: ["Parenting", "Values", "Child Development", "Wholesome Content", "Storytelling"],
-
-            featured: false
-
-        }
-
-    ];
-
-
-
-    function renderBlogPosts() {
-
-        const featuredArticleContainer = document.getElementById('featured-article');
-
-        const blogPostsGrid = document.getElementById('blog-posts-grid');
-
-        
-
-        featuredArticleContainer.innerHTML = '';
-
-        blogPostsGrid.innerHTML = '';
-
-
-
-        let featuredPost = blogPosts.find(post => post.featured) || (blogPosts.length > 0 ? blogPosts[0] : null);
-
-        let otherPosts = blogPosts.filter(post => post !== featuredPost);
-
-
-
-        if (featuredPost) {
-
-            featuredArticleContainer.innerHTML = `
-
-                <img src="${featuredPost.image}" alt="${featuredPost.title}" class="w-full md:w-1/3 h-auto md:h-64 object-cover rounded-xl shadow-md">
-
-                <div class="md:w-2/3 text-left">
-
-                    <span class="text-sm font-semibold text-gray-600">${featuredPost.date}</span>
-
-                    <h3 class="text-3xl font-bold mt-2 mb-3 leading-tight">${featuredPost.title}</h3>
-
-                    <p class="text-gray-700 mb-4">${featuredPost.description}</p>
-
-                    <div class="flex flex-wrap gap-2 mb-4">
-
-                        ${featuredPost.tags.map(tag => `<span class="bg-[#F5EAE1] text-[#8A6F5C] text-xs font-semibold px-2.5 py-0.5 rounded-full">${tag}</span>`).join('')}
-
-                    </div>
-
-                    <a href="/blog/${featuredPost.slug}.html" class="inline-block bg-[#C77855] text-white py-2 px-5 rounded-full hover:bg-[#b36a49] transition-colors font-semibold">Read Article →</a>
-
-                    ${featuredPost.audioLink ? `
-
-                    <div class="mt-4">
-
-                        <audio controls preload="none">
-
-                            <source src="${featuredPost.audioLink}" type="audio/mpeg">
-
-                            Your browser does not support the audio element.
-
-                        </audio>
-
-                    </div>
-
-                    ` : ''}
-
-                </div>
-
-            `;
-
-        }
-
-
-
-        otherPosts.forEach(post => {
-
-            const card = `
-
-                <div class="blog-card bg-white p-6 rounded-2xl shadow-md flex flex-col">
-
-                    <img src="${post.image}" alt="${post.title}" class="w-full h-48 object-cover rounded-lg mb-4">
-
-                    <span class="text-sm font-semibold text-gray-600">${post.date}</span>
-
-                    <h3 class="text-xl font-bold mt-2 mb-2 leading-tight">${post.title}</h3>
-
-                    <p class="text-gray-700 text-sm flex-grow mb-4">${post.description}</p>
-
-                    <div class="flex flex-wrap gap-2 mb-4">
-
-                        ${post.tags.map(tag => `<span class="bg-[#F5EAE1] text-[#8A6F5C] text-xs font-semibold px-2.5 py-0.5 rounded-full">${tag}</span>`).join('')}
-
-                    </div>
-
-                    <a href="/blog/${post.slug}.html" class="inline-block bg-gray-100 text-[#C77855] py-2 px-4 rounded-full hover:bg-gray-200 transition-colors font-semibold self-start">Read More →</a>
-
-                    ${post.audioLink ? `
-
-                    <div class="mt-4">
-
-                        <audio controls preload="none">
-
-                            <source src="${post.audioLink}" type="audio/mpeg">
-
-                            Your browser does not support the audio element.
-
-                        </audio>
-
-                    </div>
-
-                    ` : ''}
-
-                </div>
-
-            `;
-
-            blogPostsGrid.innerHTML += card;
-
-        });
-
-    }
-
-
-
-    document.addEventListener('DOMContentLoaded', renderBlogPosts);
-
+    const blogPosts = [
+        {
+            title: "Nurturing Tiny Hearts: How Wholesome Children's Books Cultivate Empathy and Kindness",
+            slug: "nurturing-empathy-kindness-children",
+            description: "Discover practical strategies and the power of wholesome children's stories, like Mr. Downey's Adventures, to cultivate empathy and kindness in your child. This guide is packed with actionable advice and insights from Katarzyna Anikiej's unique approach.",
+            date: "July 1, 2025",
+            image: "https://github.com/AdventureStoriesClub/adventurestoriesclub.github.io/raw/main/Nurturing%20Tiny%20Hearts.jpg", 
+            audioLink: "https://github.com/AdventureStoriesClub/adventurestoriesclub.github.io/raw/main/Raising%20Empathetic%20Kids_%20A%20Guide%20to%20Nurturing%20Kindness%20and%20Resilience%20Through%20Understanding%2C%20Action%2C%20and%20Stories.mp3",
+            tags: ["Empathy", "Kindness", "Parenting", "Values", "Character Building"],
+            featured: true
+        },
+        {
+            title: "Unplugging and Reconnecting with Nature: Inspiring Outdoor Adventures for Kids",
+            slug: "unplugging-reconnecting-nature-children",
+            description: "In a digital world, discover how wholesome stories and simple activities can bridge the gap between screen time and outdoor exploration, fostering a lifelong love for nature in your kids, inspired by Mr. Downey's journeys.",
+            date: "June 25, 2025",
+            image: "https://github.com/AdventureStoriesClub/adventurestoriesclub.github.io/raw/main/Unplugging%20and%20Reconnecting%20with%20Nature.jpg", 
+            audioLink: "https://github.com/AdventureStoriesClub/adventurestoriesclub.github.io/raw/main/Unplug%2C%20Explore%2C%20and%20Thrive_%20Rekindling%20Nature's%20Magic%20in%20a%20Screen-Saturated%20World.mp3",
+            tags: ["Nature", "Screen Time", "Outdoor Play", "Exploration", "Conservation"],
+            featured: false
+        },
+        {
+            title: "Wholesome Parenting: Guiding Children Through Stories",
+            slug: "wholesome-parenting-childrens-stories",
+            description: "For young couples navigating modern media, discover how to raise confident, curious, and kind children with non-scary, value-driven stories that foster a love for nature and respect for others.",
+            date: "July 2, 2025",
+            image: "https://github.com/AdventureStoriesClub/adventurestoriesclub.github.io/raw/main/Wholesome%20Parenting.jpg",
+            audioLink: "", // No audio for this post
+            tags: ["Parenting", "Values", "Child Development", "Wholesome Content", "Storytelling"],
+            featured: false
+        }
+    ];
+
+    function renderBlogPosts() {
+        const featuredArticleContainer = document.getElementById('featured-article');
+        const blogPostsGrid = document.getElementById('blog-posts-grid');
+        
+        featuredArticleContainer.innerHTML = '';
+        blogPostsGrid.innerHTML = '';
+
+        let featuredPost = blogPosts.find(post => post.featured) || (blogPosts.length > 0 ? blogPosts[0] : null);
+        let otherPosts = blogPosts.filter(post => post !== featuredPost);
+
+        if (featuredPost) {
+            featuredArticleContainer.innerHTML = `
+                <img src="${featuredPost.image}" alt="${featuredPost.title}" class="w-full md:w-1/3 h-auto md:h-64 object-cover rounded-xl shadow-md">
+                <div class="md:w-2/3 md:pl-6 text-left">
+                    <span class="text-sm font-semibold text-gray-600">${featuredPost.date}</span>
+                    <h3 class="text-3xl font-bold mt-2 mb-3 leading-tight">${featuredPost.title}</h3>
+                    <p class="text-gray-700 mb-4">${featuredPost.description}</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        ${featuredPost.tags.map(tag => `<span class="bg-[#F5EAE1] text-[#8A6F5C] text-xs font-semibold px-2.5 py-0.5 rounded-full">${tag}</span>`).join('')}
+                    </div>
+                    <a href="/blog/${featuredPost.slug}.html" class="inline-block bg-[#C77855] text-white py-2 px-5 rounded-full hover:bg-[#b36a49] transition-colors font-semibold">Read Article →</a>
+                    ${featuredPost.audioLink ? `
+                    <div class="mt-4">
+                        <audio controls preload="none">
+                            <source src="${featuredPost.audioLink}" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    ` : ''}
+                </div>
+            `;
+        }
+
+        otherPosts.forEach(post => {
+            const card = `
+                <div class="blog-card bg-white p-6 rounded-2xl shadow-md flex flex-col">
+                    <img src="${post.image}" alt="${post.title}" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <span class="text-sm font-semibold text-gray-600">${post.date}</span>
+                    <h3 class="text-xl font-bold mt-2 mb-2 leading-tight">${post.title}</h3>
+                    <p class="text-gray-700 text-sm flex-grow mb-4">${post.description}</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        ${post.tags.map(tag => `<span class="bg-[#F5EAE1] text-[#8A6F5C] text-xs font-semibold px-2.5 py-0.5 rounded-full">${tag}</span>`).join('')}
+                    </div>
+                    <a href="/blog/${post.slug}.html" class="inline-block bg-gray-100 text-[#C77855] py-2 px-4 rounded-full hover:bg-gray-200 transition-colors font-semibold self-start">Read More →</a>
+                    ${post.audioLink ? `
+                    <div class="mt-4">
+                        <audio controls preload="none">
+                            <source src="${post.audioLink}" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    ` : ''}
+                </div>
+            `;
+            blogPostsGrid.innerHTML += card;
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', renderBlogPosts);
 </script>
 
-
-
 </body>
-
-</html>"
+</html>
