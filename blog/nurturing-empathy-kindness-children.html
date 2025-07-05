@@ -218,6 +218,7 @@
     </footer>
 
     <script>
+<script>
         // Data and functions for interactive elements
         const accordionData = [
             { title: "Model Empathetic Behavior", content: "Children learn by watching. Consistently demonstrate empathy in your own interactions, especially during challenging moments. When you model understanding and compassion, even when frustrated, you teach them that empathy is a universal tool. The more children receive empathy, the more likely they are to offer it to others.", icon: "❤️" },
@@ -226,8 +227,21 @@
             { title: "Respect Diversity & Boundaries", content: "Expose children to diverse people, cultures, and perspectives through real-world interactions and stories. Crucially, also teach them to respect their own boundaries by giving them the words to say 'no' to unwanted contact. Modeling respect for their boundaries teaches them to respect others'.", icon: "🌍" },
             { title: "Practice Active Listening", content: "Teach children the power of truly listening. This means paying attention not just to words, but to body language and tone. Ask questions about how characters in stories might be feeling based on how they are acting. This deepens their understanding of others' perspectives and improves communication.", icon: "👂" }
         ];
+        
+        // CORRECTED: Book data now uses the main site's color palette
         const bookData = [
-            { title: "The Invisible Boy", theme: "Inclusion", color: "bg-sky-100" }, { title: "Be Kind", theme: "Kindness", color: "bg-rose-100" }, { title: "Charlotte's Web", theme: "Friendship", color: "bg-amber-100" }, { title: "A Sick Day for Amos McGee", theme: "Kindness", color: "bg-rose-100" }, { title: "The Rabbit Listened", theme: "Emotions", color: "bg-indigo-100" }, { title: "Last Stop on Market Street", theme: "Kindness", color: "bg-rose-100" }, { title: "Each Kindness", theme: "Inclusion", color: "bg-sky-100" }, { title: "Wonder", theme: "Inclusion", color: "bg-sky-100" }, { title: "When Sophie Gets Angry...", theme: "Emotions", color: "bg-indigo-100" }, { title: "Enemy Pie", theme: "Friendship", color: "bg-amber-100" }, { title: "I Am Human", theme: "Empathy", color: "bg-teal-100" }, { title: "Those Shoes", theme: "Kindness", color: "bg-rose-100" }
+            { title: "The Invisible Boy", theme: "Inclusion", color: "bg-[#F5EAE1]" }, 
+            { title: "Be Kind", theme: "Kindness", color: "bg-[#F5EAE1]" }, 
+            { title: "Charlotte's Web", theme: "Friendship", color: "bg-[#F5EAE1]" }, 
+            { title: "A Sick Day for Amos McGee", theme: "Kindness", color: "bg-[#F5EAE1]" }, 
+            { title: "The Rabbit Listened", theme: "Emotions", color: "bg-[#F5EAE1]" }, 
+            { title: "Last Stop on Market Street", theme: "Kindness", color: "bg-[#F5EAE1]" }, 
+            { title: "Each Kindness", theme: "Inclusion", color: "bg-[#F5EAE1]" }, 
+            { title: "Wonder", theme: "Inclusion", color: "bg-[#F5EAE1]" }, 
+            { title: "When Sophie Gets Angry...", theme: "Emotions", color: "bg-[#F5EAE1]" }, 
+            { title: "Enemy Pie", theme: "Friendship", color: "bg-[#F5EAE1]" }, 
+            { title: "I Am Human", theme: "Empathy", color: "bg-[#F5EAE1]" }, 
+            { title: "Those Shoes", theme: "Kindness", color: "bg-[#F5EAE1]" }
         ];
 
         // Functions to control the UI
@@ -279,11 +293,16 @@
         function setupChart() {
             const ctx = document.getElementById('bookThemeChart');
             if (!ctx) return;
+            // CORRECTED: Chart data now uses the main site's color palette
             new Chart(ctx.getContext('2d'), {
                 type: 'radar',
                 data: {
                     labels: ['Kindness', 'Inclusion', 'Friendship', 'Emotions', 'Empathy'],
-                    datasets: [ { label: 'Be Kind', data: [5, 2, 3, 2, 4], backgroundColor: 'rgba(199, 120, 85, 0.2)', borderColor: '#C77855' }, { label: 'The Invisible Boy', data: [4, 5, 2, 2, 4], backgroundColor: 'rgba(138, 111, 92, 0.2)', borderColor: '#8A6F5C' }, { label: 'The Rabbit Listened', data: [3, 1, 4, 5, 5], backgroundColor: 'rgba(74, 74, 74, 0.2)', borderColor: '#4A4A4A' } ]
+                    datasets: [ 
+                        { label: 'Be Kind', data: [5, 2, 3, 2, 4], backgroundColor: 'rgba(199, 120, 85, 0.2)', borderColor: '#C77855' }, 
+                        { label: 'The Invisible Boy', data: [4, 5, 2, 2, 4], backgroundColor: 'rgba(138, 111, 92, 0.2)', borderColor: '#8A6F5C' }, 
+                        { label: 'The Rabbit Listened', data: [3, 1, 4, 5, 5], backgroundColor: 'rgba(74, 74, 74, 0.2)', borderColor: '#4A4A4A' } 
+                    ]
                 },
                 options: { responsive: true, maintainAspectRatio: false }
             });
@@ -295,5 +314,3 @@
             setupAccordion(); renderBooks(); setupChart(); showTab('why-it-matters');
         });
     </script>
-</body>
-</html>
