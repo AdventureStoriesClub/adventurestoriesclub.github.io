@@ -91,7 +91,7 @@
         <section class="py-16 md:py-24 bg-white/90 shadow-lg rounded-lg mx-auto max-w-4xl my-8 px-6">
             <header class="text-center mb-12">
                 <h1 class="text-4xl md:text-5xl font-bold mb-4">Nurturing Compassionate Hearts</h1>
-                <div class="mb-8 text-center">
+                <div class="my-8 text-center">
                     <a href="https://adventurestoriesclub.com/" class="inline-block bg-white text-[#C77855] border border-[#C77855] py-2 px-6 rounded-full font-bold hover:bg-[#C77855] hover:text-white transition-colors shadow-sm hover:shadow-md">
                         ← Back to Main Page
                     </a>
@@ -108,18 +108,72 @@
                 </div>
             </nav>
 
-            <section id="journey" class="py-12 md:py-16 content-section">
+            <div id="page-content-container">
+                <section id="journey" class="py-12 md:py-16 content-section">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold">The Developmental Journey of Empathy</h2>
+                        <p class="mt-2 max-w-3xl mx-auto text-stone-600">Empathy isn't a switch; it's a skill that grows over time. Click on each stage to learn more about what's happening and how stories can help.</p>
+                    </div>
+                    <div class="lg:grid lg:grid-cols-3 lg:gap-12">
+                        <div class="lg:col-span-1 mb-8 lg:mb-0">
+                            <div class="sticky top-24">
+                                <div id="milestone-details" class="bg-[#F5EAE1] p-6 rounded-lg shadow-lg transition-all duration-500"></div>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-2">
+                            <div id="timeline-container" class="relative pl-8 border-l-2 border-gray-200"></div>
+                        </div>
+                    </div>
                 </section>
-            
-            <section id="why" class="py-12 md:py-16 content-section">
-                 </section>
-            
-            <section id="how" class="py-12 md:py-16 content-section">
+                
+                <section id="why" class="py-12 md:py-16 content-section">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold">Why Social-Emotional Learning Matters</h2>
+                        <p class="mt-2 max-w-3xl mx-auto text-stone-600">Fostering empathy is a core part of Social-Emotional Learning (SEL), a framework that equips children with skills for life.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="bg-[#F5EAE1] p-6 rounded-lg text-center"><span class="text-4xl">🤝</span><h4 class="font-semibold mt-2">Healthier Bonds</h4><p class="text-sm text-stone-600 mt-1">Builds stronger relationships.</p></div>
+                            <div class="bg-[#F5EAE1] p-6 rounded-lg text-center"><span class="text-4xl">🧠</span><h4 class="font-semibold mt-2">Emotional Intelligence</h4><p class="text-sm text-stone-600 mt-1">Develops self-awareness.</p></div>
+                            <div class="bg-[#F5EAE1] p-6 rounded-lg text-center"><span class="text-4xl">🏆</span><h4 class="font-semibold mt-2">Academic Success</h4><p class="text-sm text-stone-600 mt-1">Improves focus in school.</p></div>
+                            <div class="bg-[#F5EAE1] p-6 rounded-lg text-center"><span class="text-4xl">😌</span><h4 class="font-semibold mt-2">Reduced Stress</h4><p class="text-sm text-stone-600 mt-1">Lowers anxiety.</p></div>
+                        </div>
+                        <div>
+                            <div class="chart-container" style="max-width: 350px; height: 350px;"><canvas id="selImpactChart"></canvas></div>
+                        </div>
+                    </div>
                 </section>
 
-            <section id="story" class="py-12 md:py-16 content-section">
+                <section id="how" class="py-12 md:py-16 content-section">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold">How You Can Nurture Empathy</h2>
+                        <p class="mt-2 max-w-3xl mx-auto text-stone-600">Cultivating compassion is an everyday practice. Select a strategy below to explore practical tips.</p>
+                    </div>
+                    <div id="strategy-btn-container" class="flex flex-wrap justify-center gap-2 md:gap-4 mb-8"></div>
+                    <div id="strategy-content" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500"></div>
                 </section>
 
+                <section id="story" class="py-12 md:py-16 bg-[#F5EAE1] rounded-2xl content-section">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold">The Power of Wholesome Stories</h2>
+                        <p class="mt-2 max-w-3xl mx-auto text-stone-600">Gentle, non-scary books provide a safe harbor for children to explore emotions. This is where Mr. Downey comes in.</p>
+                    </div>
+                    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+                        <div class="text-center md:text-left">
+                            <h3 class="text-2xl font-bold text-[#8A6F5C]">Meet Mr. Downey</h3>
+                            <p class="mt-2 text-stone-700">The 'Mr. Downey's Adventures' series features a tiny hamster with a huge heart. Created for kids aged 3-8, these gentle stories are perfect for building character and focus on the magic of the natural world.</p>
+                            <a href="https://www.amazon.com/dp/B0CZFBV6LZ" target="_blank" class="mt-6 inline-block bg-[#C77855] hover:bg-[#b36a49] text-white font-bold py-3 px-6 rounded-lg shadow-md transition-transform duration-300 hover:scale-105">Explore on Amazon</a>
+                        </div>
+                        <div>
+                            <div class="space-y-6">
+                                <div class="bg-white p-6 rounded-lg shadow-lg flex items-start space-x-4"><span class="text-3xl">🧡</span><div><h4 class="font-semibold">Courage & Curiosity</h4><p class="text-sm text-stone-600">Mr. Downey's bravery encourages kids to embrace new experiences.</p></div></div>
+                                <div class="bg-white p-6 rounded-lg shadow-lg flex items-start space-x-4"><span class="text-3xl">🌳</span><div><h4 class="font-semibold">Friendship & Teamwork</h4><p class="text-sm text-stone-600">The stories highlight collaboration and support.</p></div></div>
+                                <div class="bg-white p-6 rounded-lg shadow-lg flex items-start space-x-4"><span class="text-3xl">🍃</span><div><h4 class="font-semibold">Love for Nature</h4><p class="text-sm text-stone-600">Fosters a deep appreciation for the environment.</p></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </section>
     </main>
     <footer class="bg-[#8A6F5C] text-white py-10">
@@ -137,68 +191,109 @@
 
     <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const sections = document.querySelectorAll('.content-section');
+        const milestoneData = [
+            { age: 'Infancy', title: 'Parental Attachment', description: 'A secure, loving bond with caregivers forms the bedrock for all future emotional skills, including empathy.', literature: 'Secure, predictable narratives reinforce a sense of safety and trust, strengthening this bond.'},
+            { age: '18-24 Months', title: 'Theory of Mind', description: 'The recognition that others have their own unique thoughts, feelings, and perspectives that can differ from their own.', literature: 'Stories with diverse characters help children understand that others have different internal worlds.'},
+            { age: '3 Years', title: 'Desire-Emotion Connection', description: 'Children begin to understand how desires are linked to feelings—for example, how not getting what you want can lead to sadness.', literature: 'Relatable scenarios show characters experiencing emotions tied to their wishes and disappointments.'},
+            { age: '4 Years', title: 'Perspective-Taking', description: 'A key milestone where children can start to view a situation from another person’s viewpoint, imagining how they might feel.', literature: 'Prompts discussion about how different characters feel, encouraging "what if you were them?" thinking.'},
+            { age: '5 Years', title: 'Imagining Another\'s Needs', description: 'Kids start to imagine what specific response might comfort someone in distress, like offering a hug or a favorite toy.', literature: 'Inspires talk about what actions might help a sad character, fostering proactive kindness.'},
+            { age: '5-6 Years', title: 'Community Membership', description: 'Children start to see themselves as part of a larger group, fostering responsibility and compassion towards their community.', literature: 'Characters who collaborate and contribute to their community model a sense of belonging and social responsibility.'}
+        ];
+
+        const strategyData = [
+            { name: "Role Modeling", icon: "🧍", tips: [ "Demonstrate kindness and empathy in your own interactions.", "Apologize sincerely when you make a mistake.", "Talk about your own feelings openly and constructively." ] },
+            { name: "Emotional Literacy", icon: "🗣️", tips: [ "Help children label their feelings: 'You seem frustrated.'", "Read books that feature a wide range of emotions.", "Create a 'feelings wheel' to help identify emotions." ] },
+            { name: "Perspective-Taking", icon: "👀", tips: [ "Ask 'How do you think they feel?' during stories or real-life events.", "Encourage them to consider the 'why' behind someone's actions.", "Role-play different scenarios to practice seeing other viewpoints." ] },
+            { name: "Active Listening", icon: "👂", tips: [ "Model good listening by putting away distractions when your child talks.", "Teach them to make eye contact and wait their turn to speak.", "Summarize what they said to show you understand: 'So, you're sad because...'" ] },
+            { name: "Cooperative Play", icon: "🧩", tips: [ "Engage in activities with a shared goal, like building a fort.", "Play cooperative board games where everyone wins or loses together.", "Encourage teamwork to solve a problem or complete a puzzle." ] },
+            { name: "Acts of Kindness", icon: "💖", tips: [ "Create a 'kindness jar' where you add a note for each kind act.", "Involve children in helping others, like making a card for a neighbor.", "Praise the effort and impact of their kindness, not just the act itself." ] }
+        ];
+
+        const timelineContainer = document.getElementById('timeline-container');
+        const detailsContainer = document.getElementById('milestone-details');
+        const strategyBtnContainer = document.querySelector('#how .flex-wrap');
+        const strategyContentContainer = document.getElementById('strategy-content');
         const navLinks = document.querySelectorAll('.tab-nav-link');
+        const sections = document.querySelectorAll('main section[id]');
 
-        function updateActiveLink() {
-            let current = "";
-            sections.forEach((section) => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 150) { // 150px offset for header height
-                    current = section.getAttribute('id');
-                }
-            });
+        milestoneData.forEach((milestone, index) => {
+            const item = document.createElement('div');
+            item.className = 'timeline-item mb-8 flex items-center cursor-pointer';
+            item.dataset.index = index;
+            item.innerHTML = `<div class="timeline-dot bg-slate-300 w-4 h-4 rounded-full -ml-[9px] border-4 border-white transition-all duration-300"></div><div class="pl-8"><h4 class="timeline-title font-semibold text-stone-700 transition-colors duration-300">${milestone.age}: ${milestone.title}</h4></div>`;
+            timelineContainer.appendChild(item);
+        });
 
-            navLinks.forEach((link) => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        
+        function updateDetails(index) {
+            const milestone = milestoneData[index];
+            detailsContainer.innerHTML = `<h4 class="text-xl font-bold text-[#C77855]">${milestone.age}: ${milestone.title}</h4><p class="text-stone-600 mt-2">${milestone.description}</p><div class="mt-4 pt-4 border-t border-slate-200"><h5 class="font-semibold text-[#8A6F5C] flex items-center"><span class="mr-2">📖</span> How Stories Help</h5><p class="text-stone-600 mt-1 text-sm">${milestone.literature}</p></div>`;
+            timelineItems.forEach(item => item.classList.remove('active-milestone'));
+            const activeItem = document.querySelector(`.timeline-item[data-index='${index}']`);
+            if (activeItem) activeItem.classList.add('active-milestone');
         }
 
-        navLinks.forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    const headerOffset = 100; // Height of sticky header
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth"
+        timelineItems.forEach(item => item.addEventListener('click', () => updateDetails(item.dataset.index)));
+        updateDetails(0);
+
+        strategyData.forEach((strategy, index) => {
+            const btn = document.createElement('button');
+            btn.className = 'strategy-btn px-4 py-2 text-sm font-semibold rounded-full shadow-sm transition-colors duration-300';
+            btn.dataset.index = index;
+            btn.innerHTML = `<span class="mr-2">${strategy.icon}</span>${strategy.name}`;
+            strategyBtnContainer.appendChild(btn);
+        });
+
+        const strategyBtns = document.querySelectorAll('.strategy-btn');
+
+        function updateStrategies(index) {
+            const strategy = strategyData[index];
+            strategyContentContainer.innerHTML = '';
+            strategy.tips.forEach(tip => {
+                const tipEl = document.createElement('div');
+                tipEl.className = 'bg-white p-4 rounded-lg shadow-md';
+                tipEl.innerHTML = `<p class="text-stone-700">${tip}</p>`;
+                strategyContentContainer.appendChild(tipEl);
+            });
+            strategyBtns.forEach(btn => btn.classList.remove('active-strategy'));
+            const activeBtn = document.querySelector(`.strategy-btn[data-index='${index}']`);
+            if (activeBtn) activeBtn.classList.add('active-strategy');
+        }
+        
+        strategyBtns.forEach(btn => btn.addEventListener('click', () => updateStrategies(btn.dataset.index)));
+        updateStrategies(0);
+
+        const ctx = document.getElementById('selImpactChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Social Skills', 'Academics', 'Positive Attitudes'],
+                datasets: [{
+                    data: [11, 8, 11],
+                    backgroundColor: ['rgba(199, 120, 85, 0.7)', 'rgba(138, 111, 92, 0.7)', 'rgba(74, 74, 74, 0.7)'],
+                    borderColor: ['#C77855', '#8A6F5C', '#4A4A4A'],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false, cutout: '60%',
+                plugins: { legend: { position: 'bottom', labels: { padding: 20 } }, tooltip: { callbacks: { label: (c) => `${c.label}: +${c.raw}% gain` } } }
+            }
+        });
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.toggle('active', link.hash === `#${id}`);
                     });
                 }
             });
-        });
+        }, { rootMargin: "-50% 0px -50% 0px" });
 
-        // This replaces the old section visibility logic
-        const sectionObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    updateActiveLink();
-                }
-            });
-        }, { threshold: 0.1 });
-
-        sections.forEach(section => {
-            sectionObserver.observe(section);
-        });
-        
-        window.addEventListener('scroll', updateActiveLink);
-        
-        // Initialize first section
-        if(sections.length > 0) {
-            sections[0].classList.add('active');
-            updateActiveLink();
-        }
-
-        // All the data and functions for charts, accordions, etc. would go here,
-        // but since they were removed for this simplified version, this script is much shorter.
+        sections.forEach(section => observer.observe(section));
     });
     </script>
 </body>
