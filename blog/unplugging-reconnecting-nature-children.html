@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,384 +24,286 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
         body {
-            font-family: 'Lato', sans-serif;
-            background-color: #FDFBF8; /* Warm Neutral: Off-white */
-            color: #4f463c; /* Dark Brown for text */
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8; /* Warm White */
+            color: #4A4A4A; /* Dark Gray */
+            background-image: url('https://raw.githubusercontent.com/AdventureStoriesClub/adventurestoriesclub.github.io/main/The%20website%20background%20image.webp');
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: center center;
         }
         h1, h2, h3 {
-            font-family: 'Merriweather', serif;
+            font-family: 'Playfair Display', serif;
+            color: #4A4A4A;
         }
         .nav-link {
             transition: color 0.3s, border-color 0.3s;
             border-bottom: 2px solid transparent;
         }
         .nav-link.active, .nav-link:hover {
-            color: #556B2F; /* Dark Olive Green */
-            border-bottom-color: #556B2F;
+            color: #C77855; /* Terracotta Accent */
+            border-bottom-color: #C77855;
         }
-        .section {
-            display: none;
-        }
-        .section.active {
-            display: block;
-        }
-        .activity-card {
+        .section { display: none; }
+        .section.active { display: block; }
+        .activity-card, .book-card {
             transition: transform 0.3s, box-shadow 0.3s;
         }
-        .activity-card:hover {
+        .activity-card:hover, .book-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
         }
-        .book-card {
-            background-color: #F0EAD6; /* Papyrus-like color */
-            border: 1px solid #D2B48C; /* Tan border */
-        }
         .chart-container {
-            position: relative;
+            position: relative; width: 100%; max-width: 500px; margin-left: auto; margin-right: auto; height: 350px;
+        }
+        @media (min-width: 768px) { .chart-container { height: 450px; } }
+        .social-icons-footer { display: flex; justify-content: center; margin-top: 20px; gap: 20px; }
+        .social-icons-footer a { color: white; font-size: 1.8em; transition: transform 0.3s ease, color 0.3s ease; }
+        .social-icons-footer a:hover { transform: scale(1.2); color: #F5EAE1; }
+        audio {
             width: 100%;
             max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 350px;
-            max-height: 40vh;
-        }
-        @media (min-width: 768px) {
-            .chart-container {
-                height: 450px;
-                max-height: 50vh;
-            }
-        }
-        /* Style for the social icons in the footer (adapted from main site) */
-        .social-icons-footer-blog {
-            display: flex;
-            justify-content: center;
             margin-top: 20px;
-            gap: 20px;
-        }
-        .social-icons-footer-blog a {
-            color: #556B2F; /* Dark Olive Green - adjusted for blog palette */
-            font-size: 1.8em;
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-        .social-icons-footer-blog a:hover {
-            transform: scale(1.2);
-            color: #A3B18A; /* Lighter accent color */
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-
-        <header class="text-center py-12">
-            <a href="/" class="text-[#556B2F] hover:underline mb-4 inline-block font-semibold">← Back to Adventure Stories Club Home</a>
-            <h1 class="text-4xl md:text-5xl font-bold text-[#556B2F] mb-4">Unplugging and Reconnecting with Nature: Inspiring Outdoor Adventures for Kids</h1>
-            <p class="text-lg text-gray-600 max-w-3xl mx-auto">In today's rapidly evolving world, screens have become an undeniable presence in family life. From interactive educational apps to captivating entertainment, digital devices are ubiquitous, often leaving parents and educators with valid concerns about their children's well-being. This pervasive digital landscape, while offering convenience and learning opportunities, has inadvertently contributed to a growing disconnect between children and the natural world. This separation is not merely about missing out on fresh air; it significantly impacts crucial aspects of child development and overall health. The time spent absorbed in digital realms often comes at the expense of real-world exploration, limiting opportunities for physical activity, imaginative play, and direct sensory engagement with the environment.</p>
-            <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-4">This guide explores the powerful role of intentional unplugging from screens, simple outdoor adventures for kids, and the magic of wholesome stories in rekindling a child's innate love for nature. By understanding the profound benefits of outdoor play and leveraging the inspiring power of narrative, it is possible to bridge the gap between excessive screen time and meaningful outdoor exploration, fostering a lifelong connection to the outdoors.</p>
-        </header>
-
-        <nav class="flex justify-center flex-wrap gap-4 md:gap-8 border-b-2 border-gray-200 pb-4 mb-12">
-            <button class="nav-link text-lg p-2 font-semibold" data-target="dilemma">The Digital Dilemma</button>
-            <button class="nav-link text-lg p-2 font-semibold" data-target="cure">The Nature Cure</button>
-            <button class="nav-link text-lg p-2 font-semibold" data-target="adventures">Adventure Ideas</button>
-            <button class="nav-link text-lg p-2 font-semibold" data-target="stories">Story Time</button>
-            <button class="nav-link text-lg p-2 font-semibold" data-target="stewardship">Be a Guardian</button>
+    <header id="header" class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="https://adventurestoriesclub.com/" class="flex items-center space-x-2">
+                <img src="https://raw.githubusercontent.com/AdventureStoriesClub/adventurestoriesclub.github.io/main/Adventure%20tory%20club%20logo.webp" alt="Adventure Stories Club Logo" class="h-10 w-auto rounded-full">
+                <span class="text-2xl font-bold text-gray-800" style="font-family: 'Playfair Display', serif;">Adventure Stories Club</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="/#why" class="nav-link text-gray-600">The Why</a>
+                <a href="/#about" class="nav-link text-gray-600">About Us</a>
+                <a href="/#adventures" class="nav-link text-gray-600">The Adventures</a>
+                <a href="/#author-section" class="nav-link text-gray-600">Author</a>
+                <a href="/blog/index.html" class="nav-link font-semibold text-[#C77855] hover:text-[#b36a49] transition-colors">Blog Index</a>
+                <a href="/#contact" class="nav-link text-gray-600">Contact Us</a>
+            </div>
+            <a href="/#adventures" class="hidden md:block bg-[#C77855] text-white py-2 px-4 rounded-full hover:bg-[#b36a49] transition-colors">Get The Books</a>
         </nav>
+    </header>
+    <main>
+        <section class="py-16 md:py-24 bg-white/90 shadow-lg rounded-lg mx-auto max-w-4xl my-8 px-6">
+            <header class="text-center py-12">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Unplugging and Reconnecting with Nature</h1>
+                <div class="my-8 text-center">
+                    <a href="https://adventurestoriesclub.com/" class="inline-block bg-white text-[#C77855] border border-[#C77855] py-2 px-6 rounded-full font-bold hover:bg-[#C77855] hover:text-white transition-colors shadow-sm hover:shadow-md">
+                        ← Back to Main Page
+                    </a>
+                </div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">This guide explores the powerful role of intentional unplugging, simple outdoor adventures, and wholesome stories in rekindling a child's innate love for nature.</p>
+            </header>
 
-        <main>
-            <section id="dilemma" class="section active">
-                <div class="text-center mb-10 max-w-3xl mx-auto">
-                    <h2 class="text-3xl font-bold text-[#8B4513] mb-3">Understanding Screen Time's Impact</h2>
-                    <p class="text-base text-gray-600">The increasing reliance on digital devices presents a significant challenge, often referred to as the digital world impact. While technology offers many advantages, excessive screen time can have several potential downsides for child development. It's important to understand its potential effects on a child's cognitive, physical, and emotional well-being.</p>
-                </div>
-                <div class="flex flex-col md:flex-row gap-8 items-start">
-                    <div class="w-full md:w-1/3 flex flex-col gap-4">
-                        <button data-content="cognitive" class="impact-btn w-full text-left p-4 rounded-lg bg-white shadow-md hover:bg-amber-100 transition">🧠 Cognitive & Brain Development</button>
-                        <button data-content="emotional" class="impact-btn w-full text-left p-4 rounded-lg bg-white shadow-md hover:bg-amber-100 transition">❤️ Emotional & Social Well-being</button>
-                        <button data-content="physical" class="impact-btn w-full text-left p-4 rounded-lg bg-white shadow-md hover:bg-amber-100 transition">🏃 Physical Health & Motor Skills</button>
-                    </div>
-                    <div id="impact-display" class="w-full md:w-2/3 p-6 rounded-lg bg-white shadow-inner min-h-[300px]">
-                    </div>
-                </div>
-                <div class="mt-10 text-center max-w-3xl mx-auto text-gray-600">
-                    <p>It is important to emphasize balance rather than outright prohibition when addressing screen time alternatives for children. The aim is not to demonize technology but to encourage mindful parenting and a balanced approach. Healthier alternatives include engaging children in sports, arts, music, outdoor and indoor games, board games, and reading books. These activities provide active, multi-sensory engagement and real-world interaction, contrasting with the often passive consumption of digital content. This shift from passive viewing to active participation is crucial for fostering holistic child development.</p>
-                </div>
-            </section>
+            <nav class="flex justify-center flex-wrap gap-4 md:gap-8 border-b-2 border-gray-200 pb-4 mb-12">
+                <button class="nav-link text-lg p-2 font-semibold" data-target="dilemma">The Digital Dilemma</button>
+                <button class="nav-link text-lg p-2 font-semibold" data-target="cure">The Nature Cure</button>
+                <button class="nav-link text-lg p-2 font-semibold" data-target="adventures">Adventure Ideas</button>
+                <button class="nav-link text-lg p-2 font-semibold" data-target="stories">Story Time</button>
+                <button class="nav-link text-lg p-2 font-semibold" data-target="stewardship">Be a Guardian</button>
+                <button class="nav-link text-lg p-2 font-semibold" data-target="audio">Listen to the Story</button>
+            </nav>
 
-            <section id="cure" class="section">
-                <div class="text-center mb-10 max-w-3xl mx-auto">
-                    <h2 class="text-3xl font-bold text-[#556B2F] mb-3">The Nature Cure: Profound Benefits of Outdoor Play</h2>
-                     <p class="text-base text-gray-600">Nature offers a powerful antidote to the challenges of the digital age, providing a holistic developmental laboratory where children can thrive across multiple dimensions. The benefits of outdoor play are profound and multifaceted, nurturing physical, mental, emotional, and social well-being simultaneously. This interactive chart visualizes the key benefits across different areas. Click on a category to highlight it on the chart and read about its specific advantages.</p>
-                </div>
-                <div class="flex flex-col lg:flex-row gap-8 items-center">
-                     <div class="w-full lg:w-1/2">
-                        <div class="chart-container">
-                            <canvas id="benefitsChart"></canvas>
+            <div id="page-content-container">
+                <section id="dilemma" class="section">
+                     <div class="text-center mb-10 max-w-3xl mx-auto">
+                        <h2 class="text-3xl font-bold mb-3">Understanding Screen Time's Impact</h2>
+                        <p class="text-base text-gray-600">The increasing reliance on digital devices presents a significant challenge. While technology offers advantages, excessive screen time can have downsides for a child's cognitive, physical, and emotional well-being.</p>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-8 items-start">
+                        <div class="w-full md:w-1/3 flex flex-col gap-4">
+                            <button data-content="cognitive" class="impact-btn w-full text-left p-4 rounded-lg bg-white shadow-md hover:bg-[#F5EAE1] transition">🧠 Cognitive & Brain Development</button>
+                            <button data-content="emotional" class="impact-btn w-full text-left p-4 rounded-lg bg-white shadow-md hover:bg-[#F5EAE1] transition">❤️ Emotional & Social Well-being</button>
+                            <button data-content="physical" class="impact-btn w-full text-left p-4 rounded-lg bg-white shadow-md hover:bg-[#F5EAE1] transition">🏃 Physical Health & Motor Skills</button>
+                        </div>
+                        <div id="impact-display" class="w-full md:w-2/3 p-6 rounded-lg bg-white shadow-inner min-h-[300px]"></div>
+                    </div>
+                </section>
+
+                <section id="cure" class="section">
+                     <div class="text-center mb-10 max-w-3xl mx-auto">
+                        <h2 class="text-3xl font-bold mb-3">The Nature Cure: Benefits of Outdoor Play</h2>
+                         <p class="text-base text-gray-600">Nature offers a powerful antidote to the digital age, nurturing physical, mental, emotional, and social well-being. Click a category to learn more.</p>
+                    </div>
+                    <div class="flex flex-col lg:flex-row gap-8 items-center">
+                         <div class="w-full lg:w-1/2">
+                            <div class="chart-container"><canvas id="benefitsChart"></canvas></div>
+                        </div>
+                        <div class="w-full lg:w-1/2 flex flex-col gap-3">
+                             <div id="benefits-text-display" class="p-6 bg-white rounded-lg shadow-inner min-h-[250px] transition-all duration-300"></div>
+                             <div class="grid grid-cols-2 gap-3">
+                                 <button class="benefit-btn p-3 bg-white shadow-md rounded-lg hover:bg-[#F5EAE1] transition" data-benefit="physical">💪 Physical</button>
+                                 <button class="benefit-btn p-3 bg-white shadow-md rounded-lg hover:bg-[#F5EAE1] transition" data-benefit="cognitive">🧠 Cognitive</button>
+                                 <button class="benefit-btn p-3 bg-white shadow-md rounded-lg hover:bg-[#F5EAE1] transition" data-benefit="emotional">😊 Emotional</button>
+                                 <button class="benefit-btn p-3 bg-white shadow-md rounded-lg hover:bg-[#F5EAE1] transition" data-benefit="social">🤝 Social</button>
+                             </div>
                         </div>
                     </div>
-                    <div class="w-full lg:w-1/2 flex flex-col gap-3">
-                         <div id="benefits-text-display" class="p-6 bg-white rounded-lg shadow-inner min-h-[250px] transition-all duration-300">
-                         </div>
-                         <div class="grid grid-cols-2 gap-3">
-                             <button class="benefit-btn p-3 bg-white shadow-md rounded-lg hover:bg-green-100 transition" data-benefit="physical">💪 Physical</button>
-                             <button class="benefit-btn p-3 bg-white shadow-md rounded-lg hover:bg-green-100 transition" data-benefit="cognitive">🧠 Cognitive</button>
-                             <button class="benefit-btn p-3 bg-white shadow-md rounded-lg hover:bg-green-100 transition" data-benefit="emotional">😊 Emotional</button>
-                             <button class="benefit-btn p-3 bg-white shadow-md rounded-lg hover:bg-green-100 transition" data-benefit="social">🤝 Social</button>
-                         </div>
+                </section>
+
+                <section id="adventures" class="section">
+                      <div class="text-center mb-10 max-w-3xl mx-auto">
+                        <h2 class="text-3xl font-bold mb-3">Outdoor Adventure Ideas</h2>
+                        <p class="text-base text-gray-600">Connecting with nature doesn’t require grand expeditions. Use the filters below to discover practical and fun activities for your next exploration.</p>
                     </div>
-                </div>
-            </section>
+                    <div class="flex justify-center flex-wrap gap-3 mb-8">
+                        <button class="filter-btn px-4 py-2 rounded-full font-semibold" data-filter="all">All</button>
+                        <button class="filter-btn px-4 py-2 rounded-full font-semibold" data-filter="backyard">🏡 Backyard</button>
+                        <button class="filter-btn px-4 py-2 rounded-full font-semibold" data-filter="park">🌳 Local Park</button>
+                        <button class="filter-btn px-4 py-2 rounded-full font-semibold" data-filter="sensory">👃 Sensory</button>
+                        <button class="filter-btn px-4 py-2 rounded-full font-semibold" data-filter="seasonal">🍂 Seasonal</button>
+                    </div>
+                    <div id="adventure-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+                </section>
 
-            <section id="adventures" class="section">
-                 <div class="text-center mb-10 max-w-3xl mx-auto">
-                    <h2 class="text-3xl font-bold text-[#8B4513] mb-3">Outdoor Adventure Ideas: Beyond the Screen</h2>
-                    <p class="text-base text-gray-600">Connecting with nature does not require grand expeditions or specialized gear; profound nature connection is accessible to everyone, regardless of location. The key lies in intentional engagement with the accessible natural world, fostering active inquiry and problem-solving. Use the filters below to discover practical and fun activities to inspire your child's next exploration.</p>
-                </div>
-                <div class="flex justify-center flex-wrap gap-3 mb-8">
-                    <button class="filter-btn px-4 py-2 rounded-full bg-white shadow-md" data-filter="all">All</button>
-                    <button class="filter-btn px-4 py-2 rounded-full bg-white shadow-md" data-filter="backyard">🏡 Backyard</button>
-                    <button class="filter-btn px-4 py-2 rounded-full bg-white shadow-md" data-filter="park">🌳 Local Park</button>
-                    <button class="filter-btn px-4 py-2 rounded-full bg-white shadow-md" data-filter="sensory">👃 Sensory</button>
-                    <button class="filter-btn px-4 py-2 rounded-full bg-white shadow-md" data-filter="seasonal">🍂 Seasonal</button>
-                </div>
-                <div id="adventure-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                 </div>
-            </section>
-
-            <section id="stories" class="section">
-                 <div class="text-center mb-10 max-w-3xl mx-auto">
-                    <h2 class="text-3xl font-bold text-[#556B2F] mb-3">The Power of Wholesome Stories: Bridging Indoor & Outdoor Worlds</h2>
-                    <p class="text-base text-gray-600">Wholesome stories serve as a vital bridge, fostering imagination in nature and curiosity even when children are indoors, providing them with a vocabulary and framework for understanding natural phenomena. Children's nature books are powerful tools that captivate young readers and fuel their creativity, encouraging them to tap into their imagination and explore endless possibilities. These narratives introduce children to incredible facts about animals, plants, and the changing seasons, transporting them to worlds of towering trees, hidden wildlife, or mysterious underwater creatures. This emotional and imaginative engagement is crucial for sparking genuine curiosity and motivating real-world exploration. Reading about nature often inspires kids to step outside and experience it firsthand; a book about birds might lead to birdwatching, or one about insects might encourage backyard exploration, strengthening their connection with the natural world. Stories like "Hiking Day" or "Ollie Outside" directly encourage real-world adventures, showing children the excitement and beauty of exploring the natural world. Furthermore, stories provide children with the language and concepts needed to understand natural phenomena, animal behaviors, and plant life cycles, making real-world observations more meaningful and enhancing learning through direct connections. In today's digital age, children's nature books offer an engaging and educational way for kids to take a break from screens, bringing nature to life through vivid descriptions and illustrations. This provides a valuable screen time alternative for children, promoting active engagement rather than passive consumption.</p>
-                </div>
-                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-                    <div class="book-card p-6 rounded-lg shadow-lg flex flex-col items-center text-center">
-                        <div class="w-40 h-56 bg-green-800 text-white flex flex-col justify-center items-center rounded-md shadow-xl mb-4 p-2">
-                             <span class="text-sm">Mr. Downey's</span>
-                             <h3 class="text-xl font-bold leading-tight">Forest Adventure</h3>
-                             <span class="text-2xl mt-4">🌳</span>
+                <section id="stories" class="section">
+                     <div class="text-center mb-10 max-w-3xl mx-auto">
+                        <h2 class="text-3xl font-bold mb-3">The Power of Wholesome Stories</h2>
+                        <p class="text-base text-gray-600">Wholesome stories serve as a vital bridge, fostering imagination and curiosity about nature even when indoors, providing a framework for understanding the world.</p>
+                    </div>
+                    <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                        <div class="bg-[#F5EAE1] p-6 rounded-lg shadow-lg flex flex-col items-center text-center">
+                            <h3 class="text-2xl font-bold mb-2">Mr. Downey's Forest Adventure</h3>
+                            <p class="text-gray-600 mb-4">This enchanting tale highlights themes of bravery, friendship, and the wonders of nature as Mr. Downey embarks on a magical journey.</p>
+                            <a href="https://www.amazon.com/dp/B0CZFBV6LZ" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block bg-[#C77855] text-white px-6 py-2 rounded-full hover:bg-[#b36a49] transition">Explore on Amazon</a>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-[#8B4513]">Mr. Downey's Forest Adventure</h3>
-                        <p class="text-gray-600 mb-4">This enchanting tale highlights themes of bravery, friendship, and the wonders of nature. Mr. Downey, the brave little hamster, embarks on a magical journey through the forest with his friends, Lizzy the lizard and Benny the bunny, discovering the beauty and excitement of the natural world.</p>
-                        <a href="https://www.amazon.com/dp/B0CZFBV6LZ" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block bg-[#8B4513] text-white px-6 py-2 rounded-full hover:bg-opacity-80 transition">Explore on Amazon</a>
-                    </div>
-                    <div class="book-card p-6 rounded-lg shadow-lg flex flex-col items-center text-center">
-                        <div class="w-40 h-56 bg-blue-800 text-white flex flex-col justify-center items-center rounded-md shadow-xl mb-4 p-2">
-                             <span class="text-sm">Mr. Downey's</span>
-                             <h3 class="text-xl font-bold leading-tight">Ocean Adventure</h3>
-                             <span class="text-2xl mt-4">🌊</span>
+                        <div class="bg-[#F5EAE1] p-6 rounded-lg shadow-lg flex flex-col items-center text-center">
+                            <h3 class="text-2xl font-bold mb-2">Mr. Downey's Ocean Adventure</h3>
+                            <p class="text-gray-600 mb-4">In this exciting underwater journey, Mr. Downey explores the vibrant deep blue sea, learning valuable lessons about courage, teamwork, and conservation.</p>
+                            <a href="https://www.amazon.com/dp/B0DK3NGHMZ" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block bg-[#C77855] text-white px-6 py-2 rounded-full hover:bg-[#b36a49] transition">Explore on Amazon</a>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-blue-900">Mr. Downey's Ocean Adventure</h3>
-                        <p class="text-gray-600 mb-4">In this exciting underwater journey, Mr. Downey explores the vibrant deep blue sea, guided by Finn the Dolphin and meeting new friends. This adventure teaches valuable lessons about courage, teamwork, and, crucially, the importance of protecting our beautiful oceans for everyone.</p>
-                        <a href="https://www.amazon.com/dp/B0DK3NGHMZ" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block bg-blue-800 text-white px-6 py-2 rounded-full hover:bg-opacity-80 transition">Explore on Amazon</a>
                     </div>
-                </div>
-                <div class="mt-10 text-center max-w-3xl mx-auto text-gray-600">
-                    <p>The Mr. Downey's Adventures series, authored by Katarzyna Anikiej, stands as a prime example of wholesome, nature-focused literature designed to inspire young explorers. Katarzyna Anikiej's unique approach to writing children's books is deeply informed by her background in psychology. Her work is a "celebration of the outdoors," designed to foster a love for nature, animals, and the simple joy of exploration, encouraging children to "look up and wonder." The stories are intentionally crafted to provide a "grounded alternative to extremes," focusing on the inherent wonder of nature rather than excessive magic or overly realistic themes. This subtle yet profound emphasis reinforces the value of real-world exploration and connection, making the series an invaluable resource for mindful parenting.</p>
-                </div>
-            </section>
+                </section>
 
-            <section id="stewardship" class="section">
-                 <div class="text-center mb-10 max-w-3xl mx-auto">
-                    <h2 class="text-3xl font-bold text-[#556B2F] mb-3">Be a Guardian of Nature: Fostering Environmental Stewardship</h2>
-                    <p class="text-base text-gray-600">When children develop a deep connection with the natural world through outdoor play and wholesome stories, a desire to protect it naturally follows. This intrinsic motivation, rooted in empathy and appreciation, is far more powerful than abstract lessons about responsibility. It forms the foundation of true environmental stewardship. Click on the icons below to learn about easy ways your family can contribute to conservation.</p>
-                </div>
-                 <div class="flex justify-center flex-wrap gap-6 text-center">
-                    <div class="stewardship-item cursor-pointer group" data-stewardship="recycle">
-                        <div class="text-5xl bg-white p-6 rounded-full shadow-md group-hover:bg-green-100 transition">♻️</div>
-                        <p class="mt-2 font-semibold">Recycle & Reduce</p>
+                <section id="stewardship" class="section">
+                     <div class="text-center mb-10 max-w-3xl mx-auto">
+                        <h2 class="text-3xl font-bold mb-3">Be a Guardian of Nature</h2>
+                        <p class="text-base text-gray-600">When children connect with the natural world, a desire to protect it naturally follows. Click the icons below to learn about easy ways to contribute to conservation.</p>
                     </div>
-                    <div class="stewardship-item cursor-pointer group" data-stewardship="water">
-                        <div class="text-5xl bg-white p-6 rounded-full shadow-md group-hover:bg-blue-100 transition">💧</div>
-                        <p class="mt-2 font-semibold">Conserve Water</p>
+                     <div class="flex justify-center flex-wrap gap-6 text-center">
+                        <div class="stewardship-item cursor-pointer group" data-stewardship="recycle"><div class="text-5xl bg-white p-6 rounded-full shadow-md group-hover:bg-[#F5EAE1] transition">♻️</div><p class="mt-2 font-semibold">Recycle & Reduce</p></div>
+                        <div class="stewardship-item cursor-pointer group" data-stewardship="water"><div class="text-5xl bg-white p-6 rounded-full shadow-md group-hover:bg-[#F5EAE1] transition">💧</div><p class="mt-2 font-semibold">Conserve Water</p></div>
+                        <div class="stewardship-item cursor-pointer group" data-stewardship="wildlife"><div class="text-5xl bg-white p-6 rounded-full shadow-md group-hover:bg-[#F5EAE1] transition">🦋</div><p class="mt-2 font-semibold">Respect Wildlife</p></div>
+                         <div class="stewardship-item cursor-pointer group" data-stewardship="garden"><div class="text-5xl bg-white p-6 rounded-full shadow-md group-hover:bg-[#F5EAE1] transition">🌱</div><p class="mt-2 font-semibold">Plant & Garden</p></div>
                     </div>
-                    <div class="stewardship-item cursor-pointer group" data-stewardship="wildlife">
-                        <div class="text-5xl bg-white p-6 rounded-full shadow-md group-hover:bg-yellow-100 transition">🦋</div>
-                        <p class="mt-2 font-semibold">Respect Wildlife</p>
+                    <div id="stewardship-display" class="mt-8 p-6 bg-white rounded-lg shadow-inner min-h-[100px] max-w-2xl mx-auto text-center"></div>
+                </section>
+                
+                <section id="audio" class="section">
+                     <div class="text-center p-6">
+                         <h2 class="text-3xl font-bold mb-4">Listen to Our Insights</h2>
+                         <p class="text-gray-700 mb-8 max-w-3xl mx-auto">Tune into our discussion about finding calm and character in children's stories, and why nurturing young minds goes beyond digital media.</p>
+                         <audio controls preload="none" class="mx-auto">
+                            <source src="https://github.com/AdventureStoriesClub/adventurestoriesclub.github.io/raw/main/Beyond%20the%20Screen_%20Discovering%20Calm%20and%20Character%20in%20Children's%20Stories.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
                     </div>
-                     <div class="stewardship-item cursor-pointer group" data-stewardship="garden">
-                        <div class="text-5xl bg-white p-6 rounded-full shadow-md group-hover:bg-orange-100 transition">🌱</div>
-                        <p class="mt-2 font-semibold">Plant & Garden</p>
-                    </div>
-                </div>
-                <div id="stewardship-display" class="mt-8 p-6 bg-white rounded-lg shadow-inner min-h-[100px] max-w-2xl mx-auto text-center">
-                 </div>
-            </section>
-        </main>
-        
-        <footer class="text-center py-12 mt-12 border-t-2 border-gray-200">
-             <h2 class="text-2xl font-bold text-[#8B4513] mb-4">Start Your Adventure Today</h2>
-             <p class="text-gray-600 max-w-2xl mx-auto mb-6">In our increasingly digital world, fostering a balance between screen time and reconnecting with nature is paramount for children's holistic development. The profound role of wholesome stories, particularly series like Mr. Downey's Adventures, cannot be overstated. These narratives serve as catalysts, sparking imagination in nature and instilling a deep appreciation for the natural world and environmental stewardship. They provide the inspiration and framework that bridge the indoor and outdoor worlds, making nature accessible and exciting even before a child steps outside. By immersing children in tales of exploration, friendship, and conservation, these books lay the groundwork for a lifelong love for the outdoors, encouraging a continuous journey of discovery and connection. Ultimately, this integrated approach to balancing screen time with nature connection is about cultivating a lifestyle of connection—a sustained commitment to integrating the natural world into daily family life. By nurturing a deep bond with nature and instilling a sense of environmental responsibility, parents and educators are equipping children to be more adaptable, empathetic, and responsible citizens.</p>
-             
-             <div class="social-icons-footer-blog mb-4">
+                </section>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-[#8A6F5C] text-white py-10">
+        <div class="container mx-auto px-6 text-center text-sm">
+            <div class="social-icons-footer mb-4">
                 <a href="https://www.facebook.com/AdventureStoriesClub" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                 <a href="https://www.instagram.com/adventurestories.club/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.youtube.com/@adventurestoriesclub" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 <a href="https://x.com/AdvStoryClub" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
             </div>
-
-            <a href="/#adventures" class="inline-block bg-[#8B4513] text-white py-3 px-8 rounded-full text-lg font-bold hover:bg-opacity-80 transition-colors mt-4">Explore Mr. Downey's Books</a>
-            <p class="mt-6 text-sm text-gray-500">Published: June 25, 2025 | Inspired by Adventure Stories Club</p>
-            <p class="mt-2 text-sm text-gray-500">For more tips, resources, and updates on new adventures, sign up for the Adventure Stories Club newsletter!</p>
-            <a href="/blog/index.html#email-capture" class="text-[#556B2F] hover:underline text-sm mt-1 inline-block">Sign Up for Newsletter</a>
-
-            <h3 class="text-lg font-bold text-gray-700 mt-10 mb-4">Works Cited</h3>
-            <ul class="list-none text-sm text-gray-600 space-y-1 max-w-3xl mx-auto text-left">
-                <li>[1] Effects of Excessive Screen Time On Child Development - Kids Klinic.</li>
-                <li>[2] Impact of Screen Time on Child Development - Skill Point Therapy.</li>
-                <li>[3] Why Should Kids Play Outside? Benefits of Outdoor Play for Kids - Miracle Recreation.</li>
-                <li>[4] Homeschooling Nature Activities: Fun Ways to Learn Outdoors - Baketivity.</li>
-                <li>[5] www.unicef.org.</li>
-                <li>[6] getthekidsoutside.com.</li>
-                <li>[7] 50+ Simple Outdoor Sensory Activities for Kids to Enjoy in Nature.</li>
-                <li>[8] 16 Environmental Activities for Students to Encourage Sustainability in Your Classroom.</li>
-                <li>[9] The Benefits of Reading About Nature: Why Kids Love Books About the Outdoors.</li>
-                <li>[10] Picture Books for Children About Nature, Adventure, and Imagination.</li>
-                <li>[11] Discover Mr. Downey: Animated Kids' Series & Book Available Now! - YouTube.</li>
-                <li>[12] Mr. Downey's Forest Song! Brave Hamster Explores | Kids Animated... - YouTube.</li>
-                <li>[13] Mr. Downey, the brave little hamster, Episode 2 coming soon - YouTube.</li>
-                <li>[14] Mr. Downey's Adventures: Wholesome Children's Stories.</li>
-                <li>[15] Mr. Downey's Forest Adventure: Books, Songs & New Adventures! - YouTube.</li>
-                <li>[16] Mr Downey's DEEP SEA DIVE into the Ocean's Hidden Secrets! - YouTube.</li>
-                <li>[17] Celebrate Earth Day with Inspiring Children's Books Written by Scientists.</li>
-                <li>[18] Exploring the World Through Books: Eight Books to Teach Kids About the Earth.</li>
+            <p>© 2024 Adventure Stories Club. All Rights Reserved.</p>
+            <p>Crafted with love for parents seeking a better kind of story.</p>
+            <h3 class="text-lg font-bold text-white mt-10 mb-4">Works Cited</h3>
+             <ul class="list-none text-xs text-gray-300 space-y-1 max-w-3xl mx-auto text-left">
+                <li>[1] Effects of Excessive Screen Time On Child Development - Kids Klinic.</li><li>[2] Impact of Screen Time on Child Development - Skill Point Therapy.</li><li>[3] Why Should Kids Play Outside? Benefits of Outdoor Play for Kids - Miracle Recreation.</li><li>[4] Homeschooling Nature Activities: Fun Ways to Learn Outdoors - Baketivity.</li><li>[5] www.unicef.org.</li><li>[6] getthekidsoutside.com.</li><li>[7] 50+ Simple Outdoor Sensory Activities for Kids to Enjoy in Nature.</li><li>[8] 16 Environmental Activities for Students to Encourage Sustainability in Your Classroom.</li><li>[9] The Benefits of Reading About Nature: Why Kids Love Books About the Outdoors.</li><li>[10] Picture Books for Children About Nature, Adventure, and Imagination.</li><li>[11] Discover Mr. Downey: Animated Kids' Series & Book Available Now! - YouTube.</li><li>[12] Mr. Downey's Forest Song! Brave Hamster Explores | Kids Animated... - YouTube.</li><li>[13] Mr. Downey, the brave little hamster, Episode 2 coming soon - YouTube.</li><li>[14] Mr. Downey's Adventures: Wholesome Children's Stories.</li><li>[15] Mr. Downey's Forest Adventure: Books, Songs & New Adventures! - YouTube.</li><li>[16] Mr Downey's DEEP SEA DIVE into the Ocean's Hidden Secrets! - YouTube.</li><li>[17] Celebrate Earth Day with Inspiring Children's Books Written by Scientists.</li><li>[18] Exploring the World Through Books: Eight Books to Teach Kids About the Earth.</li>
             </ul>
-        </footer>
-
-    </div>
+        </div>
+    </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             
             const impactData = {
-                cognitive: {
-                    title: '🧠 Cognitive & Brain Development',
-                    content: `Research indicates that prolonged exposure to screens can alter the brain's structure and function, potentially impairing attention span, cognitive skills, and emotional processing. Functional MRI studies have even suggested that continuous screen use might lead to modifications in the brain's white matter, affecting speech learning, literacy acquisition, and executive functions such as self-control and decision-making. Children who are constantly engaged with screens may exhibit shorter attention spans and reduced interest in activities unrelated to digital devices.`
-                },
-                emotional: {
-                    title: '❤️ Emotional & Social Well-being',
-                    content: `Over-reliance on devices can displace genuine social interactions, which are essential for developing social skills and emotional regulation. Children may experience increased irritation, mood swings, and emotional ups and downs, particularly when separated from screens. There is also a correlation between high screen time and reduced empathy, as children may have fewer opportunities to recognize and respond to others' emotions in real-world settings.`
-                },
-                physical: {
-                    title: '🏃 Physical Health & Motor Skills',
-                    content: `Excessive screen time contributes to sedentary behaviors, directly impacting motor skills and increasing the risk of obesity. Studies have shown that toddlers spending over three hours daily on screens are more likely to adopt sedentary lifestyles later in childhood, leading to diminished physical activity patterns. The blue light emitted by screens can suppress melatonin production, disrupting circadian rhythms and causing sleep deficits, which in turn lead to reduced sleep quality, daytime tiredness, and decreased concentration. Furthermore, poor posture associated with device use can result in musculoskeletal issues like neck, back, and shoulder problems.`
-                }
+                cognitive: { title: '🧠 Cognitive & Brain Development', content: `Research indicates that prolonged exposure to screens can alter the brain's structure and function, potentially impairing attention span, cognitive skills, and emotional processing. Children who are constantly engaged with screens may exhibit shorter attention spans and reduced interest in activities unrelated to digital devices.` },
+                emotional: { title: '❤️ Emotional & Social Well-being', content: `Over-reliance on devices can displace genuine social interactions, which are essential for developing social skills and emotional regulation. Children may experience increased irritation, mood swings, and emotional ups and downs, particularly when separated from screens.` },
+                physical: { title: '🏃 Physical Health & Motor Skills', content: `Excessive screen time contributes to sedentary behaviors, directly impacting motor skills and increasing the risk of obesity. The blue light emitted by screens can suppress melatonin production, disrupting circadian rhythms and causing sleep deficits, which in turn lead to reduced sleep quality, daytime tiredness, and decreased concentration.` }
             };
 
             const benefitsData = {
-                physical: {
-                    title: '💪 Stronger Bodies & Better Health',
-                    text: 'Outdoor environments provide the expansive space children need to move freely, challenging their muscles, bones, and physical endurance. Children who spend more time outdoors typically develop more advanced motor skills, including agility, balance, and coordination. Consistent outdoor play is associated with a lower Body Mass Index (BMI) and improved general health, including enhanced muscle strength and a boosted immune system. Furthermore, exposure to sunlight during outdoor play significantly boosts Vitamin D levels, which is crucial for bone health and mood regulation. This active engagement directly counteracts sedentary behaviors often linked to excessive screen time.',
-                    chartIndex: 0
-                },
-                cognitive: {
-                    title: '🧠 Sharper Minds & More Creativity',
-                    text: 'Spending time in green spaces has a significant positive impact on children\'s mental and emotional well-being. Research indicates that children who engage more with nature exhibit better focus and enhanced cognitive flexibility. Unstructured outdoor play encourages children to invent new games, explore their surroundings, and foster independence, all of which aid in brain development. This natural setting promotes creativity and problem-solving abilities. The rich sensory play outdoors, involving all five senses—touching tree bark, smelling flowers, listening to bird calls, observing wildlife, and even tasting safe berries—familiarizes younger children with diverse sensory inputs, helping them process information more effectively as they grow. This deep sensory engagement naturally sparks a profound sense of wonder about the world around them.',
-                    chartIndex: 1
-                },
-                emotional: {
-                    title: '😊 Happier Kids & Greater Resilience',
-                    text: 'Research indicates that children who engage more with nature exhibit lower stress levels and enhanced emotional resilience. Outdoor play helps reduce fatigue and contributes to increased overall happiness. Nature also provides ample opportunities for children to build resilience, learn to self-reflect, and experience a wide range of emotions, contributing to their emotional regulation.',
-                    chartIndex: 2
-                },
-                social: {
-                    title: '🤝 Enhanced Social Skills',
-                    text: 'Outdoor play provides a remarkable opportunity for children to develop socially. When children play together in open spaces, they learn vital social skills such as empathy, cooperation, and conflict resolution, which are crucial for success later in life. Children who spend more time outdoors often find it easier to communicate with others and feel more comfortable sharing their feelings with trusted adults. They are also more likely to get along with others and find common ground.',
-                    chartIndex: 3
-                }
+                physical: { title: '💪 Stronger Bodies & Better Health', text: 'Outdoor environments provide the expansive space children need to move freely, challenging their muscles, bones, and physical endurance. Children who spend more time outdoors typically develop more advanced motor skills, including agility, balance, and coordination.', chartIndex: 0 },
+                cognitive: { title: '🧠 Sharper Minds & More Creativity', text: 'Spending time in green spaces has a significant positive impact on children\'s mental and emotional well-being. Unstructured outdoor play encourages children to invent new games, explore their surroundings, and foster independence, all of which aid in brain development.', chartIndex: 1 },
+                emotional: { title: '😊 Happier Kids & Greater Resilience', text: 'Research indicates that children who engage more with nature exhibit lower stress levels and enhanced emotional resilience. Outdoor play helps reduce fatigue and contributes to increased overall happiness.', chartIndex: 2 },
+                social: { title: '🤝 Enhanced Social Skills', text: 'Outdoor play provides a remarkable opportunity for children to develop socially. When children play together in open spaces, they learn vital social skills such as empathy, cooperation, and conflict resolution.', chartIndex: 3 }
             };
             
             const adventuresData = [
-                { title: "Sensory Walks & Bug Hunts", category: "backyard", text: "Invite children to smell flowers, touch different textures of tree bark, or listen to the rustling of leaves and the chirping of birds. Simple bug hunts, gently lifting rocks or fallen branches to look for insects, can spark immense curiosity about local ecosystems." },
-                { title: "Gardening & Cloud Gazing", category: "backyard", text: "Planting seeds, tending to plants, and harvesting a small crop teaches patience, responsibility, and provides hands-on lessons about life cycles, soil health, and the impact of weather. Even quiet activities like cloud gazing, identifying shapes in the sky, or playing 'I spy' using colors, shapes, and textures found in nature can be profoundly engaging." },
-                { title: "Messy Play", category: "backyard", text: "Embrace the dirt and mud! Digging, squishing mud pies, or even building a simple water filtration system with natural materials fosters tactile input, encourages creativity, and develops problem-solving skills." },
-                { title: "Nature Journaling & Scavenger Hunts", category: "park", text: "Encourage children to document their observations through nature journaling, sketching landscapes, or pressing leaves. Create scavenger hunts for specific plants, sounds, or textures, turning a walk into an exciting quest." },
-                { title: "Wildlife Observation & Citizen Science", category: "park", text: "Spend time observing birds, insects, and small animals to cultivate an understanding of biodiversity. Creating bird feeders or participating in citizen science projects, such as the North American Butterfly Census, can deepen ecological awareness and allow children to contribute to real scientific data." },
-                { title: "Active Exploration", category: "park", text: "Encourage gross motor skill development and balance through activities like climbing trees, carrying large sticks, rolling down grassy hills, skipping, swinging, riding bikes, or jumping across creeks. These activities provide proprioceptive input, enhancing body awareness and coordination." },
-                { title: "Auditory Exploration", category: "sensory", text: "Find a quiet 'sit spot' in nature, close eyes, and identify as many different sounds as possible—the wind, birds, insects, rustling leaves. Children can even create musical instruments from natural loose parts like sticks, pinecones, and small rocks." },
-                { title: "Tactile Engagement", category: "sensory", text: "Encourage barefoot walks across various surfaces like grass, dirt, mud, gravel, or woodchips, discussing how each feels. Playing directly in the dirt or mud with bare hands fosters tactile input and sensory processing." },
-                { title: "Olfactory Discoveries", category: "sensory", text: "Explore the smells of nature by finding parts of a tree with the strongest scent (bark, leaves, needles) or testing the 'perfume' of different flowers and herbs." },
-                { title: "Autumn Leaves & Winter Prints", category: "seasonal", text: "Embrace the changing seasons to keep family nature activities fresh and engaging year-round. In autumn, collect colorful leaves for art projects. Winter offers opportunities for building snow forts or tracking animal prints." },
-                { title: "Spring Planting & Summer Water Play", category: "seasonal", text: "Spring is ideal for planting seeds and observing new growth, while summer invites water play, such as water sponge tag, for refreshing sensory experiences. Whether in a bustling city park in London or a quiet trail in the American countryside, opportunities for outdoor exploration abound in every season." }
+                { title: "Sensory Walks & Bug Hunts", category: "backyard", text: "Invite children to smell flowers, touch different textures of tree bark, or listen to the rustling of leaves and the chirping of birds. Simple bug hunts can spark immense curiosity about local ecosystems." },
+                { title: "Gardening & Cloud Gazing", category: "backyard", text: "Planting seeds and tending to a small garden teaches patience, responsibility, and provides hands-on lessons about life cycles. Even quiet activities like cloud gazing can be profoundly engaging." },
+                { title: "Nature Journaling & Scavenger Hunts", category: "park", text: "Encourage children to document their observations through nature journaling, sketching landscapes, or pressing leaves. Create scavenger hunts for specific plants, sounds, or textures." },
+                { title: "Active Exploration", category: "park", text: "Encourage gross motor skill development through activities like climbing trees, carrying large sticks, rolling down grassy hills, skipping, swinging, or riding bikes." },
+                { title: "Auditory Exploration", category: "sensory", text: "Find a quiet 'sit spot' in nature, close eyes, and identify as many different sounds as possible—the wind, birds, insects, rustling leaves." },
+                { title: "Seasonal Crafts", category: "seasonal", text: "Embrace the changing seasons to keep family nature activities fresh and engaging year-round. In autumn, collect colorful leaves for art projects. Winter offers opportunities for building snow forts or tracking animal prints." }
             ];
 
             const stewardshipData = {
-                recycle: {
-                    title: '♻️ Practice Recycling & Reduce Waste',
-                    text: 'Teach children to sort paper, plastic, and glass. Explain how recycling turns old items into new ones, which helps save resources and protect animal habitats. Introduce age-appropriate concepts like carbon footprint calculation and the importance of reducing plastic waste.'
-                },
-                water: {
-                    title: '💧 Conserve Water',
-                    text: 'Encourage simple habits like turning off the tap while brushing teeth. Explain that water is a precious resource for all living things, including plants and animals.'
-                },
-                wildlife: {
-                    title: '🦋 Respect Wildlife',
-                    text: 'Teach kids to observe animals from a distance without disturbing them. Explain that we are visitors in their home and should treat them with kindness and respect.'
-                },
-                garden: {
-                    title: '🌱 Plant & Garden',
-                    text: 'Engaging in gardening, whether a small container garden or a school plot, teaches children about life cycles, soil health, and sustainable agriculture practices. This hands-on experience cultivates a sense of responsibility for living things.'
-                }
+                recycle: { title: '♻️ Practice Recycling & Reduce Waste', text: 'Teach children to sort paper, plastic, and glass. Explain how recycling turns old items into new ones, which helps save resources and protect animal habitats.' },
+                water: { title: '💧 Conserve Water', text: 'Encourage simple habits like turning off the tap while brushing teeth. Explain that water is a precious resource for all living things.' },
+                wildlife: { title: '🦋 Respect Wildlife', text: 'Teach kids to observe animals from a distance without disturbing them. Explain that we are visitors in their home and should treat them with kindness and respect.' },
+                garden: { title: '🌱 Plant & Garden', text: 'Engaging in gardening teaches children about life cycles, soil health, and sustainable agriculture practices. This hands-on experience cultivates a sense of responsibility.' }
             };
 
             const impactDisplay = document.getElementById('impact-display');
             const impactBtns = document.querySelectorAll('.impact-btn');
-
             const benefitsDisplay = document.getElementById('benefits-text-display');
             const benefitBtns = document.querySelectorAll('.benefit-btn');
-            
             const adventureGrid = document.getElementById('adventure-grid');
             const filterBtns = document.querySelectorAll('.filter-btn');
-
             const stewardshipDisplay = document.getElementById('stewardship-display');
             const stewardshipItems = document.querySelectorAll('.stewardship-item');
-
             const navLinks = document.querySelectorAll('.nav-link');
             const sections = document.querySelectorAll('.section');
 
             function populateAdventures(filter = 'all') {
                 adventureGrid.innerHTML = '';
-                const filteredAdventures = filter === 'all'
-                    ? adventuresData
-                    : adventuresData.filter(adv => adv.category === filter);
-
+                const filteredAdventures = filter === 'all' ? adventuresData : adventuresData.filter(adv => adv.category === filter);
                 filteredAdventures.forEach(adv => {
                     const card = document.createElement('div');
                     card.className = 'activity-card bg-white p-6 rounded-lg shadow-md';
-                    card.innerHTML = `<h3 class="font-bold text-lg mb-2 text-[#8B4513]">${adv.title}</h3><p class="text-gray-600">${adv.text}</p>`;
+                    card.innerHTML = `<h3 class="font-bold text-lg mb-2 text-[#8A6F5C]">${adv.title}</h3><p class="text-gray-600">${adv.text}</p>`;
                     adventureGrid.appendChild(card);
                 });
             }
 
             function updateImpactContent(key) {
                 const data = impactData[key];
-                impactDisplay.innerHTML = `<h3 class="text-2xl font-bold mb-4 text-[#8B4513]">${data.title}</h3><p class="text-lg text-gray-700">${data.content}</p>`;
+                impactDisplay.innerHTML = `<h3 class="text-2xl font-bold mb-4 text-[#8A6F5C]">${data.title}</h3><p class="text-lg text-gray-700">${data.content}</p>`;
                 impactBtns.forEach(btn => {
-                    btn.classList.toggle('bg-amber-100', btn.dataset.content === key);
+                    btn.classList.toggle('bg-[#F5EAE1]', btn.dataset.content === key);
                     btn.classList.toggle('bg-white', btn.dataset.content !== key);
                 });
             }
 
             function updateBenefitContent(key, chart) {
                 const data = benefitsData[key];
-                benefitsDisplay.innerHTML = `<h3 class="text-xl font-bold mb-2 text-[#556B2F]">${data.title}</h3><p class="text-gray-700">${data.text}</p>`;
+                benefitsDisplay.innerHTML = `<h3 class="text-xl font-bold mb-2 text-[#8A6F5C]">${data.title}</h3><p class="text-gray-700">${data.text}</p>`;
                 benefitBtns.forEach(btn => {
-                    btn.classList.toggle('bg-green-100', btn.dataset.benefit === key);
+                    btn.classList.toggle('bg-[#F5EAE1]', btn.dataset.benefit === key);
                     btn.classList.toggle('bg-white', btn.dataset.benefit !== key);
                 });
-
-                // Reset all segments to the default dimmed color
-                const defaultColor = 'rgba(85, 107, 47, 0.2)';
-                const highlightColor = 'rgba(143, 188, 143, 0.7)';
+                const defaultColor = 'rgba(138, 111, 92, 0.2)';
+                const highlightColor = 'rgba(199, 120, 85, 0.7)';
                 const newBackgroundColors = Array(chart.data.labels.length).fill(defaultColor);
-
-                // Highlight the selected segment
                 newBackgroundColors[data.chartIndex] = highlightColor;
-                
                 chart.data.datasets[0].backgroundColor = newBackgroundColors;
                 chart.update();
             }
@@ -414,37 +316,28 @@
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     const targetId = link.dataset.target;
-
-                    sections.forEach(section => {
-                        section.classList.toggle('active', section.id === targetId);
-                    });
-
-                    navLinks.forEach(nav => {
-                        nav.classList.toggle('active', nav.dataset.target === targetId);
-                    });
+                    sections.forEach(section => section.classList.toggle('active', section.id === targetId));
+                    navLinks.forEach(nav => nav.classList.toggle('active', nav.dataset.target === targetId));
                 });
             });
 
-            impactBtns.forEach(btn => {
-                btn.addEventListener('click', () => updateImpactContent(btn.dataset.content));
-            });
+            impactBtns.forEach(btn => btn.addEventListener('click', () => updateImpactContent(btn.dataset.content)));
             
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
-                    filterBtns.forEach(b => b.classList.remove('bg-amber-200'));
-                    btn.classList.add('bg-amber-200');
+                    filterBtns.forEach(b => b.classList.remove('bg-[#F5EAE1]', 'text-[#C77855]'));
+                    btn.classList.add('bg-[#F5EAE1]', 'text-[#C77855]');
                     populateAdventures(btn.dataset.filter);
                 });
             });
 
             stewardshipItems.forEach(item => {
                 item.addEventListener('click', () => {
-                    stewardshipItems.forEach(i => i.querySelector('div').classList.remove('ring-2', 'ring-offset-2', 'ring-green-500'));
-                    item.querySelector('div').classList.add('ring-2', 'ring-offset-2', 'ring-green-500');
+                    stewardshipItems.forEach(i => i.querySelector('div').classList.remove('ring-2', 'ring-offset-2', 'ring-[#C77855]'));
+                    item.querySelector('div').classList.add('ring-2', 'ring-offset-2', 'ring-[#C77855]');
                     updateStewardshipContent(item.dataset.stewardship);
-                })
+                });
             });
-
 
             const ctx = document.getElementById('benefitsChart').getContext('2d');
             const benefitsChart = new Chart(ctx, {
@@ -452,71 +345,33 @@
                 data: {
                     labels: ['Physical', 'Cognitive', 'Emotional', 'Social'],
                     datasets: [{
-                        label: 'Benefit Level',
-                        data: [5, 5, 5, 5],
-                        fill: true,
-                        // Initialize with an array of colors for each segment
-                        backgroundColor: Array(4).fill('rgba(85, 107, 47, 0.2)'), 
-                        borderColor: 'rgb(85, 107, 47)',
-                        pointBackgroundColor: 'rgb(85, 107, 47)',
-                        pointBorderColor: '#fff',
-                        pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: 'rgb(85, 107, 47)'
+                        label: 'Benefit Level', data: [5, 5, 5, 5], fill: true,
+                        backgroundColor: Array(4).fill('rgba(138, 111, 92, 0.2)'), 
+                        borderColor: '#8A6F5C', pointBackgroundColor: '#8A6F5C', pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff', pointHoverBorderColor: '#8A6F5C'
                     }]
                 },
                 options: {
-                    maintainAspectRatio: false,
-                    elements: {
-                        line: {
-                            borderWidth: 3
-                        }
-                    },
-                    scales: {
-                        r: {
-                            angleLines: {
-                                color: 'rgba(0, 0, 0, 0.1)'
-                            },
-                            grid: {
-                                color: 'rgba(0, 0, 0, 0.1)'
-                            },
-                            pointLabels: {
-                                font: {
-                                    size: 14,
-                                    family: "'Lato', sans-serif"
-                                },
-                                color: '#4f463c'
-                            },
-                            ticks: {
-                                display: false,
-                                beginAtZero: true,
-                                max: 5,
-                                stepSize: 1
-                            }
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            display: false
-                        },
-                        tooltip: {
-                            enabled: false
-                        }
-                    }
+                    maintainAspectRatio: false, elements: { line: { borderWidth: 3 } },
+                    scales: { r: { 
+                        angleLines: { color: 'rgba(0, 0, 0, 0.1)' }, grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                        pointLabels: { font: { size: 14, family: "'Inter', sans-serif" }, color: '#4A4A4A' },
+                        ticks: { display: false, beginAtZero: true, max: 5, stepSize: 1 }
+                    }},
+                    plugins: { legend: { display: false }, tooltip: { enabled: false } }
                 }
             });
 
-            benefitBtns.forEach(btn => {
-                btn.addEventListener('click', () => updateBenefitContent(btn.dataset.benefit, benefitsChart));
-            });
+            benefitBtns.forEach(btn => btn.addEventListener('click', () => updateBenefitContent(btn.dataset.benefit, benefitsChart)));
 
             function initializePage() {
-                navLinks[0].classList.add('active'); // Set first tab active initially
-                updateImpactContent('cognitive'); // Set initial impact content
-                updateBenefitContent('physical', benefitsChart); // Set initial benefit content and chart highlight
-                populateAdventures('all'); // Populate all adventure ideas
-                filterBtns[0].classList.add('bg-amber-200'); // Highlight 'All' filter button
-                updateStewardshipContent('recycle'); // Set initial stewardship content
-                stewardshipItems[0].querySelector('div').classList.add('ring-2', 'ring-offset-2', 'ring-green-500'); // Highlight first stewardship item
+                navLinks[0].classList.add('active');
+                updateImpactContent('cognitive');
+                updateBenefitContent('physical', benefitsChart);
+                populateAdventures('all');
+                filterBtns[0].classList.add('bg-[#F5EAE1]', 'text-[#C77855]');
+                updateStewardshipContent('recycle');
+                stewardshipItems[0].querySelector('div').classList.add('ring-2', 'ring-offset-2', 'ring-[#C77855]');
             }
 
             initializePage();
