@@ -52,6 +52,7 @@
         }
         .section { display: none; }
         .section.active { display: block; }
+        
         .activity-card, .book-card {
             transition: transform 0.3s, box-shadow 0.3s;
         }
@@ -63,9 +64,11 @@
             position: relative; width: 100%; max-width: 500px; margin-left: auto; margin-right: auto; height: 350px;
         }
         @media (min-width: 768px) { .chart-container { height: 450px; } }
+        
         .social-icons-footer { display: flex; justify-content: center; margin-top: 20px; gap: 20px; }
         .social-icons-footer a { color: white; font-size: 1.8em; transition: transform 0.3s ease, color 0.3s ease; }
         .social-icons-footer a:hover { transform: scale(1.2); color: #F5EAE1; }
+        
         audio {
             width: 100%;
             max-width: 500px;
@@ -96,6 +99,7 @@
     </header>
     <main>
         <section class="py-16 md:py-24 bg-white/90 shadow-lg rounded-lg mx-auto max-w-4xl my-8 px-6">
+            
             <header class="text-center py-12">
                 <h1 class="text-4xl md:text-5xl font-bold mb-4">Unplugging and Reconnecting with Nature</h1>
                 <div class="my-8 text-center">
@@ -127,7 +131,7 @@
                             <button data-content="emotional" class="impact-btn w-full text-left p-4 rounded-lg bg-white shadow-md hover:bg-[#F5EAE1] transition">❤️ Emotional & Social Well-being</button>
                             <button data-content="physical" class="impact-btn w-full text-left p-4 rounded-lg bg-white shadow-md hover:bg-[#F5EAE1] transition">🏃 Physical Health & Motor Skills</button>
                         </div>
-                        <div id="impact-display" class="w-full md:w-2/3 p-6 rounded-lg bg-white shadow-inner min-h-[300px]"></div>
+                        <div id="impact-display" class="w-full md:w-2/3 p-6 rounded-lg bg-[#FDFBF8] shadow-inner min-h-[300px]"></div>
                     </div>
                 </section>
 
@@ -158,11 +162,11 @@
                         <p class="text-base text-gray-600">Connecting with nature doesn’t require grand expeditions. Use the filters below to discover practical and fun activities for your next exploration.</p>
                     </div>
                     <div class="flex justify-center flex-wrap gap-3 mb-8">
-                        <button class="filter-btn px-4 py-2 rounded-full font-semibold" data-filter="all">All</button>
-                        <button class="filter-btn px-4 py-2 rounded-full font-semibold" data-filter="backyard">🏡 Backyard</button>
-                        <button class="filter-btn px-4 py-2 rounded-full font-semibold" data-filter="park">🌳 Local Park</button>
-                        <button class="filter-btn px-4 py-2 rounded-full font-semibold" data-filter="sensory">👃 Sensory</button>
-                        <button class="filter-btn px-4 py-2 rounded-full font-semibold" data-filter="seasonal">🍂 Seasonal</button>
+                        <button class="filter-btn px-4 py-2 rounded-full font-semibold bg-white shadow-md" data-filter="all">All</button>
+                        <button class="filter-btn px-4 py-2 rounded-full font-semibold bg-white shadow-md" data-filter="backyard">🏡 Backyard</button>
+                        <button class="filter-btn px-4 py-2 rounded-full font-semibold bg-white shadow-md" data-filter="park">🌳 Local Park</button>
+                        <button class="filter-btn px-4 py-2 rounded-full font-semibold bg-white shadow-md" data-filter="sensory">👃 Sensory</button>
+                        <button class="filter-btn px-4 py-2 rounded-full font-semibold bg-white shadow-md" data-filter="seasonal">🍂 Seasonal</button>
                     </div>
                     <div id="adventure-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
                 </section>
@@ -202,8 +206,8 @@
                 
                 <section id="audio" class="section">
                      <div class="text-center p-6">
-                         <h2 class="text-3xl font-bold mb-4">Listen to Our Insights</h2>
-                         <p class="text-gray-700 mb-8 max-w-3xl mx-auto">Tune into our discussion about finding calm and character in children's stories, and why nurturing young minds goes beyond digital media.</p>
+                         <h2 class="text-3xl font-bold mb-4">Listen: Beyond the Screen</h2>
+                         <p class="text-gray-700 mb-8 max-w-3xl mx-auto">Tune into our audio broadcast for a deeper dive into the importance of balancing screen time with the wonders of nature, and how wholesome stories can lead the way.</p>
                          <audio controls preload="none" class="mx-auto">
                             <source src="https://github.com/AdventureStoriesClub/adventurestoriesclub.github.io/raw/main/Beyond%20the%20Screen_%20Discovering%20Calm%20and%20Character%20in%20Children's%20Stories.mp3" type="audio/mpeg">
                             Your browser does not support the audio element.
@@ -213,7 +217,7 @@
             </div>
         </section>
     </main>
-    <footer class="bg-[#8A6F5C] text-white py-10">
+<footer class="bg-[#8A6F5C] text-white py-10">
         <div class="container mx-auto px-6 text-center text-sm">
             <div class="social-icons-footer mb-4">
                 <a href="https://www.facebook.com/AdventureStoriesClub" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
