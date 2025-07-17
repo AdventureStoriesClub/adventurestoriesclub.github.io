@@ -164,6 +164,58 @@
             border-radius: 50px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
+
+        /* === Hamster Shop Button Styles (NEW) === */
+        #hamster-shop-btn {
+            position: fixed;
+            bottom: 25px;
+            right: -100px; /* Starts off-screen */
+            width: 90px;
+            height: 90px;
+            z-index: 1000;
+            cursor: pointer;
+            transition: right 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Playful slide-in animation */
+        }
+
+        #hamster-shop-btn.visible {
+            right: 25px; /* Slides into view */
+        }
+
+        #hamster-shop-btn .hamster-img {
+            width: 100%;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+        }
+
+        #hamster-shop-btn:hover .hamster-img {
+            transform: scale(1.1) rotate(-5deg); /* Bouncy hover effect */
+        }
+
+        #hamster-shop-btn .shop-tooltip {
+            position: absolute;
+            top: 50%;
+            right: 100%;
+            transform: translateY(-50%);
+            background-color: #C77855; /* Matches your site's Terracotta Accent */
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px 20px 0 20px; /* Speech bubble shape */
+            white-space: nowrap;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            margin-right: 15px;
+        }
+
+        #hamster-shop-btn:hover .shop-tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(-50%) translateX(-10px); /* Moves out slightly on hover */
+        }
+        /* === End Hamster Shop Button Styles === */
     </style>
 </head>
 <body class="antialiased">
@@ -354,39 +406,39 @@ Our flagship series, Mr. Downey's Adventures, follows a lovable hamster as he ex
             </div>
         </section>
 
-<section id="author-section" class="py-16 md:py-24 bg-[#FBF9F6]/90">
-    <div class="container mx-auto px-6 max-w-3xl text-center">
-        
-        <div class="mb-6">
-            <img 
-                src="https://raw.githubusercontent.com/AdventureStoriesClub/adventurestoriesclub.github.io/main/Adventure%20tory%20club%20logo.webp" 
-                alt="Adventure Stories Club Logo" 
-                class="mx-auto h-24 w-24 rounded-full shadow-lg border-4 border-white"
-            >
-        </div>
+        <section id="author-section" class="py-16 md:py-24 bg-[#FBF9F6]/90">
+            <div class="container mx-auto px-6 max-w-3xl text-center">
+                
+                <div class="mb-6">
+                    <img 
+                        src="https://raw.githubusercontent.com/AdventureStoriesClub/adventurestoriesclub.github.io/main/Adventure%20tory%20club%20logo.webp" 
+                        alt="Adventure Stories Club Logo" 
+                        class="mx-auto h-24 w-24 rounded-full shadow-lg border-4 border-white"
+                    >
+                </div>
 
-        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">
-            Meet the Heart Behind Our Stories
-        </h2>
-        <p class="text-lg text-gray-600 leading-relaxed mb-8">
-            <span class="font-bold text-[#C77855]">Katarzyna Anikiej</span>, creator of 
-            <em class="italic">Mr. Downey’s Adventures</em>, founded Adventure Stories Club with a clear mission: to create better, more meaningful stories for children. Drawing on her background in psychology, she skillfully weaves important life lessons into gentle, captivating narratives. Her passion for nature, animals, and fostering genuine curiosity is the magic that makes every book a treasured experience for families.
-        </p>
-        
-        <div class="flex justify-center"> 
-            <a 
-                href="https://www.amazon.com/stores/Katarzyna-Anikiej/author/B0DJNPD19D" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="inline-block bg-white text-[#C77855] border border-[#C77855] py-3 px-8 rounded-full text-lg font-bold hover:bg-[#C77855] hover:text-white transition-colors shadow-md hover:shadow-lg"
-            >
-                View Author's Page on Amazon
-            </a>
-        </div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">
+                    Meet the Heart Behind Our Stories
+                </h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-8">
+                    <span class="font-bold text-[#C77855]">Katarzyna Anikiej</span>, creator of 
+                    <em class="italic">Mr. Downey’s Adventures</em>, founded Adventure Stories Club with a clear mission: to create better, more meaningful stories for children. Drawing on her background in psychology, she skillfully weaves important life lessons into gentle, captivating narratives. Her passion for nature, animals, and fostering genuine curiosity is the magic that makes every book a treasured experience for families.
+                </p>
+                
+                <div class="flex justify-center"> 
+                    <a 
+                        href="https://www.amazon.com/stores/Katarzyna-Anikiej/author/B0DJNPD19D" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="inline-block bg-white text-[#C77855] border border-[#C77855] py-3 px-8 rounded-full text-lg font-bold hover:bg-[#C77855] hover:text-white transition-colors shadow-md hover:shadow-lg"
+                    >
+                        View Author's Page on Amazon
+                    </a>
+                </div>
 
-    </div>
-</section>
-<section id="broadcast" class="py-16 md:py-24 bg-white/90 shadow-lg rounded-lg mx-auto max-w-6xl my-8 px-6">
+            </div>
+        </section>
+        <section id="broadcast" class="py-16 md:py-24 bg-white/90 shadow-lg rounded-lg mx-auto max-w-6xl my-8 px-6">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">From Our Broadcast</h2>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-8">Listen to our latest discussion on discovering calm and character in children's stories, and why we believe in going beyond the screen.</p>
@@ -610,6 +662,15 @@ Our flagship series, Mr. Downey's Adventures, follows a lovable hamster as he ex
                     }
                 });
             });
+
+            // Hamster button visibility (NEW)
+            const hamsterBtn = document.getElementById('hamster-shop-btn');
+            if (hamsterBtn) {
+                // Show the button after a delay to be non-intrusive
+                setTimeout(() => {
+                    hamsterBtn.classList.add('visible');
+                }, 1500); // 1.5 second delay
+            }
         });
         
         function renderChart() {
@@ -663,5 +724,11 @@ Our flagship series, Mr. Downey's Adventures, follows a lovable hamster as he ex
             });
         }
     </script>
+    
+    <a href="https://adventure-stories-club.creator-spring.com/listing/mr-downey-adventure-merch" target="_blank" rel="noopener noreferrer" id="hamster-shop-btn">
+        <span class="shop-tooltip">Visit Our Shop!</span>
+        <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAwIDEwMCBMMTAwIDYwIEMgOTUgMzAsIDcwIDUsIDQwIDUgTDEwIDQwIEMgNSA3MCwgMzAgOTUsIDYwIDEwMCBaIiBmaWxsPSIjRDJCMDhDIiBzdHJva2U9IiM4QTY1MEMiIHN0cm9rZS13aWR0aD0iMiIvPjxwYXRoIGQ9Ik00NSAyMCBDIDM1IDUsIDIwIDE1LCAzMCAzMCBaIiBmaWxsPSIjRjVERTgzIiBzdHJva2U9IiM4QTY1MEMiIHN0cm9rZS13aWR0aD0iMS41Ii8+PHBhdGggZD0iTTc1IDE1IEMgODUgMCwgMTAwIDEwLCA5MCAyNSBaIiBmaWxsPSIjRjVERTgzIiBzdHJva2U9IiM4QTY1MEMiIHN0cm9rZS13aWR0aD0iMS41Ii8+PGNpcmNsZSBjeD0iNTUiIGN5PSI0NSIgcj0iNSIgZmlsbD0iIzRBNEE0QSIvPjxjaXJjbGUgY3g9IjgwIiBjeT0iNDAiIHI9IjUiIGZpbGw9IiM0QTRBNEEiLz48ZWxsaXBzZSBjeD0iNjgiIGN5PSI1NS41IiByeD0iNCIgcnk9IjMiIGZpbGw9IiNFQTk4QTciLz48L3N2Zz4=" alt="Visit Our Merchandise Shop" class="hamster-img">
+    </a>
+
 </body>
 </html>
