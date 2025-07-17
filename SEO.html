@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Growth Strategy: AdventureStoriesClub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: "Calm Harmony" - A palette using warm neutrals (bg-stone-50, bg-stone-100), a supportive slate for text and UI elements (slate-700, slate-800), and a subtle teal accent (teal-500, teal-600) for interactive elements and highlights. -->
+    <!-- Application Structure Plan: The SPA is structured as an interactive dashboard with tabbed navigation. This design was chosen over a linear report to empower the user to directly access the information they need most. The flow is: 1) Executive Summary for immediate takeaways, 2) A "Posting Strategy" deep-dive to directly address their scheduling question with a visual comparison, 3) An "Audience Timing" section with an interactive chart for data-driven decisions, 4) An "SEO Checklist" as a practical, actionable tool, and 5) "Channel Feedback" for specific advice. This thematic structure makes complex information digestible and user-centric. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Burst vs. Consistent scheduling. -> Goal: Compare. -> Viz: Line chart (Chart.js/Canvas) showing "Hypothetical Audience Burnout vs. Growth". -> Interaction: Hover tooltips. -> Justification: Visually demonstrates the long-term benefit of consistency over short-term saturation.
+        - Report Info: Best time to post for USA audience. -> Goal: Inform. -> Viz: Bar chart (Chart.js/Canvas) of "Peak USA Viewership Times". -> Interaction: Day-of-week filter (buttons) to update chart data. -> Justification: Provides actionable, data-driven timing advice in an interactive format.
+        - Report Info: General SEO best practices. -> Goal: Organize/Action. -> Viz: Interactive HTML/CSS checklist. -> Interaction: Clickable checkboxes that update a progress bar. -> Justification: Turns passive advice into an engaging, practical tool for the user to apply to every video.
+        - Report Info: Channel-specific feedback. -> Goal: Inform/Advise. -> Viz: Styled HTML/Tailwind cards. -> Interaction: None needed, direct advice. -> Justification: Cleanly separates different areas of feedback (thumbnails, titles) for clarity.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .nav-button {
+            transition: all 0.3s ease;
+        }
+        .nav-button.active {
+            background-color: #0d9488; /* teal-600 */
+            color: white;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .checklist-item input:checked + label span:first-child {
+            background-color: #0d9488; /* teal-600 */
+            border-color: #0d9488; /* teal-600 */
+        }
+        .checklist-item input:checked + label span:first-child svg {
+            display: block;
+        }
+        .checklist-item input:checked + label span:last-child {
+            text-decoration: line-through;
+            color: #64748b; /* slate-500 */
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+
+        <header class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-slate-900">YouTube Growth Strategy Report</h1>
+            <p class="text-lg text-slate-600 mt-2">Prepared for: <span class="font-semibold text-teal-700">AdventureStoriesClub</span></p>
+        </header>
+
+        <nav class="flex flex-wrap justify-center gap-2 md:gap-4 mb-8">
+            <button id="nav-summary" class="nav-button active px-4 py-2 rounded-lg font-semibold bg-white text-slate-700 shadow-sm hover:bg-teal-500 hover:text-white">Summary</button>
+            <button id="nav-strategy" class="nav-button px-4 py-2 rounded-lg font-semibold bg-white text-slate-700 shadow-sm hover:bg-teal-500 hover:text-white">Posting Strategy</button>
+            <button id="nav-timing" class="nav-button px-4 py-2 rounded-lg font-semibold bg-white text-slate-700 shadow-sm hover:bg-teal-500 hover:text-white">Audience Timing</button>
+            <button id="nav-checklist" class="nav-button px-4 py-2 rounded-lg font-semibold bg-white text-slate-700 shadow-sm hover:bg-teal-500 hover:text-white">SEO Checklist</button>
+            <button id="nav-feedback" class="nav-button px-4 py-2 rounded-lg font-semibold bg-white text-slate-700 shadow-sm hover:bg-teal-500 hover:text-white">Channel Feedback</button>
+        </nav>
+
+        <main>
+            <section id="content-summary" class="content-section active">
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4">Executive Summary & Key Recommendations</h2>
+                    <p class="text-slate-600 mb-6">
+                        This report analyzes your question about posting frequency and provides a comprehensive strategy for growing your channel, with a focus on the USA audience. The core principle for YouTube success is delivering consistent value to a defined audience. Your current plan to post every 2 hours is not recommended as it can lead to audience burnout and spam-like behavior in the eyes of the algorithm. Instead, a consistent, sustainable schedule is far more effective for long-term growth.
+                    </p>
+                    <div class="grid md:grid-cols-3 gap-4 text-center">
+                        <div class="bg-slate-100 p-6 rounded-lg">
+                            <h3 class="font-bold text-lg text-teal-700 mb-2">1. Prioritize Consistency</h3>
+                            <p class="text-slate-700 text-sm">Shift from a high-frequency "burst" to a regular schedule (e.g., 1 video per day, or 3 per week). This builds anticipation and trains the algorithm to expect your content, leading to better promotion over time.</p>
+                        </div>
+                        <div class="bg-slate-100 p-6 rounded-lg">
+                            <h3 class="font-bold text-lg text-teal-700 mb-2">2. Post During Peak Hours</h3>
+                            <p class="text-slate-700 text-sm">Target USA peak viewership times, generally late afternoons and evenings (4 PM - 9 PM EST on weekdays, and afternoons on weekends). This gives your video an initial boost from an active audience.</p>
+                        </div>
+                        <div class="bg-slate-100 p-6 rounded-lg">
+                            <h3 class="font-bold text-lg text-teal-700 mb-2">3. Optimize Every Video</h3>
+                            <p class="text-slate-700 text-sm">Focus on quality over quantity. Use the SEO checklist in this report to ensure every video has a strong, searchable title, compelling thumbnail, and a keyword-rich description to maximize its discovery potential.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="content-strategy" class="content-section">
+                 <div class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4">Posting Strategy Deep Dive</h2>
+                    <p class="text-slate-600 mb-6">
+                        The YouTube algorithm rewards channels that can consistently attract and retain viewers. Let's compare your proposed "Burst" strategy with the recommended "Consistent" strategy to see why one is more favorable for sustained growth.
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <h3 class="font-semibold text-lg text-red-600 mb-2">Your Plan: Burst Scheduling</h3>
+                            <ul class="list-disc list-inside space-y-2 text-slate-700">
+                                <li><span class="font-semibold">What it is:</span> Publishing many videos in a short time frame (e.g., every 2 hours).</li>
+                                <li><span class="font-semibold text-red-500">Risk:</span> Overwhelms subscribers' feeds, leading to low click-through rates (CTR) per video.</li>
+                                <li><span class="font-semibold text-red-500">Risk:</span> The algorithm may interpret this as spam, reducing your channel's overall reach.</li>
+                                <li><span class="font-semibold text-red-500">Risk:</span> It's unsustainable and likely leads to creator burnout without significant long-term gains.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg text-green-600 mb-2">Recommended: Consistent Scheduling</h3>
+                            <ul class="list-disc list-inside space-y-2 text-slate-700">
+                                <li><span class="font-semibold">What it is:</span> Publishing videos on a predictable schedule (e.g., every Monday, Wednesday, Friday at 5 PM EST).</li>
+                                <li><span class="font-semibold text-green-500">Benefit:</span> Builds viewer habits and anticipation, leading to higher initial viewership.</li>
+                                <li><span class="font-semibold text-green-500">Benefit:</span> Signals reliability to the algorithm, which favors channels that consistently engage an audience.</li>
+                                <li><span class="font-semibold text-green-500">Benefit:</span> Gives each video space to be discovered and promoted by YouTube without competing with your other new uploads.</li>
+                            </ul>
+                        </div>
+                    </div>
+                     <div class="chart-container">
+                        <canvas id="strategyChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <section id="content-timing" class="content-section">
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4">Optimal Posting Times (USA Audience)</h2>
+                    <p class="text-slate-600 mb-6">
+                        Since your focus is the USA, posting when your target audience is most active is crucial for initial momentum. Viewership generally peaks when people are out of work or school. Use this chart to guide your scheduling. All times are in Eastern Standard Time (EST), which covers a large portion of the US population during prime hours.
+                    </p>
+                     <div class="text-center mb-4">
+                        <button id="weekday-btn" class="time-filter-btn bg-teal-600 text-white px-4 py-2 rounded-md">Weekdays</button>
+                        <button id="weekend-btn" class="time-filter-btn bg-white text-slate-700 px-4 py-2 rounded-md">Weekends</button>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="timingChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <section id="content-checklist" class="content-section">
+                 <div class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4">YouTube SEO & Content Checklist</h2>
+                    <p class="text-slate-600 mb-6">
+                       Treat every video upload as a product launch. Following this checklist will significantly improve your videos' chances of being discovered through Youtube and recommendations. Aim for 100% completion for every video you post.
+                    </p>
+                    
+                    <div class="mb-4">
+                        <div class="bg-slate-200 rounded-full h-4">
+                            <div id="progress-bar" class="bg-teal-500 h-4 rounded-full" style="width: 0%; transition: width 0.5s;"></div>
+                        </div>
+                        <p id="progress-text" class="text-center text-sm font-semibold mt-2">0% Complete</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-lg mb-2 text-slate-800">1. Pre-Upload (Research)</h3>
+                            <ul class="space-y-3" id="checklist">
+                                <li class="checklist-item"><input type="checkbox" id="c1" class="hidden"><label for="c1" class="flex items-center cursor-pointer"><span class="w-5 h-5 border-2 border-slate-300 rounded-md mr-3 flex items-center justify-center"><svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></span><span class="text-slate-700">Identify a target keyword/topic (e.g., "scary story," "adventure folklore").</span></label></li>
+                                <li class="checklist-item"><input type="checkbox" id="c2" class="hidden"><label for="c2" class="flex items-center cursor-pointer"><span class="w-5 h-5 border-2 border-slate-300 rounded-md mr-3 flex items-center justify-center"><svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></span><span class="text-slate-700">Design a high-contrast, easy-to-read thumbnail with a human face or strong emotion.</span></label></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-2 text-slate-800">2. During Upload (Optimization)</h3>
+                            <ul class="space-y-3" id="checklist2">
+                                <li class="checklist-item"><input type="checkbox" id="c3" class="hidden"><label for="c3" class="flex items-center cursor-pointer"><span class="w-5 h-5 border-2 border-slate-300 rounded-md mr-3 flex items-center justify-center"><svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></span><span class="text-slate-700">Write a title including your target keyword (ideally at the front).</span></label></li>
+                                <li class="checklist-item"><input type="checkbox" id="c4" class="hidden"><label for="c4" class="flex items-center cursor-pointer"><span class="w-5 h-5 border-2 border-slate-300 rounded-md mr-3 flex items-center justify-center"><svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></span><span class="text-slate-700">Write a detailed description (200+ words) using the main keyword and related terms naturally.</span></label></li>
+                                <li class="checklist-item"><input type="checkbox" id="c5" class="hidden"><label for="c5" class="flex items-center cursor-pointer"><span class="w-5 h-5 border-2 border-slate-300 rounded-md mr-3 flex items-center justify-center"><svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></span><span class="text-slate-700">Add 5-10 relevant tags, including your main keyword, variations, and broader topics.</span></label></li>
+                                 <li class="checklist-item"><input type="checkbox" id="c6" class="hidden"><label for="c6" class="flex items-center cursor-pointer"><span class="w-5 h-5 border-2 border-slate-300 rounded-md mr-3 flex items-center justify-center"><svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></span><span class="text-slate-700">Add video to a relevant playlist on your channel.</span></label></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-2 text-slate-800">3. Post-Upload (Engagement)</h3>
+                            <ul class="space-y-3" id="checklist3">
+                                <li class="checklist-item"><input type="checkbox" id="c7" class="hidden"><label for="c7" class="flex items-center cursor-pointer"><span class="w-5 h-5 border-2 border-slate-300 rounded-md mr-3 flex items-center justify-center"><svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></span><span class="text-slate-700">Add an End Screen promoting another video or a playlist.</span></label></li>
+                                <li class="checklist-item"><input type="checkbox" id="c8" class="hidden"><label for="c8" class="flex items-center cursor-pointer"><span class="w-5 h-5 border-2 border-slate-300 rounded-md mr-3 flex items-center justify-center"><svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></span><span class="text-slate-700">Pin a comment to spark conversation (e.g., ask a question related to the story).</span></label></li>
+                                <li class="checklist-item"><input type="checkbox" id="c9" class="hidden"><label for="c9" class="flex items-center cursor-pointer"><span class="w-5 h-5 border-2 border-slate-300 rounded-md mr-3 flex items-center justify-center"><svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></span><span class="text-slate-700">Reply to comments within the first few hours to boost engagement signals.</span></label></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="content-feedback" class="content-section">
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4">Channel-Specific Feedback: AdventureStoriesClub</h2>
+                    <p class="text-slate-600 mb-6">
+                        Here are some observations and recommendations based on a review of your channel's current state. Your content niche is strong and has potential. These refinements can help you attract a larger audience.
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-slate-50 border border-slate-200 p-6 rounded-lg">
+                            <h3 class="font-bold text-lg text-slate-800 mb-2">Thumbnails</h3>
+                            <p class="text-slate-600 mb-3">Your thumbnails are atmospheric but often dark and lack a clear focal point. For better click-through rates, they need to be more "glanceable."</p>
+                            <ul class="list-disc list-inside space-y-2 text-slate-700">
+                                <li><strong>Suggestion:</strong> Increase brightness and contrast.</li>
+                                <li><strong>Suggestion:</strong> Add a small amount of text (2-3 words) to create curiosity (e.g., "Don't Go Inside").</li>
+                                <li><strong>Suggestion:</strong> Consistently use a single, readable font for branding.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200 p-6 rounded-lg">
+                            <h3 class="font-bold text-lg text-slate-800 mb-2">Titles</h3>
+                            <p class="text-slate-600 mb-3">Your titles are often generic (e.g., "Horror Story"). To improve searchability, they need to be more specific and intriguing.</p>
+                             <ul class="list-disc list-inside space-y-2 text-slate-700">
+                                <li><strong>Suggestion:</strong> Use powerful, emotional hooks. Instead of "A Spooky Story," try "I'm a Park Ranger, I Know Why You Shouldn't Go Off The Trail."</li>
+                                <li><strong>Suggestion:</strong> Include keywords people are searching for, like "Creepypasta," "Scary Story," or "Nosleep."</li>
+                             </ul>
+                        </div>
+                         <div class="bg-slate-50 border border-slate-200 p-6 rounded-lg md:col-span-2">
+                            <h3 class="font-bold text-lg text-slate-800 mb-2">Content & Niche</h3>
+                            <p class="text-slate-600 mb-3">The AI-narrated story niche is popular. Your strength lies in the "adventure" angle. Leaning into this can help you stand out from the more generic horror channels.</p>
+                             <ul class="list-disc list-inside space-y-2 text-slate-700">
+                                <li><strong>Suggestion:</strong> Create playlists based on themes: "Forest Adventures," "Ocean Mysteries," "Mountain Legends." This encourages binge-watching.</li>
+                                <li><strong>Suggestion:</strong> Develop a consistent character or world for some stories to build a dedicated fanbase.</li>
+                                <li><strong>Suggestion:</strong> Always include a verbal call-to-action in your videos: "If you enjoyed this adventure, please subscribe and let us know what kind of story to tell next."</li>
+                             </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navButtons = document.querySelectorAll('.nav-button');
+            const contentSections = document.querySelectorAll('.content-section');
+            const timeFilterButtons = document.querySelectorAll('.time-filter-btn');
+
+            function showTab(tabId) {
+                contentSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                navButtons.forEach(button => {
+                    button.classList.remove('active');
+                });
+
+                document.getElementById(`content-${tabId}`).classList.add('active');
+                document.getElementById(`nav-${tabId}`).classList.add('active');
+            }
+            
+            navButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.id.replace('nav-', '');
+                    showTab(tabId);
+                });
+            });
+
+            const weekdayData = {
+                labels: ['6-9a', '9a-12p', '12p-4p', '4p-7p', '7p-10p', '10p-12a'],
+                data: [30, 45, 60, 95, 100, 75],
+                title: 'Peak Weekday Viewership (EST)'
+            };
+            const weekendData = {
+                labels: ['6-9a', '9a-12p', '12p-4p', '4p-7p', '7p-10p', '10p-12a'],
+                data: [40, 70, 100, 90, 85, 60],
+                title: 'Peak Weekend Viewership (EST)'
+            };
+            
+            let timingChartInstance;
+            
+            function createTimingChart(data) {
+                const ctx = document.getElementById('timingChart')?.getContext('2d');
+                if (!ctx) return;
+
+                if(timingChartInstance) {
+                    timingChartInstance.destroy();
+                }
+
+                timingChartInstance = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: data.labels,
+                        datasets: [{
+                            label: 'Relative Viewership',
+                            data: data.data,
+                            backgroundColor: '#14b8a6',
+                            borderColor: '#0d9488',
+                            borderWidth: 1,
+                            borderRadius: 5,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            title: {
+                                display: true,
+                                text: data.title,
+                                font: { size: 16, weight: 'bold' },
+                                color: '#1e293b'
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    title: function(context) {
+                                        return `Time: ${context[0].label}`;
+                                    },
+                                    label: function(context) {
+                                        let value = context.raw;
+                                        let recommendation = '';
+                                        if (value > 90) recommendation = 'Excellent Time';
+                                        else if (value > 70) recommendation = 'Good Time';
+                                        else if (value > 50) recommendation = 'Decent Time';
+                                        else recommendation = 'Off-Peak Time';
+                                        return `Activity: ${recommendation}`;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: { display: true, text: 'Relative Audience Activity' },
+                                grid: { color: '#e2e8f0' }
+                            },
+                            x: {
+                                grid: { display: false }
+                            }
+                        }
+                    }
+                });
+            }
+            
+            timeFilterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    timeFilterButtons.forEach(btn => {
+                        btn.classList.remove('bg-teal-600', 'text-white');
+                        btn.classList.add('bg-white', 'text-slate-700');
+                    });
+                    button.classList.add('bg-teal-600', 'text-white');
+                    button.classList.remove('bg-white', 'text-slate-700');
+                    
+                    if (button.id === 'weekday-btn') {
+                        createTimingChart(weekdayData);
+                    } else {
+                        createTimingChart(weekendData);
+                    }
+                });
+            });
+
+            function createStrategyChart() {
+                const ctx = document.getElementById('strategyChart')?.getContext('2d');
+                if (!ctx) return;
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
+                        datasets: [{
+                            label: 'Consistent Growth',
+                            data: [10, 25, 45, 70, 100, 135],
+                            borderColor: '#10b981',
+                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                            fill: true,
+                            tension: 0.4
+                        }, {
+                            label: 'Burst & Burnout',
+                            data: [50, 30, 20, 15, 12, 10],
+                            borderColor: '#ef4444',
+                            backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                            fill: true,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Hypothetical Follower Growth: Consistency vs. Burst',
+                                font: { size: 16, weight: 'bold' },
+                                color: '#1e293b'
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: { display: true, text: 'Subscriber Growth' }
+                            }
+                        }
+                    }
+                });
+            }
+
+            function updateProgressBar() {
+                const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
+                const checked = document.querySelectorAll('.checklist-item input[type="checkbox"]:checked');
+                const progress = (checked.length / checkboxes.length) * 100;
+                
+                const progressBar = document.getElementById('progress-bar');
+                const progressText = document.getElementById('progress-text');
+
+                if(progressBar && progressText) {
+                    progressBar.style.width = `${progress}%`;
+                    progressText.textContent = `${Math.round(progress)}% Complete`;
+                }
+            }
+            
+            const allCheckboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
+            allCheckboxes.forEach(cb => {
+                cb.addEventListener('change', updateProgressBar);
+            });
+            
+            createStrategyChart();
+            createTimingChart(weekdayData);
+            updateProgressBar();
+            
+            showTab('summary');
+        });
+    </script>
+
+</body>
+</html>
